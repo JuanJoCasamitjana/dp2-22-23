@@ -22,7 +22,9 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.juacasben.favourite-link" action="https://play.pokemonshowdown.com/"/>
 			<acme:menu-suboption code="master.menu.davgavser.favourite-link" action="https://primevideo.com/"/>
+			<acme:menu-suboption code="master.menu.aleortpag.favourite-link" action="https://www.naeu.playblackdesert.com/es-ES/News/Notice/"/>
 			<acme:menu-suboption code="master.menu.marbarmar16.favourite-link" action="https://www.hbomax.com/"/>
+			<acme:menu-suboption code="master.menu.davgonher1.favourite-link" action="https://mangaplus.shueisha.co.jp/updates/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
