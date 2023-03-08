@@ -1,6 +1,7 @@
 
 package entities.lecture;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
@@ -11,6 +12,7 @@ import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 public class Lecture extends AbstractEntity {
