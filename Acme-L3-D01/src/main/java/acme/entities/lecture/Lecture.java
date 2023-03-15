@@ -1,5 +1,5 @@
 
-package entities.lecture;
+package acme.entities.lecture;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -9,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
-import entities.course.Course;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,23 +22,23 @@ public class Lecture extends AbstractEntity {
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 	@NotBlank
 	@Length(max = 76)
-	private String				title;
+	protected String			title;
 	@NotBlank
 	@Length(max = 101)
-	private String				abstractMessage;
+	protected String			abstractMessage;
 	@Min(0)
-	private double				learningTime;
+	protected double			learningTime;
 	@NotBlank
 	@Length(max = 101)
-	private String				body;
+	protected String			body;
 
-	private boolean				isTheoretical;
+	protected boolean			isTheoretical;
 	@URL
-	private String				optionalUrl;
+	protected String			optionalUrl;
 	@ManyToOne
-	private Course				course;
+	protected Course			course;
 
 }
