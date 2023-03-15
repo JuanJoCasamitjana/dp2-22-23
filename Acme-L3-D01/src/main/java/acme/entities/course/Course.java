@@ -1,5 +1,5 @@
 
-package entities.course;
+package acme.entities.course;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,24 +25,25 @@ public class Course extends AbstractEntity {
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3} [0-9]{3}")
-	private String				code;
+	protected String			code;
 	@NotBlank
 	@Length(max = 76)
-	private String				title;
+	protected String			title;
 	@NotBlank
 	@Length(max = 101)
-	private String				abstractMessage;
+	protected String			abstractMessage;
 	@NotNull
-	private Type				typeOfCourse;
+	protected Type				typeOfCourse;
 	@NotNull
-	private Money				retailPrice;
+	protected Money				retailPrice;
 	@URL
-	private String				optionalUrl;
+	protected String			optionalUrl;
 	@ManyToOne
-	private Lecturer			lecturer;
+	protected Lecturer			lecturer;
+	protected boolean			inDraft;
 
 }

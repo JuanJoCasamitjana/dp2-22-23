@@ -1,18 +1,17 @@
 
-package entities.offer;
+package acme.entities.offer;
 
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Future;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
@@ -27,28 +26,25 @@ public class Offer extends AbstractEntity {
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	protected static final long	serialVersionUID	= 1L;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@PastOrPresent
-	private Date				instantiationMomment;
+	protected Date				instantiationMomment;
 	@NotBlank
 	@Length(max = 76)
-	private String				heading;
+	protected String			heading;
 	@NotBlank
 	@Length(max = 101)
-	private String				summary;
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	protected String			summary;
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Future
-	private Date				periodStart;
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	protected Date				periodStart;
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Future
-	private Date				periodEnd;
+	protected Date				periodEnd;
 	@NotNull
-	private Money				price;
+	protected Money				price;
 
 
 	//Moverlo al servicio en save si es posible
