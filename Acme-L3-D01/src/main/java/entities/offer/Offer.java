@@ -6,8 +6,10 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,6 +31,7 @@ public class Offer extends AbstractEntity {
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	@NotNull
+	@PastOrPresent
 	private Date				instantiationMomment;
 	@NotBlank
 	@Length(max = 76)
@@ -38,9 +41,11 @@ public class Offer extends AbstractEntity {
 	private String				summary;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	@NotNull
+	@Future
 	private Date				periodStart;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	@NotNull
+	@Future
 	private Date				periodEnd;
 	@NotNull
 	private Money				price;
