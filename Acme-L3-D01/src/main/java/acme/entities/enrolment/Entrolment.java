@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import acme.entities.course.Course;
 import acme.entities.workbook.Workbook;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
@@ -21,6 +22,9 @@ public class Entrolment extends AbstractEntity {
 
 	@OneToOne
 	Student						student;
+
+	@OneToOne
+	Course						course;
 
 	@NotBlank
 	@Size(max = 76)
