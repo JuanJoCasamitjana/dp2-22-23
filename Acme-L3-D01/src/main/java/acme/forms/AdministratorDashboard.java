@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,9 +16,7 @@ public class AdministratorDashboard extends AbstractForm {
 	 * 
 	 */
 	private static final long	serialVersionUID	= 1L;
-	protected Integer			totalNumbersOfPrincipalsRol1;
-	protected Integer			totalNumbersOfPrincipalsRol2;
-	//...  REVISAR
+	protected Map<String,Integer> 		totalNumbersOfPrincipalsForEachRol;
 	protected Double			ratioOfPeepsWithEmail;
 	protected Double			ratioOfPeepsWithLink;
 	protected Double			ratioOfCriticalBulletins;
