@@ -40,7 +40,5 @@ public class Entrolment extends AbstractEntity {
 	@Size(max = 76)
 	protected String			goals;
 
-	@ManyToOne
-	Workbook					workbook;
 
 }
