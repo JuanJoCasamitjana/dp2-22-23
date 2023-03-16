@@ -20,7 +20,7 @@ public class Company extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				name;
 
 	@NotBlank
@@ -28,7 +28,7 @@ public class Company extends AbstractRole {
 	private Integer				vatNumber;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				summary;
 
 	@URL

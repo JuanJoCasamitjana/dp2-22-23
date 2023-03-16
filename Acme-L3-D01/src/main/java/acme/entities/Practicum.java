@@ -4,13 +4,20 @@ package acme.entities;
 import java.time.LocalTime;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +30,7 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@UniqueElements
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3} [0-9]{3}")
 	private String				code;
 
 	@NotBlank
@@ -32,11 +39,18 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 101)
-	private String				abstractt;
+	private String				abstractMessage;
 
 	@NotBlank
 	@Length(max = 101)
 	private String				goals;
 
+	@NotNull
+	@Temporal(TemporalType.TIME)
 	private LocalTime			estimatedTotalTime;
+
+	@Valid
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "company_id")
+	private Company				company;
 }

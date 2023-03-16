@@ -1,27 +1,44 @@
 
 package acme.entities;
 
-import java.time.LocalDate;
+import java.time.Period;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class PracticumSession extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
-	private String				abstrac;
+	@Length(max = 100)
+	private String				abstractMessage;
 
-	private LocalDate			period;
+	//@Temporal(TemporalType.TIMESTAMP)
+	private Period				period;
 
-	private String				link;
+	@URL
+	private String				optionalLink;
+
+	@Valid
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "practicum_id")
+	private Practicum			practicum;
 }
