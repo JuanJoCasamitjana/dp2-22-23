@@ -1,7 +1,9 @@
 
 package acme.roles;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -14,21 +16,22 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Company extends AbstractRole {
 
-	/**
-	 * 
-	 */
-	protected static final long	serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
+
 	@NotBlank
 	@Length(max = 75)
-	protected String			almaMater;
+	protected String			name;
+
+	@Max(26)
+	@Column(nullable = false)
+	protected Integer			vatNumber;
+
 	@NotBlank
 	@Length(max = 100)
-	protected String			resume;
-	@NotBlank
-	@Length(max = 100)
-	protected String			listOfQualifications;
+	protected String			summary;
+
 	@URL
 	protected String			optionalLink;
 

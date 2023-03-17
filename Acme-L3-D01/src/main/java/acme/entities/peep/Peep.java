@@ -1,16 +1,17 @@
 
-package acme.entities.bulletin;
+package acme.entities.peep;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
@@ -20,24 +21,32 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
 
-	/**
-	 * 
-	 */
-	protected static final long	serialVersionUID	= 1L;
+public class Peep extends AbstractEntity {
 
-	@Temporal(TemporalType.TIMESTAMP)
+	private static final long	serialVersionUID	= 1L;
+
 	@NotNull
 	@PastOrPresent
-	protected Date				instantiationMomment;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				instantiation;
+
 	@NotBlank
-	@Length(max = 75)
+	@Size(max = 75)
 	protected String			title;
+
 	@NotBlank
-	@Length(max = 100)
+	@Size(max = 75)
+	protected String			nick;
+
+	@NotBlank
+	@Size(max = 100)
 	protected String			message;
+
+	@Email
+	protected String			mail;
+
 	@URL
-	protected String			optionalLink;
-	protected boolean			isCritical			= false;
+	protected String			link;
+
 }

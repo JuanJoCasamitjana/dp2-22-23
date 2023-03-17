@@ -1,3 +1,10 @@
 key,instantiationMomment,heading,summary,periodStart,periodEnd,price
-offer-01,2022/07/19 00:00,"Something","Something",2022/08/20 00:00,2022/08/27 00:00,EUR 100.00
-offer-02,2022/07/19 00:00,"Something","Something",2022/08/21 00:00,2022/08/28 00:00,EUR 100.00
+offer-01,2022/07/19 00:00,Something,Something,2024/08/20 00:00,2024/08/27 00:00,EUR 100.00
+offer-02,2022/07/19 00:00,Something new but not so much,Something mostly that,2024/08/21 00:00,2024/08/28 00:00,EUR 100.00
+offer-03,2022/07/19 01:00,New Product Launch,Discover our latest product,2024/08/22 09:00,2024/08/29 09:00,EUR 75.99
+offer-04,2022/07/20 10:30,Summer Sale,Get ready for summer with our deals,2024/08/23 00:00,2024/08/30 00:00,EUR 50.00
+offer-05,2022/07/22 12:00,Back to School,Prepare for the new school year with us,2024/08/24 12:00,2024/08/31 12:00,EUR 25.99
+offer-06,2022/07/25 09:45,Weekend Getaway,Escape to the beach this weekend,2024/08/27 15:00,2024/08/30 15:00,EUR 150.00
+offer-07,2022/07/28 16:30,Happy Hour,Join us for happy hour specials,2024/08/25 17:00,2024/08/25 19:00,EUR 5.00
+offer-08,2022/06/30 11:00,Summer Clearance,"Believe in yourself and all that you are. Know that there is something inside you that is greater th",2024/08/26 00:00,2024/08/31 00:00,EUR 20.00
+offer-09,2022/06/01 18:00,"Life is a journey, and if you fall in love with the journey, you will be in",Get ready for fall with our sale,2024/08/29 00:00,2024/09/05 00:00,EUR 75.00

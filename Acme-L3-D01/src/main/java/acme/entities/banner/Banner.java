@@ -1,5 +1,5 @@
 
-package acme.entities.offer;
+package acme.entities.banner;
 
 import java.util.Date;
 
@@ -9,10 +9,10 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,30 +20,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
 
-	/**
-	 * 
-	 */
-	protected static final long	serialVersionUID		= 1L;
+public class Banner extends AbstractEntity {
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
+	private static final long	serialVersionUID	= 1L;
+
 	@PastOrPresent
-	protected Date				instantiationMomment	= new Date();
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				instantiationOrUpdate;
+
 	@NotBlank
-	@Length(max = 75)
-	protected String			heading;
-	@NotBlank
-	@Length(max = 100)
-	protected String			summary;
+	@Size(max = 75)
+	protected String			slogan;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				periodStart;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				periodEnd;
-	@NotNull
-	protected Money				price;
+
+	@URL
+	protected String			pictureLink;
+
+	@URL
+	protected String			webDocLink;
 
 }
