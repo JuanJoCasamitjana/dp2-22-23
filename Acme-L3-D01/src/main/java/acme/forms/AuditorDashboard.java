@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 public class AuditorDashboard extends AbstractForm {
 
-	//REVISAR
 	/**
 	 * 
 	 */

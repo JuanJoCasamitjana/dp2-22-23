@@ -1,2 +1,11 @@
-﻿key,code,conclusion,strongPoints,weakPoints,key:auditor
-audit-01,ABC011,The audit concluded.,All.,None.,auditor-01
+key,code,conclusion,strongPoints,weakPoints,key:auditor,key:course
+audit-01,ABC123,The audit concluded.,All.,None.,auditor-01,course-01
+audit-02,ABC124,The audit concluded.,All.,None.,auditor-01,course-01
+audit-03,ABC125,The audit concluded.,All.,None.,auditor-01,course-01
+audit-04,ABC126,The audit concluded.,All.,None.,auditor-01,course-01
+audit-05,ABC127,The audit concluded.,All.,None.,auditor-01,course-01
+audit-06,ABC128,The audit concluded.,All.,None.,auditor-01,course-02
+audit-07,ABC129,The audit concluded.,All.,None.,auditor-01,course-02
+audit-08,ABC130,The audit concluded.,All.,None.,auditor-01,course-02
+audit-09,ABC131,The audit concluded.,All.,None.,auditor-01,course-02
+audit-10,ABC132,The audit concluded.,All.,None.,auditor-02,course-02

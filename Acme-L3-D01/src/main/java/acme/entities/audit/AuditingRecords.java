@@ -7,9 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -33,19 +34,21 @@ public class AuditingRecords extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			assessment;
-	@Temporal(TemporalType.TIMESTAMP) //REVISAR ESTO
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Past
+	@PastOrPresent
 	protected Date				startDate;
-	@Temporal(TemporalType.TIMESTAMP) //REVISAR ESTO
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Past
+	@PastOrPresent
 	protected Date				endDate;
 	@NotNull
 	protected Mark				mark;
 	@URL
-	protected String			optionalUrl;
+	protected String			optionalLink;
 
 	@ManyToOne(optional = false)
-	protected Audit				audit; //REVISAR
+	@Valid
+	@NotNull
+	protected Audit				audit;
 }
