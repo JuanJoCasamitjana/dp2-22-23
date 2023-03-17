@@ -21,13 +21,13 @@ public class Lecturer extends AbstractRole {
 	 */
 	protected static final long	serialVersionUID	= 1L;
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			almaMater;
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			resume;
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			listOfQualifications;
 	@URL
 	protected String			optionalLink;
