@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -30,7 +29,7 @@ public class Enrolment extends AbstractEntity {
 	protected Course			course;
 
 	@NotBlank
-	@Pattern(regexp = "“[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	@Column(unique = true)
 	protected String			code;
 
@@ -42,7 +41,6 @@ public class Enrolment extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	@NotNull
-	protected Integer			workTime;
+	protected double			workTime;
 
 }

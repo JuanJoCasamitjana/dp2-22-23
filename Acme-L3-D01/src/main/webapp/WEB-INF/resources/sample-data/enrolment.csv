@@ -1,4 +1,4 @@
 key,key:student,key:course,code,motivation,goals,workTime
-enrolment-01,student-01,course-01,ABC5021,"I want to improve my math skills","To prepare for my college entrance exams",10
-enrolment-02,student-02,course-02,AC5022,"I need to improve my English for my job","To be able to communicate better with my coworkers",15
-enrolment-03,student-03,course-03,AB5020,"I'm interested in learning about the history of my country","To be able to participate in discussions about politics",8
+enrolment-01,student-01,course-01,ABC5120,I want to improve my math skills,To prepare for my college entrance exams,10
+enrolment-02,student-02,course-02,ABC5121,I need to improve my English for my job,To be able to communicate better with my coworkers,15
+enrolment-03,student-03,course-03,ABC5122,I'm interested in learning about the history of my country,To be able to participate in discussions about politics,8

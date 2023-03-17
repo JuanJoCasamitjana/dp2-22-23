@@ -1,8 +1,6 @@
 
 package acme.entities.banner;
 
-import java.time.Period;
-import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -48,10 +46,5 @@ public class Banner extends AbstractEntity {
 
 	@URL
 	protected String			webDocLink;
-
-
-	public Period getPeriod() {
-		return Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-	}
 
 }

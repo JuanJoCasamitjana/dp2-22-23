@@ -20,7 +20,7 @@ public class Student extends AbstractRole {
 
 	@NotBlank
 	@Size(max = 75)
-	protected String			stament;
+	protected String			statement;
 
 	@NotBlank
 	@Size(max = 100)

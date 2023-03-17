@@ -1,8 +1,6 @@
 
 package acme.entities.activity;
 
-import java.time.Period;
-import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -43,19 +41,16 @@ public class Activity extends AbstractEntity {
 	}
 
 
+	@NotNull
+	protected Type		type;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date	periodStart;
+	protected Date		periodStart;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date	periodEnd;
-
-
-	public Period getPeriod() {
-		return Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-	}
-
+	protected Date		periodEnd;
 
 	@ManyToOne
 	@Valid
