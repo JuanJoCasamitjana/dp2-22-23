@@ -39,9 +39,5 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 	protected Double			estimatedTime;
-	@ManyToOne(optional = false)
-	@NotNull
-	@Valid
-	protected Session			session;
 
 }

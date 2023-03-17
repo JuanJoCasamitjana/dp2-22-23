@@ -1,11 +1,17 @@
 
 package acme.entities.session;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -31,9 +37,17 @@ public class Session extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstractMessage;
 	protected boolean			isTheoretical;
-	@Min(1)
-	@Max(5)
-	protected double			periodTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date				periodStart;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date				periodEnd;
 	@URL
 	protected String			optionalUrl;
+	
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Tutorial			tutorial;
 }

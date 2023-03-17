@@ -1,0 +1,3 @@
+key,title,abstractMessage,isTheoretical,body,periodStart,periodEnd,optionalUrl,key:tutorial
+session-01,"New session",True,"This is a Theoretical session",2023/08/20 09:00,2023/08/20 11:00,https://www.example.com/,tutorial-01
+session-02,"New session",True,"This is a Theoretical session too",2023/09/20 09:00,2023/09/20 11:00,https://www.example.com/,tutorial-02
