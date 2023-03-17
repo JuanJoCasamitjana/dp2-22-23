@@ -1,20 +1,16 @@
 
-package acme.entities;
+package acme.entities.practicum;
 
-import java.time.LocalTime;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
@@ -29,28 +25,28 @@ public class Practicum extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@UniqueElements
+	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3} [0-9]{3}")
-	private String				code;
+	protected String			code;
 
 	@NotBlank
-	@Length(max = 76)
-	private String				title;
+	@Length(max = 75)
+	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
-	private String				abstractMessage;
+	@Length(max = 100)
+	protected String			abstractMessage;
 
 	@NotBlank
-	@Length(max = 101)
-	private String				goals;
+	@Length(max = 100)
+	protected String			goals;
 
 	@NotNull
-	@Temporal(TemporalType.TIME)
-	private LocalTime			estimatedTotalTime;
+	@Column(nullable = false)
+	protected Double			estimatedTotalTime;
 
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "company_id")
-	private Company				company;
+	protected Company			company;
 }

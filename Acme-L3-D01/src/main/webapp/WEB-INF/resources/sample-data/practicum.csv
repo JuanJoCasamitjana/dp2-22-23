@@ -1,2 +1,11 @@
-key,code,title,abstract-message,goals,estimated-total_time,key:company
-practicum-01,"Something","Something","Something",00:03:00,company-01
+key,code,title,abstractMessage,goals,estimatedTotalTime,key:company
+practicum-01,"AAA 001","Primer practicum","Esto es un mensaje 1","Goal 1",3.00,company-01
+practicum-02,"AAA 002","Segundo practicum","Esto es un mensaje 2","Goal 2",1.50,company-01
+practicum-03,"AAA 003","Tercer practicum","Esto es un mensaje 3","Goal 3",2.25,company-01
+practicum-04,"AAA 004","Cuarto practicum","Esto es un mensaje 4","Goal 4",3.30,company-01
+practicum-05,"AAA 005","Quinto practicum","Esto es un mensaje 5","Goal 5",2.15,company-01
+practicum-06,"AAA 006","Practicum 1","Esto es un mensaje 6","Goal 6",0.55,company-02
+practicum-07,"AAA 007","Practicum 2","Esto es un mensaje 7","Goal 7",4.60,company-02
+practicum-08,"AAA 008","Practicum 3","Esto es un mensaje 8","Goal 8",4.00,company-02
+practicum-09,"AAA 009","Practicum 4","Esto es un mensaje 9","Goal 9",2.25,company-02
+practicum-10,"AAA 010","Practicum 5","Esto es un mensaje 10","Goal 10",3.15,company-02

@@ -1,13 +1,16 @@
 
-package acme.entities;
+package acme.entities.practicum;
 
-import java.time.Period;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -25,20 +28,25 @@ public class PracticumSession extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	private String				title;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				abstractMessage;
+	protected String			abstractMessage;
 
-	//@Temporal(TemporalType.TIMESTAMP)
-	private Period				period;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				periodStart;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				periodEnd;
 
 	@URL
-	private String				optionalLink;
+	protected String			optionalLink;
 
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "practicum_id")
-	private Practicum			practicum;
+	protected Practicum			practicum;
 }
