@@ -1,18 +1,16 @@
 
-package acme.entities.practicum;
+package acme.entities.banner;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
@@ -22,31 +20,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PracticumSession extends AbstractEntity {
+
+public class Banner extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@NotBlank
-	@Length(max = 75)
-	protected String			title;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			abstractMessage;
-
-	@NotNull
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				instantiationOrUpdate;
+
+	@NotBlank
+	@Size(max = 75)
+	protected String			slogan;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				periodStart;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				periodEnd;
 
 	@URL
-	protected String			optionalLink;
+	protected String			pictureLink;
 
-	@Valid
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "practicum_id")
-	protected Practicum			practicum;
+	@URL
+	protected String			webDocLink;
+
 }
