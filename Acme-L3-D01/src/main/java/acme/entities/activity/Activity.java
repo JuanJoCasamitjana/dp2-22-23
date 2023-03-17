@@ -1,19 +1,22 @@
 
-package acme.entities.workbook;
+package acme.entities.activity;
 
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.enrolment.Enrolment;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,16 +25,16 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Workbook extends AbstractEntity {
+public class Activity extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Size(max = 76)
+	@Size(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Size(max = 101)
+	@Size(max = 100)
 	protected String			text;
 
 
@@ -49,18 +52,16 @@ public class Workbook extends AbstractEntity {
 	protected Date	periodEnd;
 
 
-	public Period availabilityPeriod() throws Exception {
-
-		if (this.periodStart.before(this.periodEnd)) {
-			final Period availability = Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-			return availability;
-		} else
-			throw new Exception("the start date must be before the end date");
-
+	public Period getPeriod() {
+		return Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 	}
 
 
+	@ManyToOne
+	@Valid
+	Enrolment			enrolment;
+
 	@URL
-	protected String link;
+	protected String	link;
 
 }

@@ -10,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
@@ -27,11 +27,12 @@ public class Banner extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Past
+	@PastOrPresent
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiationOrUpdate;
 
 	@NotBlank
-	@Size(max = 76)
+	@Size(max = 75)
 	protected String			slogan;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -49,11 +50,8 @@ public class Banner extends AbstractEntity {
 	protected String			webDocLink;
 
 
-	public Period availabilityPeriod() throws Exception {
-		final Period availability = Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-		if (availability.getDays() < 7 && this.instantiationOrUpdate.before(this.periodStart))
-			throw new Exception("Must start 1 day after and must last a week");
-		return availability;
+	public Period getPeriod() {
+		return Period.between(this.periodStart.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), this.periodEnd.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 	}
 
 }
