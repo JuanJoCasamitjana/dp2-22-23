@@ -1,20 +1,20 @@
 
-package acme.entities.activity;
+package acme.entities.practicum;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.enrolment.Enrolment;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,41 +22,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-public class Activity extends AbstractEntity {
+public class PracticumSession extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Size(max = 75)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Size(max = 100)
-	protected String			text;
-
-
-	protected enum Type {
-		THEORYCAL, ONHANDS;
-	}
-
+	@Length(max = 100)
+	protected String			abstractMessage;
 
 	@NotNull
-	protected Type		type;
-
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date		periodStart;
+	protected Date				periodStart;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date		periodEnd;
-
-	@ManyToOne
-	@Valid
-	Enrolment			enrolment;
+	protected Date				periodEnd;
 
 	@URL
-	protected String	link;
+	protected String			optionalLink;
 
+	@Valid
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "practicum_id")
+	protected Practicum			practicum;
 }
