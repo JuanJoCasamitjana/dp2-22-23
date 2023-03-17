@@ -10,14 +10,14 @@ import lombok.Setter;
 public class CompanyDashboard extends AbstractForm {
 
 	private static final long	serialVersionUID	= 1L;
-	protected Integer			totalNumberOfPractica;
-	protected Integer			handOnCoursesMonthLastYear;
+	protected Integer			theoryPractica;
+	protected Integer			handsOnPractica;
 	protected Double			averagePeriodLengthOfSession;
-	protected Double			deviationPeriodLengthSession;
-	protected Integer			minimumPeriodLengthSession;
-	protected Integer			maximunmPeriodLengthSession;
-	protected Double			averagePeriodLengthPractica;
-	protected Double			deviationPeriodLengthPractica;
-	protected Integer			minimumPeriodLengthPractica;
-	protected Integer			maximunmPeriodLengthPractica;
+	protected Double			deviationPeriodLengthOfSession;
+	protected Double			minimumPeriodLengthOfSession;
+	protected Double			maximunmPeriodLengthOfSession;
+	protected Double			averagePeriodLengthOfPractica;
+	protected Double			deviationPeriodLengthOfPractica;
+	protected Double			minimumPeriodLengthOfPractica;
+	protected Double			maximunmPeriodLengthOfPractica;
 }
