@@ -1,3 +1,8 @@
 key,instantiationMomment,title,message,optionalLink,isCritical
 bulletin-01,2022/07/19 00:00,"Something","Something",,true
 bulletin-02,2022/07/19 00:01,"Something","Something",,true
+bulletin-03,2022/07/19 00:02,"Important Update","We have updated our privacy policy",https://www.example.com/privacy-policy,true
+bulletin-04,2022/07/19 00:03,"New Feature","Introducing our new feature",https://www.example.com/new-feature,false
+bulletin-05,2022/07/19 00:04,"System Maintenance","We will be performing system maintenance",,true
+bulletin-06,2022/07/19 00:05,"Product Launch, a new way of becoming a genius that you never thought about","Our new product is now available",https://www.example.com/new-product,false
+bulletin-07,2022/07/19 00:06,"Holiday Hours","Our holiday hours will be in effect within a few hours, we wish you good luck on your exams, goodbye",,false
