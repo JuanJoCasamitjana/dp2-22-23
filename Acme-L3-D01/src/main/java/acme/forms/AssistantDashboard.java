@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SessionDashboard extends AbstractForm {
+public class AssistantDashboard extends AbstractForm {
 
 	/**
 	 * 

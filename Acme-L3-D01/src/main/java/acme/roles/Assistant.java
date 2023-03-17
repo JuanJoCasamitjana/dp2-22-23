@@ -26,7 +26,7 @@ public class Assistant extends AbstractRole {
 	protected String			supervisor;
 	@NotBlank
 	@Length(max = 100)
-	protected String			expertiseFields;
+	protected String			listOfExpertiseFields;
 	@NotBlank
 	@Length(max = 100)
 	protected String			resume;

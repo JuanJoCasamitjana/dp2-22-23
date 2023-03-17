@@ -36,7 +36,4 @@ public class Session extends AbstractEntity {
 	protected double			periodTime;
 	@URL
 	protected String			optionalUrl;
-	@ManyToOne
-	protected Tutorial			tutorial;
-
 }

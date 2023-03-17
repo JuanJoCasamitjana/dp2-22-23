@@ -4,6 +4,7 @@ package acme.entities.tutorial;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -38,7 +39,9 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 	protected Double			estimatedTime;
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
 	protected Session			session;
 
 }
