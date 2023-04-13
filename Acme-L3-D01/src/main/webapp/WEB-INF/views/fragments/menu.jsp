@@ -25,6 +25,8 @@
 			<acme:menu-suboption code="master.menu.aleortpag.favourite-link" action="https://www.naeu.playblackdesert.com/es-ES/News/Notice/"/>
 			<acme:menu-suboption code="master.menu.marbarmar16.favourite-link" action="https://www.hbomax.com/"/>
 			<acme:menu-suboption code="master.menu.davgonher1.favourite-link" action="https://mangaplus.shueisha.co.jp/updates/"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.company.register" action="/anonymous/create/company" access="isAnonymous()"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -34,6 +36,14 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.practicum.list" action="/authenticated/practicum/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

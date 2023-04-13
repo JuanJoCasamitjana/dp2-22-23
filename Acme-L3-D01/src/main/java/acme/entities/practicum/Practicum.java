@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
 import lombok.Getter;
@@ -45,8 +46,16 @@ public class Practicum extends AbstractEntity {
 	@Column(nullable = false)
 	protected Double			estimatedTotalTime;
 
+	@NotNull
+	protected boolean			published;
+
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "company_id")
 	protected Company			company;
+
+	@Valid
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "course_id")
+	protected Course			course;
 }

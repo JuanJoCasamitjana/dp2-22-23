@@ -19,11 +19,14 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
+
 master.menu.juacasben.favourite-link = 28844948G: Casamitjana Benítez, Juan José
 master.menu.davgavser.favourite-link = 29510529B: Gavira Serrano, David
 master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
 master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
+
+master.menu.company.register = Registrarse como Compañia
 
 # master.menu.administrator ###################################################
 
@@ -33,6 +36,16 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.practicum.list = Lista de Practicum
+
+# master.menu.company ########################################################
+
+master.menu.company = Compañía
+master.menu.company.practicum.list = Mi lista de practicum
 
 # master.menu.provider ########################################################
 
