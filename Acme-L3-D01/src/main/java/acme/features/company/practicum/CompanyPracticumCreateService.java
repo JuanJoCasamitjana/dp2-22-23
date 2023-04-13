@@ -33,7 +33,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void authorise() {
 		boolean status;
 
-		status = !super.getRequest().getPrincipal().hasRole(Company.class);
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,7 +65,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "estimatedTotalTime", "goals", "published", "company", "course");
+		super.bind(object, "code", "title", "abstractMessage", "estimatedTotalTime", "goals", "published");
 		object.setCourse(course);
 	}
 
@@ -90,7 +90,6 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 	@Override
 	public void unbind(final Practicum object) {
-		assert object != null;
 
 		Collection<Course> courses;
 		SelectChoices choices;
@@ -98,7 +97,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 		courses = this.repository.findAllCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company.name");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

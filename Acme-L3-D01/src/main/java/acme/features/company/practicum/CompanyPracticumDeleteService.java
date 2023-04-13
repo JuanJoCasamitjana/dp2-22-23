@@ -70,7 +70,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company", "course");
+		super.bind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 
 		object.setCourse(course);
 	}
@@ -93,8 +93,6 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void unbind(final Practicum object) {
-		assert object != null;
-
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
