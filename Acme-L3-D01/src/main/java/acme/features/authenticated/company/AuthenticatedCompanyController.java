@@ -1,22 +1,25 @@
 
-package acme.features.any.company;
+package acme.features.authenticated.company;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.framework.components.accounts.Anonymous;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 
 @Controller
-public class AnonymousCompanyController extends AbstractController<Anonymous, Company> {
+public class AuthenticatedCompanyController extends AbstractController<Authenticated, Company> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousCompanyCreateService createService;
+	protected AuthenticatedCompanyCreateService	createService;
+
+	@Autowired
+	protected AuthenticatedCompanyUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,5 +27,6 @@ public class AnonymousCompanyController extends AbstractController<Anonymous, Co
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }

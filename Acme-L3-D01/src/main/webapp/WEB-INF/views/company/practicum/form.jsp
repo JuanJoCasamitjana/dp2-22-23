@@ -2,14 +2,19 @@
 <%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly="false">
 	<acme:input-textbox code="company.practicum.form.label.code" path="code"/>
 	<acme:input-textbox code="company.practicum.form.label.title" path="title"/>
 	<acme:input-textarea code="company.practicum.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-double code="company.practicum.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
 	<acme:input-textarea code="company.practicum.form.label.goals" path="goals"/>
 	<acme:input-textbox code="company.practicum.form.label.published" path="published" readonly="true"/>
-	<acme:input-select code="company.practicum.form.label.course" path="course" choices="${courses}"/>
+	<jstl:if test="${published == true}">
+	<acme:input-textbox code="company.practicum.form.label.course" path="course"/>
+	</jstl:if>
+	<jstl:if test="${published == false}">
+		<acme:input-select code="company.practicum.form.label.course" path="course" choices="${courses}"/>
+	</jstl:if>
 
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}">
@@ -19,11 +24,11 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'show' && published == true}">
-			<acme:button code="company.practicum.form.button.practicumSession.list" action="/company/practicumSession/list?id=${id}"/>
+			<acme:button code="company.practicum.form.button.practicumSession.list" action="/company/practicumSession/list"/>
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create'}">
-			<acme:button code="company.practicum.form.button.create" action="/company/practicum/list"/>
+			<acme:button code="company.practicum.form.button.create" action="/company/practicum/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

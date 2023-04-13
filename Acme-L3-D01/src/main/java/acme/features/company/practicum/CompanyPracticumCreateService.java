@@ -33,7 +33,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		status = !super.getRequest().getPrincipal().hasRole(Company.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,8 +65,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "estimatedTotalTime", "goals", "published", "company.name", "course");
-
+		super.bind(object, "code", "title", "abstractMessage", "estimatedTotalTime", "goals", "published", "company", "course");
 		object.setCourse(course);
 	}
 

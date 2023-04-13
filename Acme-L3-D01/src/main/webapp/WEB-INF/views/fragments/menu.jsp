@@ -25,8 +25,6 @@
 			<acme:menu-suboption code="master.menu.aleortpag.favourite-link" action="https://www.naeu.playblackdesert.com/es-ES/News/Notice/"/>
 			<acme:menu-suboption code="master.menu.marbarmar16.favourite-link" action="https://www.hbomax.com/"/>
 			<acme:menu-suboption code="master.menu.davgonher1.favourite-link" action="https://mangaplus.shueisha.co.jp/updates/"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.company.register" action="/anonymous/create/company" access="isAnonymous()"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -65,6 +63,10 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.user-account.become-company" action="/authenticated/company/create" access="!hasRole('Company')"/>
+			<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

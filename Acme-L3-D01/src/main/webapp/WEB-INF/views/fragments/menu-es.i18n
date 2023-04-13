@@ -19,14 +19,11 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
-
 master.menu.juacasben.favourite-link = 28844948G: Casamitjana Benítez, Juan José
 master.menu.davgavser.favourite-link = 29510529B: Gavira Serrano, David
 master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
 master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
-
-master.menu.company.register = Registrarse como Compañia
 
 # master.menu.administrator ###################################################
 
@@ -65,3 +62,5 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-company = Hazte Compañía
+master.menu.user-account.company = Datos de Compañía
