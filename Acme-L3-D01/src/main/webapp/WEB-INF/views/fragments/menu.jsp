@@ -25,8 +25,11 @@
 			<acme:menu-suboption code="master.menu.aleortpag.favourite-link" action="https://www.naeu.playblackdesert.com/es-ES/News/Notice/"/>
 			<acme:menu-suboption code="master.menu.marbarmar16.favourite-link" action="https://www.hbomax.com/"/>
 			<acme:menu-suboption code="master.menu.davgonher1.favourite-link" action="https://mangaplus.shueisha.co.jp/updates/"/>
+			
 		</acme:menu-option>
-
+		<acme:menu-option code="master.menu.Any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.list.courses" action="/any/course/list"/>
+		</acme:menu-option>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>

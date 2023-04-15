@@ -50,3 +50,8 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.become-lecturer = Hazte Maestro
 master.menu.user-account.lecturer = Datos de Maestro
+
+# master.menu.Any #############################################################
+
+master.menu.Any = Cualquiera
+master.menu.list.courses = Listar cursos
