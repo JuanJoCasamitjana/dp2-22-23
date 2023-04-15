@@ -51,3 +51,8 @@ master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.become-lecturer = Become a Lecturer
 master.menu.user-account.lecturer = Lecturer data
+
+# master.menu.Any #############################################################
+
+master.menu.Any = Any
+master.menu.list.courses = List courses
