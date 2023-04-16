@@ -60,8 +60,6 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 	@Override
 	public void unbind(final PracticumSession object) {
-		assert object != null;
-
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
@@ -71,8 +69,6 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 	@Override
 	public void unbind(final Collection<PracticumSession> objects) {
-		assert objects != null;
-
 		boolean status;
 		int practicumId;
 		Practicum practicum;
