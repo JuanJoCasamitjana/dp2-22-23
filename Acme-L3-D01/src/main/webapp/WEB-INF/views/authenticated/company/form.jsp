@@ -9,6 +9,12 @@
 	<acme:input-textbox code="authenticated.company.form.label.summary" path="summary"/>
 	<acme:input-textbox code="authenticated.company.form.label.optionalLink" path="optionalLink"/>
 	
-	<acme:submit test="${_command == 'create'}" code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
-	<acme:submit test="${_command == 'update'}" code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
+	<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="authenticated.company.form.button.create" action="/authenticated/company/create"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'update'}">
+			<acme:submit code="authenticated.company.form.button.update" action="/authenticated/company/update"/>
+		</jstl:when>
+	</jstl:choose>
 </acme:form>

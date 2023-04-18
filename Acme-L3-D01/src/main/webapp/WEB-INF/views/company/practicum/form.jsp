@@ -11,12 +11,18 @@
 	<acme:input-textbox code="company.practicum.form.label.published" path="published" readonly="true"/>
 	<acme:input-select code="company.practicum.form.label.course" path="course" choices="${courses}"/>
 	
-
-	<acme:submit test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}" code="company.practicum.form.button.update" action="/company/practicum/update"/>
-	<acme:submit test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}" code="company.practicum.form.button.delete" action="/company/practicum/delete"/>
-	<acme:submit test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}" code="company.practicum.form.button.publish" action="/company/practicum/publish"/>
-
-	<acme:submit test="${_command == 'show' && published == true}" code="company.practicum.form.button.practicumSession.list" action="/company/practicumSession/list?id=${id}"/>
-
-	<acme:submit test="${_command == 'create'}" code="company.practicum.form.button.create" action="/company/practicum/create"/>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}">
+			<acme:submit code="company.practicum.form.button.update" action="/company/practicum/update"/>
+			<acme:submit code="company.practicum.form.button.delete" action="/company/practicum/delete"/>
+			<acme:submit code="company.practicum.form.button.publish" action="/company/practicum/publish"/>
+			<acme:button code="company.practicum.form.button.practicumSession.list" action="/company/practicum-session/list?id=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:button code="company.practicum.form.button.practicumSession.list" action="/company/practicum-session/list?id=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="company.practicum.form.button.create" action="/company/practicum/create"/>
+		</jstl:when>
+	</jstl:choose>
 </acme:form>

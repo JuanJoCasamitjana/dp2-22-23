@@ -42,6 +42,8 @@
 		
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.company.companyDashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

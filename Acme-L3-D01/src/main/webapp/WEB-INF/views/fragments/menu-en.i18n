@@ -46,6 +46,7 @@ master.menu.authenticated.practicum.list = Practicum list
 
 master.menu.company = Company
 master.menu.company.practicum.list = My practicum list
+master.menu.company.companyDashboard = Company Dashboard
 
 # master.menu.provider ########################################################
 

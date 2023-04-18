@@ -1,7 +1,7 @@
 
 package acme.features.company.practicum;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 
 	@Override
 	public void load() {
-		List<Practicum> objects;
+		Collection<Practicum> objects;
 		int companyId;
 
 		companyId = super.getRequest().getPrincipal().getActiveRoleId();
