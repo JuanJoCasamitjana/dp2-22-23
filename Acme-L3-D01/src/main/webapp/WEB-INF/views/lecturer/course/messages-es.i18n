@@ -1,0 +1,22 @@
+lecturer.course.form.label.code = Código:
+lecturer.course.form.label.title = Título:
+lecturer.course.form.label.abstractMessage = Resumen:
+lecturer.course.form.label.retailPrice = Precio de venta:
+lecturer.course.form.label.typeOfCourse = Tipo de curso:
+lecturer.course.form.label.optionalUrl = Más información: (Opcional)
+lecturer.course.form.label.inDraft = En borrador:
+
+lecturer.course.form.button.update = Actualizar
+lecturer.course.form.button.delete = Borrar
+lecturer.course.form.button.publish = Publicar
+lecturer.course.form.button.create = Crear
+
+lecturer.course.list.label.code = Código
+lecturer.course.list.label.title = Título
+lecturer.course.list.label.retailPrice = Precio
+
+lecturer.course.create.not.in.draft = No se puede crear si ya está publicado
+lecturer.course.update.not.in.draft = No se puede actualizar si ya está publicado
+lecturer.course.lecture.in.draft = No se puede publicar si hay al menos una Leccion en borrador
+lecturer.course.delete.not.in.draft = No se puede borrar si ya está publicado
+

@@ -1,0 +1,21 @@
+lecturer.course.form.label.code = Code:
+lecturer.course.form.label.title = Title:
+lecturer.course.form.label.abstractMessage = Abstract:
+lecturer.course.form.label.retailPrice = Retail price:
+lecturer.course.form.label.typeOfCourse = Type of course:
+lecturer.course.form.label.optionalUrl = More info: (Optional)
+lecturer.course.form.label.inDraft = In draft:
+
+lecturer.course.form.button.update = Update
+lecturer.course.form.button.delete = Delete
+lecturer.course.form.button.publish = Publish
+lecturer.course.form.button.create = Create
+
+lecturer.course.list.label.code = Code
+lecturer.course.list.label.title = Title
+lecturer.course.list.label.retailPrice = Price
+
+lecturer.course.create.not.in.draft = Cannot create if already published
+lecturer.course.update.not.in.draft = Cannot update if already published
+lecturer.course.lecture.in.draft = Cannot publish if at least one lecture is in draft
+lecturer.course.delete.not.in.draft = Cannot delete if already published
