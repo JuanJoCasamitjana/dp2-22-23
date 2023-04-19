@@ -24,7 +24,7 @@ public class CompanyCompanyDashboardShowService extends AbstractService<Company,
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -36,7 +36,7 @@ public class CompanyCompanyDashboardShowService extends AbstractService<Company,
 		int companyId;
 		Company company;
 
-		companyId = super.getRequest().getData("id", int.class);
+		companyId = super.getRequest().getPrincipal().getActiveRoleId();
 		company = this.repository.findOneCompanyById(companyId);
 		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
 		status = company != null && rolOk;

@@ -59,9 +59,19 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
+		boolean status;
+		boolean rolOk;
+		int practicumId;
 		Tuple tuple;
 
+		practicumId = object.getPracticum().getId();
+		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
+		status = object != null && !object.getPracticum().isPublished() && rolOk;
+
 		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+
+		tuple.put("practicumId", practicumId);
+		tuple.put("status", status);
 
 		super.getResponse().setData(tuple);
 	}

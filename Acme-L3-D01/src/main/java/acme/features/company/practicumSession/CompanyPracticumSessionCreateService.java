@@ -100,7 +100,8 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		practicumId = super.getRequest().getData("practicumId", int.class);
 		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
 
-		super.getResponse().setGlobal("practicumId", practicumId);
+		tuple.put("practicumId", practicumId);
+
 		super.getResponse().setData(tuple);
 	}
 }

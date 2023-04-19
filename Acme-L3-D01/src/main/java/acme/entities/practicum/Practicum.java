@@ -47,7 +47,7 @@ public class Practicum extends AbstractEntity {
 	protected Double			estimatedTotalTime;
 
 	@NotNull
-	protected boolean			published;
+	protected Boolean			published;
 
 	@Valid
 	@ManyToOne(optional = false)

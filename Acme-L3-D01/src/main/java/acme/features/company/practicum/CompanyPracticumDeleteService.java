@@ -51,13 +51,13 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void load() {
-		Practicum objects;
+		Practicum object;
 		int practicumId;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		objects = this.repository.findOnePracticumById(practicumId);
+		object = this.repository.findOnePracticumById(practicumId);
 
-		super.getBuffer().setData(objects);
+		super.getBuffer().setData(object);
 	}
 
 	@Override

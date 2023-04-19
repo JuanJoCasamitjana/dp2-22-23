@@ -10,7 +10,7 @@
 	<acme:input-url code="company.practicumSession.form.label.optionalLink" path="optionalLink"/>
 
 	<jstl:choose>
-		<jstl:when test="${_command == 'show|update|delete' status == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && status == true}">
 			<acme:submit code="company.practicum-session.form.button.update" action="/company/practicum-session/update"/>
 			<acme:submit code="company.practicum-session.form.button.delete" action="/company/practicum-session/delete"/>
 		</jstl:when>

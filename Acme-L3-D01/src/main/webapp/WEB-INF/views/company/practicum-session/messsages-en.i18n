@@ -23,3 +23,5 @@ company.practicumSession.form.label.periodEnd = End
 company.practicumSession.form.label.optionalLink = Optional Link
 
 company.practicum-session.form.button.create = Create
+company.practicum-session.form.button.update = Update
+company.practicum-session.form.button.delete = Delete
