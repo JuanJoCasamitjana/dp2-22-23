@@ -1,5 +1,5 @@
 
-package acme.entities.session;
+package acme.entities.tutorial;
 
 import java.util.Date;
 
@@ -25,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity {
+public class TutorialSession extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 

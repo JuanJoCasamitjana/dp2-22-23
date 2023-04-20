@@ -15,7 +15,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
-import acme.entities.session.Session;
+import acme.entities.tutorial.TutorialSession;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -58,10 +58,10 @@ public class Tutorial extends AbstractEntity {
 	protected Assistant			assistant;
 
 
-	public Double estimatedTotalTime(final Collection<Session> sessions) {
+	public Double estimatedTotalTime(final Collection<TutorialSession> sessions) {
 		double res = 0.0;
 		if (!sessions.isEmpty())
-			for (final Session sesion : sessions) {
+			for (final TutorialSession sesion : sessions) {
 				final Date start = sesion.getStartPeriod();
 				final Date end = sesion.getEndPeriod();
 				double horas = 0.0;
