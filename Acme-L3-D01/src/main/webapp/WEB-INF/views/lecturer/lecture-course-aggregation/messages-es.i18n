@@ -1,0 +1,11 @@
+lecturer.aggregation.form.label.course.code = Codigo de curso
+lecturer.aggregation.form.label.course.title = Titulo de curso
+lecturer.aggregation.form.label.lecture.title = Titulo de leccion
+lecturer.aggregation.form.button.delete = Borrar
+lecturer.aggregation.form.button.create = Crear
+
+lecturer.aggregation.form.label.select.course = Seleccionar curso
+lecturer.aggregation.form.label.select.lecture = Seleccionar leccion
+
+lecturer.aggregation.list.label.course.title = Titulo de curso
+lecturer.aggregation.list.label.lecture.title = Titulo de leccion

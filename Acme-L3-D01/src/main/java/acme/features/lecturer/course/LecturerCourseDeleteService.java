@@ -63,7 +63,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());
-		super.getResponse().setData(tuple);
 		tuple.put("types", choices);
+		super.getResponse().setData(tuple);
 	}
 }

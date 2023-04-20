@@ -11,6 +11,8 @@ lecturer.course.form.button.delete = Borrar
 lecturer.course.form.button.publish = Publicar
 lecturer.course.form.button.create = Crear
 
+lecturer.course.form.list.lectures = Listar lecciones de este curso
+
 lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título
 lecturer.course.list.label.retailPrice = Precio

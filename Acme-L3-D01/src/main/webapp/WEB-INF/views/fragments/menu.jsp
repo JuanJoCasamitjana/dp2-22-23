@@ -27,7 +27,7 @@
 			<acme:menu-suboption code="master.menu.davgonher1.favourite-link" action="https://mangaplus.shueisha.co.jp/updates/"/>
 			
 		</acme:menu-option>
-		<acme:menu-option code="master.menu.Any" access="hasRole('Any')">
+		<acme:menu-option code="master.menu.Any" >
 			<acme:menu-suboption code="master.menu.list.courses" action="/any/course/list"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -45,6 +45,13 @@
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
+		</acme:menu-option>
+		<acme:menu-option code="master.menu.Lecturer" access="hasRole('Lecturer')">
+			<acme:menu-suboption code="master.menu.list.courses.list" action="/lecturer/course/list"/>
+			<acme:menu-suboption code="master.menu.list.courses.create" action="/lecturer/course/create"/>
+			<acme:menu-suboption code="master.menu.list.lectures.list" action="/lecturer/lecture/list"/>
+			<acme:menu-suboption code="master.menu.list.lectures.create" action="/lecturer/lecture/create"/>
+			<acme:menu-suboption code="master.menu.list.aggregate.create" action="/lecturer/lecture-course-aggregation/create"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

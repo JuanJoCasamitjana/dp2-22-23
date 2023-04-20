@@ -55,3 +55,11 @@ master.menu.user-account.lecturer = Datos de Maestro
 
 master.menu.Any = Cualquiera
 master.menu.list.courses = Listar cursos
+
+# master.menu.Lecturer #########################################################
+master.menu.Lecturer = Conferenciante
+master.menu.list.courses.list = Listar cursos
+master.menu.list.courses.create = Crear cursos
+master.menu.list.lectures.list = Listar lecciones
+master.menu.list.lectures.create = Crear lecciones
+master.menu.list.aggregate.create = Añadir leccion a curso

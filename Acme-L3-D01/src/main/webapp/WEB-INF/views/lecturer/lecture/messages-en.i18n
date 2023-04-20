@@ -1,0 +1,20 @@
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.abstractMessage = Abstract:
+lecturer.lecture.form.label.learningTime = Learning time:
+lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.isTheoretical = Is theoretical:
+lecturer.lecture.form.label.optionalUrl = More info: (Optional)
+
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.lecture.form.button.publish = Publish
+lecturer.lecture.form.button.create = Create
+lecturer.lecture.form.button.add.to.course = Add to course
+
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.learningTime = Learning time
+
+lecturer.lecture.create.not.in.draft = Cannot create if already published
+lecturer.lecture.update.not.in.draft = Cannot update if already published
+lecturer.lecture.lecture.in.draft = Cannot publish if at least one lecture is in draft
+lecturer.lecture.delete.not.in.draft = Cannot delete if already published

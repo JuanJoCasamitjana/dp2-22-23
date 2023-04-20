@@ -10,6 +10,7 @@ import acme.entities.course.Course;
 import acme.entities.lecture.Lecture;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
+import acme.system.configuration.SystemConfiguration;
 
 @Repository
 public interface LecturerCourseRepository extends AbstractRepository {
@@ -22,4 +23,8 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	Lecturer findLecturerById(int id);
 	@Query("SELECT lc.lecture FROM LectureCourseAggregation lc WHERE lc.course.id = :id")
 	Collection<Lecture> findAllLecturesOfCourse(int id);
+	@Query("SELECT c FROM Course c WHERE c.code = :code")
+	Course findCourseByCode(String code);
+	@Query("SELECT sc FROM SystemConfiguration sc")
+	SystemConfiguration getSystemConfiguration();
 }

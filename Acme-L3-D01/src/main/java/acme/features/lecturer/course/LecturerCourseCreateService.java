@@ -11,6 +11,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import acme.system.configuration.SystemConfiguration;
 
 @Service
 public class LecturerCourseCreateService extends AbstractService<Lecturer, Course> {
@@ -58,6 +59,20 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		final boolean status = object.isInDraft();
 		super.state(status, "*", "lecturer.course.create.not.in.draft");
+		final Course coursesWithSameCode = this.repository.findCourseByCode(object.getCode());
+		super.state(coursesWithSameCode == null, "code", "lecturer.course.create.code.exists");
+		final SystemConfiguration sc = this.repository.getSystemConfiguration();
+		super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.create.negative");
+		final String currencies[] = sc.getAcceptedCurrencies().split(",");
+		boolean state = false;
+		for (final String currency : currencies) {
+			if (object.getRetailPrice().getCurrency().contains(currency)) {
+				state = true;
+				break;
+			}
+			state = false;
+		}
+		super.state(state, "retailPrice", "lecturer.course.create.not.supported");
 	}
 	@Override
 	public void perform(final Course object) {
@@ -72,8 +87,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());
-		tuple.put("types", choices);
 		super.getResponse().setData(tuple);
+		tuple.put("types", choices);
 
 	}
 }

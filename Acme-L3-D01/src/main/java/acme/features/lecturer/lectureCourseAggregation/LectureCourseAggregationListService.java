@@ -1,21 +1,21 @@
 
-package acme.features.lecturer.course;
+package acme.features.lecturer.lectureCourseAggregation;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.Course;
+import acme.entities.lecture.LectureCourseAggregation;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseListService extends AbstractService<Lecturer, Course> {
+public class LectureCourseAggregationListService extends AbstractService<Lecturer, LectureCourseAggregation> {
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LectureCourseAggregationRepository repository;
 
 
 	@Override
@@ -31,15 +31,15 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	@Override
 	public void load() {
 		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		final Collection<Course> courses = this.repository.findAllCoursesOfLecturer(lecturerId);
+		final Collection<LectureCourseAggregation> courses = this.repository.findAllAggregationOfLecturer(lecturerId);
 		super.getBuffer().setData(courses);
 	}
 
 	@Override
-	public void unbind(final Course course) {
-		assert course != null;
+	public void unbind(final LectureCourseAggregation object) {
+		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
+		tuple = super.unbind(object, "course", "lecture");
 		super.getResponse().setData(tuple);
 	}
 }

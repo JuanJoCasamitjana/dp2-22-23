@@ -52,11 +52,15 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		final boolean status = object.isInDraft();
 		super.state(status, "*", "lecturer.course.update.not.in.draft");
 		final Collection<Lecture> lectures = this.repository.findAllLecturesOfCourse(object.getId());
-		for (final Lecture l : lectures)
+		boolean state = false;
+		for (final Lecture l : lectures) {
 			if (!l.isPublished()) {
-				super.state(true, "*", "lecturer.course.lecture.in.draft");
+				state = false;
 				break;
 			}
+			state = true;
+		}
+		super.state(state, "*", "lecturer.course.lecture.in.draft");
 	}
 	@Override
 	public void perform(final Course object) {
@@ -71,7 +75,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());
-		super.getResponse().setData(tuple);
 		tuple.put("types", choices);
+		super.getResponse().setData(tuple);
 	}
 }
