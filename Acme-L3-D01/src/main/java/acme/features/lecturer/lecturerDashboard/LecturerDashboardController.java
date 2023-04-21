@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.dashboard;
+package acme.features.lecturer.lecturerDashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -18,16 +18,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.forms.LecturerDashboard;
-import acme.framework.components.accounts.Administrator;
 import acme.framework.controllers.AbstractController;
+import acme.roles.Lecturer;
 
 @Controller
-public class AdministratorDashboardController extends AbstractController<Administrator, LecturerDashboard> {
+public class LecturerDashboardController extends AbstractController<Lecturer, LecturerDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorDashboardShowService showService;
+	protected LecturerDashboardShowService showService;
 
 	// Constructors -----------------------------------------------------------
 

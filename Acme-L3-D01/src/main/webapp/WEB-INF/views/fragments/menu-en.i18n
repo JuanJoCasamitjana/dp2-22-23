@@ -65,3 +65,4 @@ master.menu.list.lectures.list = List lectures
 master.menu.list.lectures.create = Create lectures
 master.menu.list.aggregate.create = Add lecture to course
 master.menu.list.aggregate.list = See courses with lectures
+master.menu.list.dashboard = Lecturer dashboard

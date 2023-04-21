@@ -64,3 +64,4 @@ master.menu.list.lectures.list = Listar lecciones
 master.menu.list.lectures.create = Crear lecciones
 master.menu.list.aggregate.create = Añadir leccion a curso
 master.menu.list.aggregate.list = Ver cursos con lecciones
+master.menu.list.dashboard = Tablero de conferenciante
