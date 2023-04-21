@@ -1,0 +1,25 @@
+
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.motivation = Motivación
+student.enrolment.list.label.goals = Objetivos
+student.enrolment.list.label.creditCard = Tarjeta de crédito
+student.enrolment.list.label.course = Curso
+
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Eliminar
+student.enrolment.form.button.create = Crear
+student.enrolment.list.button.create = Crear
+student.enrolment.form.label.code = Código
+student.enrolment.list.label.lowerNibble = Últimos 4 dígitos
+student.enrolment.list.label.holderName = Nombre del Titular
+student.enrolment.list.label.expiryDate = Fecha caducidad 
+student.enrolment.list.label.cvc = CVC
+student.enrolment.list.label.cardNumber = Tarjeta de crédito
+student.enrolment.form.button.finalise = Finalizar
+student.enrolment.list.label.draft = Borrador
+
+student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy
+student.enrolment.form.error.wrong-cvc = CVC deben tener 3 números
+student.enrolment.form.error.wrong-card = La tarjeta de crédito tiene que seguir el formato xxxx/xxxx/xxxx/xxxx
+student.enrolment.form.error.duplicated-code = Código duplicado
+student.enrolment.form.error.wrong-holder = Esta entrada no debe estar vacía

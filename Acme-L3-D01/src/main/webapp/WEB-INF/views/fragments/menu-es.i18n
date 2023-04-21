@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -61,9 +61,49 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-company = Hazte Compañía
 master.menu.user-account.company = Datos de Compañía
+
+
+master.menu.user-account.become-student= Hazte estudiante
+master.menu.user-account.student= Datos del estudiante
+
+master.menu.user-account.become-lecturer = Hazte conferenciante
+master.menu.user-account.lecturer = Datos de conferenciante
+
+
+# master.menu.Student #############################################################
+
+master.menu.Any = Cualquiera
+
+master.menu.student = Estudiante
+master.menu.student.list.activities = Actividades
+master.menu.list.courses = Listar cursos
+master.menu.student.list.enrolments = Solicitudes
+master.menu.student.list.courses = Cursos
+
+master.menu.list.courses = Listar cursos
+master.menu.list.peeps = Listar publicaciones
+master.menu.create.peep = Crear publicacion
+
+# master.menu.Lecturer #########################################################
+master.menu.Lecturer = Conferenciante
+master.menu.list.courses.list = Listar cursos
+master.menu.list.courses.create = Crear cursos
+master.menu.list.lectures.list = Listar lecciones
+master.menu.list.lectures.create = Crear lecciones
+master.menu.list.aggregate.create = Añadir leccion a curso
+master.menu.list.aggregate.list = Ver cursos con lecciones
+master.menu.list.dashboard = Tablero de conferenciante
+
+# assistant ##############################################
+
+master.menu.authenticated.assistant.create = Hazte asistente
+master.menu.authenticated.assistant.update = Datos de asistente
+master.menu.assistant = Asistente
+
