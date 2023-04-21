@@ -45,4 +45,6 @@ public class Lecture extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Lecturer			lecturer;
 
+	protected boolean			published			= false;
+
 }

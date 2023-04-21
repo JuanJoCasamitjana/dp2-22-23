@@ -1,0 +1,21 @@
+lecturer.lecture.form.label.title = Título:
+lecturer.lecture.form.label.abstractMessage = Resumen:
+lecturer.lecture.form.label.learningTime = Tiempo de aprendizaje:
+lecturer.lecture.form.label.body = Cuerpo:
+lecturer.lecture.form.label.isTheoretical = Es teorico:
+lecturer.lecture.form.label.optionalUrl = Más información: (Opcional)
+
+lecturer.lecture.form.button.update = Actualizar
+lecturer.lecture.form.button.delete = Borrar
+lecturer.lecture.form.button.publish = Publicar
+lecturer.lecture.form.button.create = Crear
+lecturer.lecture.form.button.add.course = Añadir a curso
+
+lecturer.lecture.list.label.title = Título
+lecturer.lecture.list.label.learningTime = Tiempo de aprendizaje
+
+lecturer.lecture.create.not.in.draft = No se puede crear si ya está publicado
+lecturer.lecture.update.not.in.draft = No se puede actualizar si ya está publicado
+lecturer.lecture.lecture.in.draft = No se puede publicar si hay al menos una Leccion en borrador
+lecturer.lecture.delete.not.in.draft = No se puede borrar si ya está publicado
+
