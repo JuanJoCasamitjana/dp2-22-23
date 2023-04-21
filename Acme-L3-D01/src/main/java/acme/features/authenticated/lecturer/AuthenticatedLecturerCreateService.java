@@ -52,7 +52,7 @@ public class AuthenticatedLecturerCreateService extends AbstractService<Authenti
 	public void bind(final Lecturer object) {
 		assert object != null;
 
-		super.bind(object, "almaMater", "resume", "listOfQualifications", "optionalLink");
+		super.bind(object, "statement", "strongFeatures", "weekFeatures", "link");
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class AuthenticatedLecturerCreateService extends AbstractService<Authenti
 	public void unbind(final Lecturer object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "almaMater", "resume", "listOfQualifications", "optionalLink");
+		tuple = super.unbind(object, "statement", "strongFeatures", "weekFeatures", "link");
 
 		super.getResponse().setData(tuple);
 	}
