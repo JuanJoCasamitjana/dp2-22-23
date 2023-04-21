@@ -1,0 +1,14 @@
+lecturer.aggregation.form.label.course.code = Course code
+lecturer.aggregation.form.label.course.title = Couse title
+lecturer.aggregation.form.label.lecture.title = Lecture title
+lecturer.aggregation.form.button.delete = Delete
+lecturer.aggregation.form.button.create = Create
+
+lecturer.aggregation.form.label.select.course = Select course
+lecturer.aggregation.form.label.select.lecture = Select lecture
+
+lecturer.aggregation.list.label.course.title = Course code
+lecturer.aggregation.list.label.lecture.title = Lecture title
+
+course.not.in.draft = Course is already published
+lca.form.already.exists = This relation already exists

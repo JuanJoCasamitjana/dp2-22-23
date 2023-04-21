@@ -48,6 +48,6 @@ public class Course extends AbstractEntity {
 	@NotNull
 	@Valid
 	protected Lecturer			lecturer;
-	protected boolean			inDraft;
+	protected boolean			inDraft				= true;
 
 }

@@ -1,0 +1,12 @@
+any.peep.form.label.title = Title
+any.peep.form.label.message = Message 
+any.peep.form.label.link = Link
+any.peep.form.label.nick = Nick
+any.peep.form.label.mail = Mail
+any.peep.form.label.instantiation = Creation momment
+
+any.peep.form.button.create = Create
+
+any.course.list.label.nick = Nick
+any.course.list.label.title = Title
+any.course.list.label.mail = Mail

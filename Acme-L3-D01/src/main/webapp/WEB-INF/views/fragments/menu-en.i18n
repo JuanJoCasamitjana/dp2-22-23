@@ -49,7 +49,27 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-lecturer = Become a Lecturer
+master.menu.user-account.lecturer = Lecturer data
+
+# master.menu.Any #############################################################
+
+master.menu.Any = Any
+master.menu.list.courses = List courses
+master.menu.list.peeps = List peeps
+master.menu.create.peep = Create peep
+
+# master.menu.Lecturer #########################################################
+master.menu.Lecturer = Conferenciante
+master.menu.list.courses.list = List courses
+master.menu.list.courses.create = Create courses
+master.menu.list.lectures.list = List lectures
+master.menu.list.lectures.create = Create lectures
+master.menu.list.aggregate.create = Add lecture to course
+master.menu.list.aggregate.list = See courses with lectures
+master.menu.list.dashboard = Lecturer dashboard
+
+# assistant ##############################
+master.menu.authenticated.assistant.create = Become assistant
+master.menu.authenticated.assistant.update = Assistant data
+master.menu.assistant = Assistant
