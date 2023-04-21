@@ -56,6 +56,8 @@ master.menu.user-account.lecturer = Lecturer data
 
 master.menu.Any = Any
 master.menu.list.courses = List courses
+master.menu.list.peeps = List peeps
+master.menu.create.peep = Create peep
 
 # master.menu.Lecturer #########################################################
 master.menu.Lecturer = Conferenciante
