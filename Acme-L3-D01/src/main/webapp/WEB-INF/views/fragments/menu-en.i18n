@@ -68,3 +68,8 @@ master.menu.list.lectures.create = Create lectures
 master.menu.list.aggregate.create = Add lecture to course
 master.menu.list.aggregate.list = See courses with lectures
 master.menu.list.dashboard = Lecturer dashboard
+
+# assistant ##############################
+master.menu.authenticated.assistant.create = Become assistant
+master.menu.authenticated.assistant.update = Assistant data
+master.menu.assistant = Assistant

@@ -67,3 +67,9 @@ master.menu.list.lectures.create = Crear lecciones
 master.menu.list.aggregate.create = Añadir leccion a curso
 master.menu.list.aggregate.list = Ver cursos con lecciones
 master.menu.list.dashboard = Tablero de conferenciante
+
+# assistant ##############################################
+
+master.menu.authenticated.assistant.create = Hazte asistente
+master.menu.authenticated.assistant.update = Datos de asistente
+master.menu.assistant = Asistente
