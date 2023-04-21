@@ -8,14 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.course.form.label.code = Code:
-any.course.form.label.title = Title:
-any.course.form.label.abstractMessage = Abstract:
-any.course.form.label.retailPrice = Retail price:
-any.course.form.label.typeOfCourse = Type of course:
-any.course.form.label.optionalUrl = More info: (Optional)
-any.course.form.label.inDraft = In draft:
+authenticated.student.form.label.statement = Statement
+authenticated.student.form.label.strongFeatures = Strong Features
+authenticated.student.form.label.weekFeatures = Week Features
+authenticated.student.form.label.link = link
 
-any.course.list.label.code = Code
-any.course.list.label.title = Title
-any.course.list.label.retailPrice = Price
+authenticated.student.form.button.create = Register
+authenticated.student.form.button.update = Update

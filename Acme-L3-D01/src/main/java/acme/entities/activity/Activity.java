@@ -36,7 +36,7 @@ public class Activity extends AbstractEntity {
 	protected String			text;
 
 
-	protected enum Type {
+	public enum Type {
 		THEORYCAL, ONHANDS;
 	}
 
