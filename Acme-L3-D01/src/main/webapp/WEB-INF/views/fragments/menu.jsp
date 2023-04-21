@@ -10,7 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer"%>
+<%@page language="java" import="acme.framework.helpers.PrincipalHelper"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -44,7 +44,7 @@
 				action="/student/course/list" />
 			<acme:menu-suboption code="master.menu.student.list.activities"
 				action="/student/activity/list" />
-
+		</acme:menu-option>
 		<acme:menu-option code="master.menu.Any" >
 			<acme:menu-suboption code="master.menu.list.courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.list.peeps" action="/any/peep/list"/>
@@ -72,7 +72,7 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.company.companyDashboard" action="/company/company-dashboard/show"/>
-
+		</acme:menu-option>
 
 
 		<acme:menu-option code="master.menu.administrator"
@@ -125,43 +125,20 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in"
 			access="isAnonymous()" />
 
-		<acme:menu-option code="master.menu.user-account"
-			access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.user-account.general-data"
-				action="/authenticated/user-account/update" />
-			<acme:menu-suboption code="master.menu.user-account.become-lecturer"
-				action="/authenticated/lecturer/create"
-				access="!hasRole('Lecturer')" />
-			<acme:menu-suboption code="master.menu.user-account.lecturer"
-				action="/authenticated/lecturer/update" access="hasRole('Lecturer')" />
-			<acme:menu-suboption code="master.menu.user-account.become-student"
-				action="/authenticated/student/create" access="!hasRole('Student')" />
-			<acme:menu-suboption code="master.menu.user-account.student"
-				action="/authenticated/student/update" access="hasRole('Student')" />
-
-
-
-
-
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-
-			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
-			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.become-company" action="/authenticated/company/create" access="!hasRole('Company')"/>
 			<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
-			
-
 			<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.authenticated.assistant.create" action="/authenticated/assistant/create" access="!hasRole('Assistant')"/>
 			<acme:menu-suboption code="master.menu.authenticated.assistant.update" action="/authenticated/assistant/update" access="hasRole('Assistant')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
-
+			<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')" />
+			<acme:menu-suboption code="master.menu.user-account.become-student" action="/authenticated/student/create" access="!hasRole('Student')" />
+			<acme:menu-suboption code="master.menu.user-account.student" action="/authenticated/student/update" access="hasRole('Student')" />
 		</acme:menu-option>
 
 
