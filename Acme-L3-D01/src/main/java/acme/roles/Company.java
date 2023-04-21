@@ -1,9 +1,7 @@
 
 package acme.roles;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -26,9 +24,9 @@ public class Company extends AbstractRole {
 	@Length(max = 75)
 	protected String			name;
 
-	@Max(26)
-	@Column(nullable = false)
-	protected Integer			vatNumber;
+	@NotBlank
+	@Length(max = 25)
+	protected String			vatNumber;
 
 	@NotBlank
 	@Length(max = 100)

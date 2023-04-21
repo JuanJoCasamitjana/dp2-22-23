@@ -31,3 +31,8 @@ company.practicum.form.button.update = Update
 company.practicum.form.button.delete = Delete
 company.practicum.form.button.publish = Publish
 company.practicum.form.button.practicumSession.list = Session list
+
+company.practicum.form.error.duplicated = This item already exist
+company.practicum.form.error.nothandson = The selected course must be Hands-on
+company.practicum.form.error.published = It's already published
+company.practicum.form.error.empty = Cannot publish an empty sessions Practicum

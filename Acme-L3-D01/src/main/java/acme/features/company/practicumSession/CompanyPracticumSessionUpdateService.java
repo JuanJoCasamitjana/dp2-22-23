@@ -1,6 +1,9 @@
 
 package acme.features.company.practicumSession;
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +41,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		sessionId = super.getRequest().getData("id", int.class);
 		practicumSession = this.repository.findOnePracticumSessionById(sessionId);
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
+		rolOk = super.getRequest().getPrincipal().hasRole(practicumSession.getPracticum().getCompany());
 		status = practicumSession != null && !practicumSession.getPracticum().isPublished() && rolOk;
 
 		super.getResponse().setAuthorised(status);
@@ -71,6 +74,40 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 			existing = this.repository.findOnePracticumSessionByTitle(object.getTitle());
 			super.state(existing == null || existing.equals(object), "title", "company.practicum-session.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
+			final Date now = new Date();
+			long milisegundosStart;
+			long miliseguntosEnd;
+			long diff;
+			long diffDias;
+
+			milisegundosStart = now.getTime();
+			miliseguntosEnd = object.getPeriodStart().getTime();
+			diff = miliseguntosEnd - milisegundosStart;
+			diffDias = 0;
+
+			if (diff > 0)
+				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+
+			super.state(diffDias >= 7, "periodStart", "company.practicum-session.form.error.periodStart");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			long milisegundosStart;
+			long miliseguntosEnd;
+			long diff;
+			long diffDias;
+
+			milisegundosStart = object.getPeriodStart().getTime();
+			miliseguntosEnd = object.getPeriodEnd().getTime();
+			diff = miliseguntosEnd - milisegundosStart;
+			diffDias = 0;
+
+			if (diff > 0)
+				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+
+			super.state(diffDias >= 7, "periodEnd", "company.practicum-session.form.error.periodEnd");
 		}
 	}
 

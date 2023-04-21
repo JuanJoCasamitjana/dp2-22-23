@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.course.Type;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -81,6 +82,9 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 			existing = this.repository.findOnePracticumByCode(object.getCode());
 			super.state(existing == null, "code", "company.practicum.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(object.getCourse().getTypeOfCourse() == Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
 	}
 
 	@Override
@@ -97,7 +101,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourse();
+		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());

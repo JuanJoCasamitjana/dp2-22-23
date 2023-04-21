@@ -43,7 +43,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 		practicumId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
+		rolOk = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 		status = practicum != null && !practicum.isPublished() && rolOk;
 
 		super.getResponse().setAuthorised(status);
@@ -70,7 +70,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		super.bind(object, "code", "title", "abstractMessage", "goals");
 
 		object.setCourse(course);
 	}
@@ -97,9 +97,9 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourse();
+		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

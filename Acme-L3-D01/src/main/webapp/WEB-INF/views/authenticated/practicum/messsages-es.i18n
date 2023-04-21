@@ -10,9 +10,7 @@
 
 authenticated.practicum.list.label.code = Código
 authenticated.practicum.list.label.title = Título
-authenticated.practicum.list.label.abstractMessage = Mensaje
 authenticated.practicum.list.label.estimatedTotalTime = Tiempo estimado
-authenticated.practicum.list.label.goals = Objetivos
 authenticated.practicum.list.label.published = Publicado
 
 authenticated.practicum.form.label.code = Código
@@ -22,3 +20,4 @@ authenticated.practicum.form.label.estimatedTotalTime = Tiempo estimado
 authenticated.practicum.form.label.goals = Objetivos
 authenticated.practicum.form.label.published = Publicado
 authenticated.practicum.form.label.company = Compañía
+authenticated.practicum.form.label.course = Curso

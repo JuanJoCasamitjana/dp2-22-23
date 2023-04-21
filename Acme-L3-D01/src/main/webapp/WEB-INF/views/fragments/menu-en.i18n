@@ -37,6 +37,8 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+master.menu.administrator.banner.list = Banner list
+
 # master.menu.authenticated ########################################################
 
 master.menu.authenticated = Authenticated

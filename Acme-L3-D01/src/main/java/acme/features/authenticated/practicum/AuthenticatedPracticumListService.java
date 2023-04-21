@@ -1,7 +1,7 @@
 
 package acme.features.authenticated.practicum;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,9 +38,9 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		List<Practicum> objects;
+		Collection<Practicum> objects;
 
-		objects = this.repository.findAllPracticum();
+		objects = this.repository.findAllPublishedPracticumFromHandOnCourse();
 
 		super.getBuffer().setData(objects);
 	}
@@ -51,7 +51,7 @@ public class AuthenticatedPracticumListService extends AbstractService<Authentic
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		tuple = super.unbind(object, "code", "title", "estimatedTotalTime", "published");
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,6 +1,8 @@
 
 package acme.features.company.practicumSession;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +40,7 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 
 		practicumSessionId = super.getRequest().getData("id", int.class);
 		practicumSession = this.repository.findOnePracticumSessionById(practicumSessionId);
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
+		rolOk = super.getRequest().getPrincipal().hasRole(practicumSession.getPracticum().getCompany());
 		status = practicumSession != null && rolOk;
 
 		super.getResponse().setAuthorised(status);
@@ -59,21 +61,27 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
-		boolean status;
-		boolean rolOk;
-		int practicumId;
 		Tuple tuple;
+		Collection<PracticumSession> sesiones;
+		boolean hasAddendum = false;
+		boolean published;
+		int practicumId;
 
 		practicumId = object.getPracticum().getId();
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
-		status = object != null && !object.getPracticum().isPublished() && rolOk;
+		published = object != null && object.getPracticum().isPublished();
+		sesiones = this.repository.findAddendumSessionByPracticumId(practicumId);
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+		if (sesiones.size() != 0)
+			hasAddendum = true;
+
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "addendum", "confirmed");
 
 		tuple.put("practicumId", practicumId);
-		tuple.put("status", status);
+		tuple.put("published", published);
+		tuple.put("hasAddendum", hasAddendum);
 
 		super.getResponse().setData(tuple);
+
 	}
 
 }

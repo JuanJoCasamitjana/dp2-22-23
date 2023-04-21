@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.practicum;
+package acme.features.administrator.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.banner.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedPracticumShowService extends AbstractService<Authenticated, Practicum> {
+public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPracticumRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -33,31 +33,31 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().isAuthenticated();
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Practicum object;
+		Banner object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumById(id);
+		object = this.repository.findOneBannerById(id);
 
 		super.getBuffer().setData(object);
-
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company.name", "course.title");
+		tuple = super.unbind(object, "instantiationOrUpdate", "slogan", "periodStart", "periodEnd", "pictureLink", "webDocLink");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

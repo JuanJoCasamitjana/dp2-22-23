@@ -2,6 +2,7 @@
 package acme.features.company.practicumSession;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,10 +40,10 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		int practicumId;
 		Practicum practicum;
 
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
 		practicumId = super.getRequest().getData("practicumId", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		status = practicum != null && !practicum.isPublished() && rolOk;
+		rolOk = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		status = practicum != null && rolOk;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,6 +64,13 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object.setOptionalLink("");
 		object.setPracticum(practicum);
 
+		if (practicum.isPublished())
+			object.setAddendum(true);
+		else
+			object.setAddendum(false);
+
+		object.setConfirmed(false);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -70,7 +78,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+		super.bind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "confirmed");
 	}
 
 	@Override
@@ -82,6 +90,41 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 			existing = this.repository.findOnePracticumSessionByTitle(object.getTitle());
 			super.state(existing == null, "title", "company.practicum-session.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
+			final Date now = new Date();
+			long milisegundosStart;
+			long miliseguntosEnd;
+			long diff;
+			long diffDias;
+
+			milisegundosStart = now.getTime();
+			miliseguntosEnd = object.getPeriodStart().getTime();
+			diff = miliseguntosEnd - milisegundosStart;
+			diffDias = 0;
+
+			if (diff > 0)
+				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+
+			super.state(diffDias >= 7, "periodStart", "company.practicum-session.form.error.periodStart");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			long milisegundosStart;
+			long miliseguntosEnd;
+			long diff;
+			long diffDias;
+
+			milisegundosStart = object.getPeriodStart().getTime();
+			miliseguntosEnd = object.getPeriodEnd().getTime();
+			diff = miliseguntosEnd - milisegundosStart;
+			diffDias = 0;
+
+			if (diff > 0)
+				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+
+			super.state(diffDias >= 7, "periodEnd", "company.practicum-session.form.error.periodEnd");
 		}
 	}
 

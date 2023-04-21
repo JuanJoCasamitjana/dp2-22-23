@@ -13,6 +13,7 @@ company.practicumSession.list.label.abstractMessage = Mensaje
 company.practicumSession.list.label.periodStart = Comienzo
 company.practicumSession.list.label.periodEnd = Fin
 company.practicumSession.list.label.optionalLink = Enlace opcional
+company.practicumSession.list.label.addendum = Es addendum
 
 company.practicum-session.list.button.create = Crear
 
@@ -21,7 +22,11 @@ company.practicumSession.form.label.abstractMessage = Mensaje
 company.practicumSession.form.label.periodStart = Comienzo
 company.practicumSession.form.label.periodEnd = Fin
 company.practicumSession.form.label.optionalLink = Enlace opcional
+company.practicumSession.form.label.addendum = Es un addendum
+company.practicumSession.form.label.confirmed = Está confirmado
 
 company.practicum-session.form.button.create = Crear
 company.practicum-session.form.button.update = Actualizar
 company.practicum-session.form.button.delete = Eliminar
+
+company.practicum-session.form.error.notconfirmed = Las Sesiones Addendum deben estar confirmadas

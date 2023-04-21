@@ -45,6 +45,13 @@ public class PracticumSession extends AbstractEntity {
 	@URL
 	protected String			optionalLink;
 
+	@NotNull
+	protected boolean			addendum;
+
+	@NotNull
+	protected boolean			confirmed;
+
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "practicum_id")

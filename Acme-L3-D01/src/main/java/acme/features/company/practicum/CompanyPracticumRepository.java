@@ -30,8 +30,8 @@ public interface CompanyPracticumRepository extends AbstractRepository {
 	@Query("SELECT c FROM Company c WHERE c.id = :id")
 	Company findOneCompanyById(int id);
 
-	@Query("SELECT c FROM Course c")
-	Collection<Course> findAllCourse();
+	@Query("SELECT c FROM Course c WHERE c.typeOfCourse = 3")
+	Collection<Course> findManyHandsOnCourse();
 
 	@Query("SELECT c FROM Course c WHERE c.id = :id")
 	Course findOneCourseById(int id);

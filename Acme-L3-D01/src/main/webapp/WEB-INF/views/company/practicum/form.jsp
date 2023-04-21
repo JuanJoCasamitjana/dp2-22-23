@@ -5,11 +5,11 @@
 <acme:form>
 	<acme:input-textbox code="company.practicum.form.label.code" path="code"/>
 	<acme:input-textbox code="company.practicum.form.label.title" path="title"/>
-	<acme:input-textarea code="company.practicum.form.label.abstractMessage" path="abstractMessage"/>
-	<acme:input-double code="company.practicum.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
+	<acme:input-textbox code="company.practicum.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-textarea code="company.practicum.form.label.goals" path="goals"/>
-	<acme:input-textbox code="company.practicum.form.label.published" path="published" readonly="true"/>
 	<acme:input-select code="company.practicum.form.label.course" path="course" choices="${courses}"/>
+	<acme:input-double code="company.practicum.form.label.estimatedTotalTime" path="estimatedTotalTime" readonly="true"/>
+	<acme:input-checkbox code="company.practicum.form.label.published" path="published" readonly="true"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|publish|update|delete') && published == false}">

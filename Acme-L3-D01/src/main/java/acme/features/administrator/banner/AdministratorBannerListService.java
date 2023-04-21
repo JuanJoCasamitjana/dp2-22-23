@@ -1,23 +1,23 @@
 
-package acme.features.company.practicum;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
+import acme.entities.banner.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Company;
 
 @Service
-public class CompanyPracticumListService extends AbstractService<Company, Practicum> {
+public class AdministratorBannerListService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,30 +31,29 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Practicum> objects;
-		int companyId;
+		Collection<Banner> objects;
 
-		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findManyPracticumByCompanyId(companyId);
+		objects = this.repository.findAllBanner();
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "estimatedTotalTime", "published");
+		tuple = super.unbind(object, "slogan", "instantiationOrUpdate", "pictureLink", "webDocLink");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

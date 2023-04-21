@@ -4,13 +4,14 @@
 
 <acme:form>
 	<acme:input-textbox code="company.practicumSession.form.label.title" path="title"/>
-	<acme:input-textarea code="company.practicumSession.form.label.abstractMessage" path="abstractMessage"/>
+	<acme:input-textbox code="company.practicumSession.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-moment code="company.practicumSession.form.label.periodStart" path="periodStart"/>
 	<acme:input-moment code="company.practicumSession.form.label.periodEnd" path="periodEnd"/>
 	<acme:input-url code="company.practicumSession.form.label.optionalLink" path="optionalLink"/>
-
+	<acme:input-checkbox code="company.practicumSession.form.label.addendum" path="addendum" readonly="true"/>
+	<acme:input-checkbox code="company.practicumSession.form.label.confirmed" path="confirmed"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && status == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="company.practicum-session.form.button.update" action="/company/practicum-session/update"/>
 			<acme:submit code="company.practicum-session.form.button.delete" action="/company/practicum-session/delete"/>
 		</jstl:when>

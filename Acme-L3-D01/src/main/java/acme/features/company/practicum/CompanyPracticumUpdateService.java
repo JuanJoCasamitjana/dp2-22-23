@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.course.Type;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -38,7 +39,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 		practicumId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		rolOk = super.getRequest().getPrincipal().hasRole(Company.class);
+		rolOk = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 		status = practicum != null && !practicum.isPublished() && rolOk;
 
 		super.getResponse().setAuthorised(status);
@@ -63,7 +64,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		super.bind(object, "code", "title", "abstractMessage", "goals");
 
 		object.setCourse(course);
 	}
@@ -78,6 +79,8 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 			existing = this.repository.findOnePracticumByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(object.getCourse().getTypeOfCourse() != Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
 	}
 
 	@Override
@@ -95,9 +98,9 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourse();
+		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

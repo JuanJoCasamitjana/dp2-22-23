@@ -11,12 +11,12 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 
 @Controller
-public class CompanyCompanyDashboardController extends AbstractController<Company, CompanyDashboard> {
+public class CompanyDashboardController extends AbstractController<Company, CompanyDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyCompanyDashboardShowService showService;
+	protected CompanyDashboardShowService showService;
 
 	// Constructors -----------------------------------------------------------
 

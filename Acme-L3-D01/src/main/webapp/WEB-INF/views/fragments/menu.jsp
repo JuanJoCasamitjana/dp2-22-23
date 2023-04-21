@@ -34,6 +34,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
@@ -44,14 +46,6 @@
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.company.companyDashboard" action="/company/company-dashboard/show"/>
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

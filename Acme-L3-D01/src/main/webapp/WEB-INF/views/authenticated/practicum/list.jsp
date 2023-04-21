@@ -6,8 +6,6 @@
 <acme:list>
 	<acme:list-column code="authenticated.practicum.list.label.code" path="code"/>
 	<acme:list-column code="authenticated.practicum.list.label.title" path="title"/>
-	<acme:list-column code="authenticated.practicum.list.label.abstractMessage" path="abstractMessage"/>
 	<acme:list-column code="authenticated.practicum.list.label.estimatedTotalTime" path="estimatedTotalTime"/>
-	<acme:list-column code="authenticated.practicum.list.label.goals" path="goals"/>
 	<acme:list-column code="authenticated.practicum.list.label.published" path="published"/>
 </acme:list>
