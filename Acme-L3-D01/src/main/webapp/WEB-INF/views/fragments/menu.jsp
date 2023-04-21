@@ -51,7 +51,7 @@
 			<acme:menu-suboption code="master.menu.list.courses.create" action="/lecturer/course/create"/>
 			<acme:menu-suboption code="master.menu.list.lectures.list" action="/lecturer/lecture/list"/>
 			<acme:menu-suboption code="master.menu.list.lectures.create" action="/lecturer/lecture/create"/>
-			<acme:menu-suboption code="master.menu.list.aggregate.create" action="/lecturer/lecture-course-aggregation/create"/>
+			<acme:menu-suboption code="master.menu.list.aggregate.list" action="/lecturer/lecture-course-aggregation/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

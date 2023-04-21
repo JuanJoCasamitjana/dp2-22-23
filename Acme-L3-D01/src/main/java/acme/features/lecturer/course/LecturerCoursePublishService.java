@@ -61,6 +61,8 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			state = true;
 		}
 		super.state(state, "*", "lecturer.course.lecture.in.draft");
+		super.state(object.getTypeOfCourse() != Type.PURELY_THEORETICAL, "*", "lecturer.course.not.purely.theoretical");
+		super.state(!lectures.isEmpty(), "*", "lecturer.course.no.lectures");
 	}
 	@Override
 	public void perform(final Course object) {

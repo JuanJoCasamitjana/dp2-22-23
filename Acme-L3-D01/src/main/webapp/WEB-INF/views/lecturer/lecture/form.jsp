@@ -27,11 +27,11 @@
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>
-			<acme:submit code="lecturer.lecture.form.button.add.course" action="/lecturer/lecture-course-aggregation/create?lectureId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create"/>
 		</jstl:when>		
-	</jstl:choose>	
+	</jstl:choose>
+	<acme:link code="lecturer.lecture.form.button.add.course" action="/lecturer/lecture-course-aggregation/create?lectureId=${id}"/>
 </acme:form>
 

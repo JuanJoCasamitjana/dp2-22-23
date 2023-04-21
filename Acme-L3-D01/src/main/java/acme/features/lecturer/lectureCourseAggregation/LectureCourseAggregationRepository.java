@@ -29,4 +29,10 @@ public interface LectureCourseAggregationRepository extends AbstractRepository {
 	Collection<Lecture> findAllLecturesOfLecturer(int lecturerId);
 	@Query("SELECT c FROM Course c WHERE c.id = :courseId")
 	Course findCourseById(int courseId);
+	@Query("SELECT lca.lecture FROM LectureCourseAggregation lca WHERE lca.course.id = :id")
+	Collection<Lecture> findAllLecturesOfCourse(int id);
+	@Query("SELECT lca FROM LectureCourseAggregation lca WHERE lca.course.id = :courseId AND lca.lecture.id = :lectureId")
+	LectureCourseAggregation findAggregationByCourseAndLecture(int courseId, int lectureId);
+	@Query("SELECT c FROM Course c")
+	Collection<Course> findAllCourses();
 }

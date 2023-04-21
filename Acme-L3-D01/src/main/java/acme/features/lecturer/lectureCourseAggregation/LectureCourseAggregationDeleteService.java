@@ -1,10 +1,14 @@
 
 package acme.features.lecturer.lectureCourseAggregation;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.lecture.LectureCourseAggregation;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -38,7 +42,7 @@ public class LectureCourseAggregationDeleteService extends AbstractService<Lectu
 	@Override
 	public void validate(final LectureCourseAggregation object) {
 		assert object != null;
-		super.state(object.getCourse().isInDraft(), "*", "not.in.draft");
+		super.state(object.getCourse().isInDraft(), "*", "course.not.in.draft");
 	}
 
 	@Override
@@ -49,12 +53,16 @@ public class LectureCourseAggregationDeleteService extends AbstractService<Lectu
 
 	@Override
 	public void bind(final LectureCourseAggregation object) {
-
+		assert object != null;
 	}
 	@Override
 	public void unbind(final LectureCourseAggregation object) {
-		Tuple tuple;
-		tuple = super.unbind(object, "course", "lecture");
+		assert object != null;
+		final Collection<Course> courses = this.repository.findAllCourses();
+		final SelectChoices coursesChoices = SelectChoices.from(courses, "code", object.getCourse());
+		final Tuple tuple = super.unbind(object, "serialVersionUID");
+		tuple.put("courses", coursesChoices);
+		tuple.put("lecture", object.getLecture().getTitle());
 		super.getResponse().setData(tuple);
 	}
 }

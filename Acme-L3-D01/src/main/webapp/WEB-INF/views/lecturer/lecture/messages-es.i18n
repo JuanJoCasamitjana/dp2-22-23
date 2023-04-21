@@ -9,7 +9,7 @@ lecturer.lecture.form.button.update = Actualizar
 lecturer.lecture.form.button.delete = Borrar
 lecturer.lecture.form.button.publish = Publicar
 lecturer.lecture.form.button.create = Crear
-lecturer.lecture.form.button.add.to.course = Añadir a curso
+lecturer.lecture.form.button.add.course = Añadir a curso
 
 lecturer.lecture.list.label.title = Título
 lecturer.lecture.list.label.learningTime = Tiempo de aprendizaje

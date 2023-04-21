@@ -21,3 +21,6 @@ lecturer.course.create.not.in.draft = Cannot create if already published
 lecturer.course.update.not.in.draft = Cannot update if already published
 lecturer.course.lecture.in.draft = Cannot publish if at least one lecture is in draft
 lecturer.course.delete.not.in.draft = Cannot delete if already published
+lecturer.course.lecture.in.draft = There is a lecture in draft mode linked to this course
+lecturer.course.not.purely.theoretical = Cannot publish PURELY_THEORETICAL courses
+lecturer.course.no.lectures = Cannot publish a course without lectures

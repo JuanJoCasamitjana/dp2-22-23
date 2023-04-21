@@ -21,4 +21,7 @@ lecturer.course.create.not.in.draft = No se puede crear si ya está publicado
 lecturer.course.update.not.in.draft = No se puede actualizar si ya está publicado
 lecturer.course.lecture.in.draft = No se puede publicar si hay al menos una Leccion en borrador
 lecturer.course.delete.not.in.draft = No se puede borrar si ya está publicado
+lecturer.course.lecture.in.draft = Hay una leccion en modo boorador unida a este curso
+lecturer.course.not.purely.theoretical = No se pueden publicar cursos PURELY_THEORETICAL
+lecturer.course.no.lectures = No se puede publicar un curso sin lecciones
 

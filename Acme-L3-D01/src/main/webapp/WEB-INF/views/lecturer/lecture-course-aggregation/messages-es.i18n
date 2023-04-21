@@ -7,5 +7,8 @@ lecturer.aggregation.form.button.create = Crear
 lecturer.aggregation.form.label.select.course = Seleccionar curso
 lecturer.aggregation.form.label.select.lecture = Seleccionar leccion
 
-lecturer.aggregation.list.label.course.title = Titulo de curso
+lecturer.aggregation.list.label.course.title = Codigo de curso
 lecturer.aggregation.list.label.lecture.title = Titulo de leccion
+
+course.not.in.draft = El curso ya está publicado
+lca.form.already.exists = Esta relacion ya existe

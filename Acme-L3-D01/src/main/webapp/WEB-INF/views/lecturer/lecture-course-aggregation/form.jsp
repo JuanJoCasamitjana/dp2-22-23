@@ -18,13 +18,12 @@
 <acme:form>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
-			<acme:input-textbox code="lecturer.aggregation.form.label.course.code" path="course.code"/>
-			<acme:input-textbox code="lecturer.aggregation.form.label.course.title" path="course.title"/>
-			<acme:input-textbox code="lecturer.aggregation.form.label.lecture.title" path="lecture.title"/>
+			<acme:input-select code="lecturer.aggregation.form.label.select.course" path="course" choices="${courses}" readonly="true"/>
+			<acme:input-textbox code="lecturer.aggregation.form.label.select.lecture" path="lecture"  readonly="true"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-select code="lecturer.aggregation.form.label.select.course" path="course" choices="${courses}"/>
-			<acme:input-select code="lecturer.aggregation.form.label.select.lecture" path="lecture" choices="${lectures}"/>
+			<acme:input-textbox code="lecturer.aggregation.form.label.select.lecture" path="lecture" readonly="true"/>
 		</jstl:when>
 	</jstl:choose>
 	<jstl:choose>
@@ -32,7 +31,7 @@
 			<acme:submit code="lecturer.aggregation.form.button.delete" action="/lecturer/lecture-course-aggregation/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.aggregation.form.button.create" action="/lecturer/lecture-course-aggregation/create"/>
+			<acme:submit code="lecturer.aggregation.form.button.create" action="/lecturer/lecture-course-aggregation/create?lectureId=${lectureId}"/>
 		</jstl:when>		
 	</jstl:choose>	
 </acme:form>
