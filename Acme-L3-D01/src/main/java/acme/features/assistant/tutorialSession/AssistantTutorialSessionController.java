@@ -16,13 +16,13 @@ public class AssistantTutorialSessionController extends AbstractController<Assis
 	@Autowired
 	protected AssistantTutorialSessionListService	listService;
 	@Autowired
-	protected AssistantTutoiralSessionShowService	showService;
+	protected AssistantTutorialSessionShowService	showService;
 	@Autowired
-	protected AssistantTutoiralSessionCreateService	createService;
+	protected AssistantTutorialSessionCreateService	createService;
 	@Autowired
-	protected AssistantTutoiralSessionUpdateService	updateService;
+	protected AssistantTutorialSessionUpdateService	updateService;
 	@Autowired
-	protected AssistantTutoiralSessionDeleteService	deleteService;
+	protected AssistantTutorialSessionDeleteService	deleteService;
 
 
 	@PostConstruct
