@@ -51,6 +51,9 @@ master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.become-lecturer = Become a Lecturer
 master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+
 
 # master.menu.Any #############################################################
 
@@ -73,3 +76,8 @@ master.menu.list.dashboard = Lecturer dashboard
 master.menu.authenticated.assistant.create = Become assistant
 master.menu.authenticated.assistant.update = Assistant data
 master.menu.assistant = Assistant
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit = My audits
