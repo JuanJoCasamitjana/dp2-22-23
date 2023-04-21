@@ -21,7 +21,7 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select t from Tutorial t where t.id = :id")
 	Tutorial findTutorialById(int id);
 
-	@Query("select s from Session s where s.tutorial = :tutorial")
+	@Query("select s from TutorialSession s where s.tutorial = :tutorial")
 	Collection<TutorialSession> findTutorialSessionsByTutorial(Tutorial tutorial);
 
 	@Query("select a from Assistant a where a.id = :id")

@@ -1,3 +1,3 @@
 key,code,title,abstract$,goal,draftMode,key:course,key:assistant
-tutorial-01,AAA999,"Tutorial de prueba","Realizado primer tutorial de prueba","Aprender ,concentrarse",false,course-01,assistant-01
-tutorial-02,AAA999,"Tutorial de prueba","Realizado primer tutorial de prueba","Aprender ,concentrarse",false,course-02,assistant-02
+tutorial-01,AAA999,Tutorial de prueba,Realizado primer tutorial de prueba,"Aprender ,concentrarse",false,course-01,assistant-01
+tutorial-02,AAA998,Tutorial de prueba,Realizado primer tutorial de prueba,"Aprender ,concentrarse",false,course-02,assistant-02
