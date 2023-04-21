@@ -16,12 +16,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="any.course.form.label.code" path="code"/>
-	<acme:input-textbox code="any.course.form.label.title" path="title"/>
-	<acme:input-textarea code="any.course.form.label.abstractMessage" path="abstractMessage"/>
-	<acme:input-double code="any.course.form.label.retailPrice" path="retailPrice"/>
-	<acme:input-select code="any.course.form.label.typeOfCourse" path="typeOfCourse" choices="${types}"/>
-	<acme:input-url code="any.course.form.label.optionalUrl" path="optionalUrl"/>	
-	<acme:input-checkbox code="any.course.form.label.inDraft" path="inDraft"/>	
+	<acme:input-textbox code="authenticated.student.form.label.statement" path="statement"/>
+	<acme:input-textbox code="authenticated.student.form.label.strongFeatures" path="strongFeatures"/>
+	<acme:input-textbox code="authenticated.student.form.label.weekFeatures" path="weekFeatures"/>
+	<acme:input-textbox code="authenticated.student.form.label.link" path="link"/>
+	
+	<acme:submit test="${_command == 'create'}" code="authenticated.student.form.button.create" action="/authenticated/student/create"/>
+	<acme:submit test="${_command == 'update'}" code="authenticated.student.form.button.update" action="/authenticated/student/update"/>
 </acme:form>
-

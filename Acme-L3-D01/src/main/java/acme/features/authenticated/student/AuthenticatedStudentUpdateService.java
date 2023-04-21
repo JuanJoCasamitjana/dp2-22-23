@@ -1,78 +1,74 @@
 
-package acme.features.authenticated.lecturer;
+package acme.features.authenticated.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Lecturer;
+import acme.roles.Student;
 
 @Service
-public class AuthenticatedLecturerCreateService extends AbstractService<Authenticated, Lecturer> {
+public class AuthenticatedStudentUpdateService extends AbstractService<Authenticated, Student> {
 
+	//Repository
 	@Autowired
-	protected AthenticatedLecturerRepository repository;
+	protected AthenticatedStudentRepository repository;
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = !super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void check() {
 		super.getResponse().setChecked(true);
 	}
+
 	@Override
 	public void load() {
-		Lecturer object;
+		Student object;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
-
-		object = new Lecturer();
-		object.setUserAccount(userAccount);
+		object = this.repository.findOneStudentByUserAccountId(userAccountId);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Lecturer object) {
+	public void bind(final Student object) {
 		assert object != null;
 
 		super.bind(object, "statement", "strongFeatures", "weekFeatures", "link");
 	}
 
 	@Override
-	public void validate(final Lecturer object) {
+	public void validate(final Student object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Lecturer object) {
+	public void perform(final Student object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Lecturer object) {
+	public void unbind(final Student object) {
+		assert object != null;
+
 		Tuple tuple;
 
 		tuple = super.unbind(object, "statement", "strongFeatures", "weekFeatures", "link");
-
 		super.getResponse().setData(tuple);
 	}
 

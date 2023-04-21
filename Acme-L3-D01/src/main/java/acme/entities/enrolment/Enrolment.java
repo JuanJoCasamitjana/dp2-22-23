@@ -3,7 +3,8 @@ package acme.entities.enrolment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -22,10 +23,10 @@ public class Enrolment extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	protected Student			student;
 
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	protected Course			course;
 
 	@NotBlank
@@ -42,5 +43,20 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	protected double			workTime;
+
+	protected boolean			draft;
+
+	protected String			holderName;
+
+	protected String			lowerNibble;
+
+	@Transient
+	private String				creditCard;
+
+	@Transient
+	private String				cvc;
+
+	@Transient
+	private String				expiryDate;
 
 }
