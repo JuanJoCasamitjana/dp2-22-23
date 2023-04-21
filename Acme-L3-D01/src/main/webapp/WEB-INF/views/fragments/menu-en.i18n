@@ -77,11 +77,16 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-company = Become a Company
 master.menu.user-account.company = Company Data
-=======
+
 master.menu.user-account.become-lecturer = Become a Lecturer
 master.menu.user-account.lecturer = Lecturer data
+
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+
 master.menu.user-account.become-student= Become a Student
 master.menu.user-account.student = Student data
+
 
 
 # master.menu.Student #############################################################
@@ -111,4 +116,9 @@ master.menu.authenticated.assistant.create = Become assistant
 master.menu.authenticated.assistant.update = Assistant data
 master.menu.assistant = Assistant
 
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit = My audits
 

@@ -75,6 +75,8 @@ master.menu.user-account.student= Datos del estudiante
 
 master.menu.user-account.become-lecturer = Hazte conferenciante
 master.menu.user-account.lecturer = Datos de conferenciante
+master.menu.user-account.auditor = Datos del auditor
+master.menu.user-account.become-auditor = Hazte auditor
 
 
 # master.menu.Student #############################################################
@@ -107,3 +109,7 @@ master.menu.authenticated.assistant.create = Hazte asistente
 master.menu.authenticated.assistant.update = Datos de asistente
 master.menu.assistant = Asistente
 
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit = Mis auditorias

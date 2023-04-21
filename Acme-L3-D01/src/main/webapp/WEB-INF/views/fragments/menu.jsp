@@ -89,7 +89,11 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down"
 				action="/administrator/shut-down" />
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.audit" action="/auditor/audit/list-mine"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.provider"
 			access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link"
@@ -155,7 +159,8 @@
 			<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.authenticated.assistant.create" action="/authenticated/assistant/create" access="!hasRole('Assistant')"/>
 			<acme:menu-suboption code="master.menu.authenticated.assistant.update" action="/authenticated/assistant/update" access="hasRole('Assistant')"/>
-
+			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
 
 		</acme:menu-option>
 
