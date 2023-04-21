@@ -34,6 +34,19 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
+master.menu.administrator.banner.list = Lista de Banner
+
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.practicum.list = Lista de Practicum
+
+# master.menu.company ########################################################
+
+master.menu.company = Compañía
+master.menu.company.practicum.list = Mi lista de practicum
+master.menu.company.companyDashboard = Dashboard de Compañía
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -48,6 +61,14 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-company = Hazte Compañía
+master.menu.user-account.company = Datos de Compañía
+
 
 master.menu.user-account.become-student= Hazte estudiante
 master.menu.user-account.student= Datos del estudiante
@@ -85,3 +106,4 @@ master.menu.list.dashboard = Tablero de conferenciante
 master.menu.authenticated.assistant.create = Hazte asistente
 master.menu.authenticated.assistant.update = Datos de asistente
 master.menu.assistant = Asistente
+
