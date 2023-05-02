@@ -74,7 +74,7 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "InstantiationOrUpdate", "slogan", "periodStart", "periodEnd", "pictureLink", "webDocLink");
+		tuple = super.unbind(object, "slogan", "instantiation", "periodStart", "periodEnd", "pictureLink", "webDocLink");
 
 		super.getResponse().setData(tuple);
 	}

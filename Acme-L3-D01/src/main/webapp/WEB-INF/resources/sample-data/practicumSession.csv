@@ -1,5 +1,5 @@
 key,title,abstractMessage,periodStart,periodEnd,optionalLink,addendum,confirmed,key:practicum
-practicum-session-01,"Sesion 1","Esto es un mensaje 1", 2023/05/10 10:00, 2023/05/13 18:00,,false,false,practicum-01
+practicum-session-01,"Sesion 1","Esto es un mensaje 1", 2023/05/10 10:00, 2023/05/13 18:00,,true,true,practicum-01
 practicum-session-02,"Sesion 2","Esto es un mensaje 2", 2023/05/14 10:00, 2023/08/17 18:00,,false,false,practicum-01
 practicum-session-03,"Sesion 3","Esto es un mensaje 3", 2023/08/20 10:00, 2023/08/27 18:00,,false,false,practicum-02
 practicum-session-04,"Sesion 4","Esto es un mensaje 4", 2023/07/05 10:00, 2023/07/06 18:00,,false,false,practicum-03

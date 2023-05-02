@@ -3,12 +3,12 @@
 <%@ taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="company.practicumSession.list.label.title" path="title"/>
-	<acme:list-column code="company.practicumSession.list.label.periodStart" path="periodStart"/>
-	<acme:list-column code="company.practicumSession.list.label.periodEnd" path="periodEnd"/>
-	<acme:list-column code="company.practicumSession.list.label.addendum" path="addendum"/>
+	<acme:list-column code="company.practicum-session.list.label.title" path="title"/>
+	<acme:list-column code="company.practicum-session.list.label.periodStart" path="periodStart"/>
+	<acme:list-column code="company.practicum-session.list.label.periodEnd" path="periodEnd"/>
+	<acme:list-column code="company.practicum-session.list.label.addendum" path="addendum"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list' && hasAddendum==false}">
+<jstl:if test="${_command == 'list' && hasAddendum == false}">
 	<acme:button code="company.practicum-session.list.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>
 </jstl:if>

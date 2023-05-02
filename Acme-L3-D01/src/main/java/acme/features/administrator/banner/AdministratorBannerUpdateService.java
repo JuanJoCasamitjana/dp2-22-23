@@ -63,19 +63,48 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
-			final Date now = new Date();
-
-			super.state(object.getPeriodStart().after(now), "periodStart", "company.practicum-session.form.error.periodStart");
+		if (!super.getBuffer().getErrors().hasErrors("slogan")) {
+			Banner b;
+			b = this.repository.findOneBannerBySlogan(object.getSlogan());
+			super.state(b == null || b.equals(object), "slogan", "administrator.banner.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("periodEnd"))
-			super.state(object.getPeriodEnd().after(object.getPeriodStart()), "periodEnd", "company.practicum-session.form.error.periodEnd");
+		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
+			Date instantiation;
+			Date periodStart;
 
+			instantiation = object.getInstantiation();
+			periodStart = object.getPeriodStart();
+
+			super.state(instantiation.before(periodStart), "periodStart", "administrator.banner.form.error.period-start");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			double diferencia;
+			long periodStart;
+			long periodEnd;
+			long diff;
+
+			diferencia = 0.0;
+			periodStart = object.getPeriodStart().getTime();
+			periodEnd = object.getPeriodEnd().getTime();
+			diff = periodEnd - periodStart;
+			if (diff > 0)
+				diferencia = diff / (1000.0 * 60);
+
+			super.state(diferencia >= 7 * 24 * 60, "periodEnd", "administrator.banner.form.error.period-end");
+		}
 	}
+
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
+
+		Date ahora;
+
+		ahora = new Date();
+
+		object.setInstantiation(ahora);
 
 		this.repository.save(object);
 	}
@@ -86,7 +115,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "slogan", "periodStart", "periodEnd", "pictureLink", "webDocLink");
+		tuple = super.unbind(object, "slogan", "instantiation", "periodStart", "periodEnd", "pictureLink", "webDocLink");
 
 		super.getResponse().setData(tuple);
 	}

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.practicum.Practicum;
-import acme.entities.practicum.PracticumSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -68,35 +67,11 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
-		Collection<PracticumSession> sesiones;
-		double diffHoras = 0;
-		double total = 0;
-
-		sesiones = this.repository.findManyPracticumSessionByPracticumId(object.getId());
-
-		for (final PracticumSession ps : sesiones) {
-			long milisegundosStart;
-			long milisegundosEnd;
-			long diffMilisegundos;
-
-			milisegundosStart = ps.getPeriodStart().getTime();
-			milisegundosEnd = ps.getPeriodEnd().getTime();
-			diffMilisegundos = milisegundosEnd - milisegundosStart;
-			if (diffMilisegundos > 0) {
-				diffHoras = (double) diffMilisegundos / (1000 * 60 * 60);
-				total += diffHoras;
-			}
-		}
-
-		final int horas = (int) total;
-		final int minutos = (int) ((total - horas) * 60);
-		final double res = Double.parseDouble(horas + "." + minutos);
 
 		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "published");
-		tuple.put("estimatedTotalTime", res);
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

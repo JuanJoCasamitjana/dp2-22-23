@@ -1,10 +1,13 @@
 
 package acme.features.authenticated.practicum;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicum.Practicum;
+import acme.entities.practicum.PracticumSession;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -55,8 +58,32 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 		assert object != null;
 
 		Tuple tuple;
+		Collection<PracticumSession> sesiones;
+		double diffHoras = 0;
+		double total = 0;
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company.name", "course.title");
+		sesiones = this.repository.findManyPracticumSessionByPracticumId(object.getId());
+
+		for (final PracticumSession ps : sesiones) {
+			long milisegundosStart;
+			long milisegundosEnd;
+			long diffMilisegundos;
+
+			milisegundosStart = ps.getPeriodStart().getTime();
+			milisegundosEnd = ps.getPeriodEnd().getTime();
+			diffMilisegundos = milisegundosEnd - milisegundosStart;
+			if (diffMilisegundos > 0) {
+				diffHoras = (double) diffMilisegundos / (1000 * 60 * 60);
+				total += diffHoras;
+			}
+		}
+
+		final int horas = (int) total;
+		final int minutos = (int) ((total - horas) * 60);
+		final double res = Double.parseDouble(horas + "." + minutos);
+
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "published", "company.name", "course.title");
+		tuple.put("estimatedTotalTime", res);
 
 		super.getResponse().setData(tuple);
 	}

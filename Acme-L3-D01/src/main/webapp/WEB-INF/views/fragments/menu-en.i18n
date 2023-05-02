@@ -26,7 +26,10 @@ master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
 master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
 
-master.menu.company.register = Register as company
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum.list = Practicum list
 
 # master.menu.administrator ###################################################
 
@@ -39,70 +42,8 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.administrator.banner.list = Banner list
 
-# master.menu.authenticated ########################################################
-
-master.menu.authenticated = Authenticated
-master.menu.authenticated.practicum.list = Practicum list
-
-# master.menu.company ########################################################
-
-master.menu.company = Company
-master.menu.company.practicum.list = My practicum list
-master.menu.company.companyDashboard = Company Dashboard
-
-# master.menu.provider ########################################################
-
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
-master.menu.juacasben.favourite-link = 28844948G: Casamitjana Benítez, Juan José
-master.menu.davgavser.favourite-link = 29510529B: Gavira Serrano, David
-master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
-master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
-master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
-
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
-
-# master.menu.user-account ####################################################
-
-master.menu.user-account = Account
-master.menu.user-account.general-data = General data
-
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
-master.menu.user-account.become-company = Become a Company
-master.menu.user-account.company = Company Data
-
-master.menu.user-account.become-lecturer = Become a Lecturer
-master.menu.user-account.lecturer = Lecturer data
-
-master.menu.user-account.auditor = Auditor data
-master.menu.user-account.become-auditor = Become an auditor
-
-master.menu.user-account.become-student= Become a Student
-master.menu.user-account.student = Student data
-
-
-
-# master.menu.Student #############################################################
-
-master.menu.student = Student
-master.menu.student.list.activities = Activities
-master.menu.list.courses = List courses
-
-master.menu.student.list.enrolments = Enrolments
-master.menu.student.list.courses = Courses
-
-master.menu.list.peeps = List peeps
-master.menu.create.peep = Create peep
-
 # master.menu.Lecturer #########################################################
-master.menu.Lecturer = Conferenciante
+master.menu.Lecturer = Lecturer
 master.menu.list.courses.list = List courses
 master.menu.list.courses.create = Create courses
 master.menu.list.lectures.list = List lectures
@@ -111,14 +52,47 @@ master.menu.list.aggregate.create = Add lecture to course
 master.menu.list.aggregate.list = See courses with lectures
 master.menu.list.dashboard = Lecturer dashboard
 
-# assistant ##############################
-master.menu.authenticated.assistant.create = Become assistant
-master.menu.authenticated.assistant.update = Assistant data
+# master.menu.Student #############################################################
+
+master.menu.student = Student
+master.menu.student.list.activities = Activities
+master.menu.list.courses = List courses
+master.menu.student.list.enrolments = Enrolments
+master.menu.student.list.courses = Courses
+master.menu.list.peeps = List peeps
+master.menu.create.peep = Create peep
+
+# master.menu.assistant ###################################################
+
 master.menu.assistant = Assistant
 
+# master.menu.company ########################################################
+
+master.menu.company = Company
+master.menu.company.practicum.list = My practicum list
+master.menu.company.companyDashboard = Company Dashboard
 
 # master.menu.auditor ###################################################
 
 master.menu.auditor = Auditor
 master.menu.auditor.audit = My audits
 
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Account
+master.menu.user-account.general-data = General data
+
+master.menu.user-account.lecturer.create = Become a Lecturer
+master.menu.user-account.lecturer.update = Lecturer data
+
+master.menu.user-account.student.create= Become a Student
+master.menu.user-account.student.update = Student data
+
+master.menu.authenticated.assistant.create = Become assistant
+master.menu.authenticated.assistant.update = Assistant data
+
+master.menu.user-account.company.create = Become a Company
+master.menu.user-account.company.update = Company Data
+
+master.menu.user-account.auditor.create = Become an auditor
+master.menu.user-account.auditor.update = Auditor data

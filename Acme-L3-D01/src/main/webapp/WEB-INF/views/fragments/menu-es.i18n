@@ -25,6 +25,11 @@ master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
 master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
 
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.practicum.list = Lista de Practicum
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -36,48 +41,11 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.administrator.banner.list = Lista de Banner
 
-# master.menu.authenticated ########################################################
-
-master.menu.authenticated = Autentificado
-master.menu.authenticated.practicum.list = Lista de Practicum
-
 # master.menu.company ########################################################
 
 master.menu.company = Compañía
 master.menu.company.practicum.list = Mi lista de practicum
 master.menu.company.companyDashboard = Dashboard de Compañía
-
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
-
-# master.menu.user-account ####################################################
-
-master.menu.user-account = Cuenta
-master.menu.user-account.general-data = Datos generales
-
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
-master.menu.user-account.become-company = Hazte Compañía
-master.menu.user-account.company = Datos de Compañía
-
-
-master.menu.user-account.become-student= Hazte estudiante
-master.menu.user-account.student= Datos del estudiante
-
-master.menu.user-account.become-lecturer = Hazte conferenciante
-master.menu.user-account.lecturer = Datos de conferenciante
-master.menu.user-account.auditor = Datos del auditor
-master.menu.user-account.become-auditor = Hazte auditor
-
 
 # master.menu.Student #############################################################
 
@@ -103,13 +71,31 @@ master.menu.list.aggregate.create = Añadir leccion a curso
 master.menu.list.aggregate.list = Ver cursos con lecciones
 master.menu.list.dashboard = Tablero de conferenciante
 
-# assistant ##############################################
+# master.menu.assistant ###################################################
 
-master.menu.authenticated.assistant.create = Hazte asistente
-master.menu.authenticated.assistant.update = Datos de asistente
 master.menu.assistant = Asistente
 
 # master.menu.auditor ###################################################
 
 master.menu.auditor = Auditor
 master.menu.auditor.audit = Mis auditorias
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+
+master.menu.user-account.lecturer.create = Hazte conferenciante
+master.menu.user-account.lecturer.update = Datos de conferenciante
+
+master.menu.user-account.student.create = Hazte estudiante
+master.menu.user-account.student.update = Datos del estudiante
+
+master.menu.authenticated.assistant.create = Hazte asistente
+master.menu.authenticated.assistant.update = Datos de asistente
+
+master.menu.user-account.company.create = Hazte Compañía
+master.menu.user-account.company.update = Datos de Compañía
+
+master.menu.user-account.auditor.create = Hazte auditor
+master.menu.user-account.auditor.update = Datos del auditor

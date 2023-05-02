@@ -1,6 +1,8 @@
 
 package acme.features.company.practicumSession;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,13 +75,44 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		assert object != null;
 
 		this.repository.delete(object);
+
+		Collection<PracticumSession> sesiones;
+		double diferencia;
+		double total;
+		int hours;
+		int minutes;
+		double res;
+
+		sesiones = this.repository.findManyPracticumSessionByPracticumId(object.getPracticum().getId());
+
+		diferencia = 0.0;
+		total = 0.0;
+		for (final PracticumSession ps : sesiones) {
+			long periodStart;
+			long periodEnd;
+			long diff;
+			periodStart = ps.getPeriodStart().getTime();
+			periodEnd = ps.getPeriodEnd().getTime();
+			diff = periodEnd - periodStart;
+			if (diff > 0) {
+				diferencia = (double) diff / (1000 * 60 * 60);
+				total += diferencia;
+			}
+		}
+
+		hours = (int) total;
+		minutes = (int) ((total - hours) * 60);
+		res = Double.parseDouble(hours + "." + minutes);
+
+		object.getPracticum().setEstimatedTotalTime(res);
+		this.repository.save(object.getPracticum());
 	}
 
 	@Override
 	public void unbind(final PracticumSession object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "addendum", "confirmed");
 
 		super.getResponse().setData(tuple);
 	}
