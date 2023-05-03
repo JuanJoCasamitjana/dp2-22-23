@@ -12,6 +12,7 @@
 company.practicum-session.list.label.title = Title
 company.practicum-session.list.label.periodStart = Start
 company.practicum-session.list.label.periodEnd = End
+company.practicum-session.list.label.totalTime = Time
 company.practicum-session.list.label.addendum = It's addendum
 
 # list buttons
@@ -22,6 +23,7 @@ company.practicum-session.form.label.title = Title
 company.practicum-session.form.label.abstractMessage = Message
 company.practicum-session.form.label.periodStart = Start
 company.practicum-session.form.label.periodEnd = End
+company.practicum-session.form.label.totalTime = Time
 company.practicum-session.form.label.optionalLink = Optional link
 company.practicum-session.form.label.addendum = It's addendum
 company.practicum-session.form.label.confirmed = Confirm

@@ -66,6 +66,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object.setAbstractMessage("");
 		object.setPeriodStart(new Date());
 		object.setPeriodEnd(new Date());
+		object.setTotalTime(0.0);
 		object.setOptionalLink("");
 		object.setPracticum(practicum);
 		object.setAddendum(practicum.isPublished());
@@ -136,37 +137,35 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void perform(final PracticumSession object) {
 		assert object != null;
 
-		this.repository.save(object);
-
-		Collection<PracticumSession> sesiones;
-		double diferencia;
+		long periodStart;
+		long periodEnd;
+		long diff;
 		double total;
 		int horas;
 		int minutos;
 		double res;
 
-		sesiones = this.repository.findManyPracticumSessionByPracticumId(object.getPracticum().getId());
-
-		diferencia = 0.0;
 		total = 0.0;
-		for (final PracticumSession ps : sesiones) {
-			long periodStart;
-			long periodEnd;
-			long diff;
-			periodStart = ps.getPeriodStart().getTime();
-			periodEnd = ps.getPeriodEnd().getTime();
-			diff = periodEnd - periodStart;
-			if (diff > 0) {
-				diferencia = diff / (1000.0 * 60 * 60);
-				total += diferencia;
-			}
-		}
+		periodStart = object.getPeriodStart().getTime();
+		periodEnd = object.getPeriodEnd().getTime();
+		diff = periodEnd - periodStart;
+		if (diff > 0)
+			total = diff / (1000.0 * 60 * 60);
 
 		horas = (int) total;
 		minutos = (int) ((total - horas) * 60);
 		res = Double.parseDouble(horas + "." + minutos);
 
-		object.getPracticum().setEstimatedTotalTime(res);
+		object.setTotalTime(res);
+		this.repository.save(object);
+
+		//###############################
+
+		double suma;
+
+		suma = this.repository.sumOfPracticumSessionTimeByPracticumId(object.getPracticum().getId()).orElse(0.0);
+
+		object.getPracticum().setEstimatedTotalTime(suma);
 		this.repository.save(object.getPracticum());
 	}
 
@@ -177,7 +176,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		boolean isAddendum;
 
 		practicumId = super.getRequest().getData("practicumId", int.class);
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
 		isAddendum = object.isAddendum();
 
 		tuple.put("practicumId", practicumId);

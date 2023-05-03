@@ -1,10 +1,10 @@
-key,title,abstractMessage,periodStart,periodEnd,optionalLink,addendum,confirmed,key:practicum
-practicum-session-01,"Sesion 1","Esto es un mensaje 1", 2023/05/10 10:00, 2023/05/13 18:00,,true,true,practicum-01
-practicum-session-02,"Sesion 2","Esto es un mensaje 2", 2023/05/14 10:00, 2023/08/17 18:00,,false,false,practicum-01
-practicum-session-03,"Sesion 3","Esto es un mensaje 3", 2023/08/20 10:00, 2023/08/27 18:00,,false,false,practicum-02
-practicum-session-04,"Sesion 4","Esto es un mensaje 4", 2023/07/05 10:00, 2023/07/06 18:00,,false,false,practicum-03
-practicum-session-05,"Sesion 5","Esto es un mensaje 5", 2023/07/07 10:00, 2023/07/08 18:00,,false,false,practicum-03
-practicum-session-06,"Sesion 6","Esto es un mensaje 6", 2023/07/09 10:00, 2023/07/10 18:00,,false,false,practicum-03
-practicum-session-07,"Sesion 7","Esto es un mensaje 7", 2023/08/20 10:00, 2023/08/27 18:00,,false,false,practicum-04
-practicum-session-08,"Sesion 8","Esto es un mensaje 8", 2023/08/20 10:00, 2023/08/27 18:00,,false,false,practicum-05
-practicum-session-09,"Sesion 9","Esto es un mensaje 9", 2023/08/20 10:00, 2023/08/27 18:00,,false,false,practicum-06
+key,title,abstractMessage,periodStart,periodEnd,totalTime,optionalLink,addendum,confirmed,key:practicum
+practicum-session-01,"Sesion 1","Esto es un mensaje 1", 2023/05/10 10:00, 2023/05/17 18:00,176.0,,true,true,practicum-01
+practicum-session-02,"Sesion 2","Esto es un mensaje 2", 2023/05/17 10:00, 2023/08/17 18:00,2216.0,,false,false,practicum-01
+practicum-session-03,"Sesion 3","Esto es un mensaje 3", 2023/08/20 10:00, 2023/08/27 18:00,176.0,,false,false,practicum-02
+practicum-session-04,"Sesion 4","Esto es un mensaje 4", 2023/07/05 10:00, 2023/07/12 18:00,176.0,,false,false,practicum-03
+practicum-session-05,"Sesion 5","Esto es un mensaje 5", 2023/07/12 10:00, 2023/07/19 18:00,176.0,,false,false,practicum-03
+practicum-session-06,"Sesion 6","Esto es un mensaje 6", 2023/07/19 10:00, 2023/07/26 18:00,176.0,,false,false,practicum-03
+practicum-session-07,"Sesion 7","Esto es un mensaje 7", 2023/08/20 10:00, 2023/08/27 18:00,176.0,,false,false,practicum-04
+practicum-session-08,"Sesion 8","Esto es un mensaje 8", 2023/08/20 10:00, 2023/08/27 18:00,176.0,,false,false,practicum-05
+practicum-session-09,"Sesion 9","Esto es un mensaje 9", 2023/08/20 10:00, 2023/08/27 18:00,176.0,,false,false,practicum-06

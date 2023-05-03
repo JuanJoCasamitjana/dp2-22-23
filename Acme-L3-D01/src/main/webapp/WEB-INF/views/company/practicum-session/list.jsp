@@ -6,6 +6,7 @@
 	<acme:list-column code="company.practicum-session.list.label.title" path="title"/>
 	<acme:list-column code="company.practicum-session.list.label.periodStart" path="periodStart"/>
 	<acme:list-column code="company.practicum-session.list.label.periodEnd" path="periodEnd"/>
+	<acme:list-column code="company.practicum-session.list.label.totalTime" path="totalTime"/>
 	<acme:list-column code="company.practicum-session.list.label.addendum" path="addendum"/>
 </acme:list>
 

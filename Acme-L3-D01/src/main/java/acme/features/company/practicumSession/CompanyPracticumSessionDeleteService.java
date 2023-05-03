@@ -1,8 +1,6 @@
 
 package acme.features.company.practicumSession;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,35 +74,11 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 
 		this.repository.delete(object);
 
-		Collection<PracticumSession> sesiones;
-		double diferencia;
-		double total;
-		int hours;
-		int minutes;
-		double res;
+		double suma;
 
-		sesiones = this.repository.findManyPracticumSessionByPracticumId(object.getPracticum().getId());
+		suma = this.repository.sumOfPracticumSessionTimeByPracticumId(object.getPracticum().getId()).orElse(0.0);
 
-		diferencia = 0.0;
-		total = 0.0;
-		for (final PracticumSession ps : sesiones) {
-			long periodStart;
-			long periodEnd;
-			long diff;
-			periodStart = ps.getPeriodStart().getTime();
-			periodEnd = ps.getPeriodEnd().getTime();
-			diff = periodEnd - periodStart;
-			if (diff > 0) {
-				diferencia = (double) diff / (1000 * 60 * 60);
-				total += diferencia;
-			}
-		}
-
-		hours = (int) total;
-		minutes = (int) ((total - hours) * 60);
-		res = Double.parseDouble(hours + "." + minutes);
-
-		object.getPracticum().setEstimatedTotalTime(res);
+		object.getPracticum().setEstimatedTotalTime(suma);
 		this.repository.save(object.getPracticum());
 	}
 
@@ -112,7 +86,7 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 	public void unbind(final PracticumSession object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
 
 		super.getResponse().setData(tuple);
 	}

@@ -7,6 +7,7 @@
 	<acme:input-textbox code="company.practicum-session.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-moment code="company.practicum-session.form.label.periodStart" path="periodStart"/>
 	<acme:input-moment code="company.practicum-session.form.label.periodEnd" path="periodEnd"/>
+	<acme:input-double code="company.practicum-session.form.label.totalTime" path="totalTime" readonly="true"/>
 	<acme:input-url code="company.practicum-session.form.label.optionalLink" path="optionalLink"/>
 	<acme:input-checkbox code="company.practicum-session.form.label.addendum" path="addendum" readonly="true"/>
 	<jstl:if test="${isAddendum == false}">

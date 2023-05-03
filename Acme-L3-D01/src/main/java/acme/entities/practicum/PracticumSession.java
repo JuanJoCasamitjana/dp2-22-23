@@ -3,6 +3,7 @@ package acme.entities.practicum;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -41,6 +42,10 @@ public class PracticumSession extends AbstractEntity {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				periodEnd;
+
+	@NotNull
+	@Column(nullable = false)
+	protected double			totalTime;
 
 	@URL
 	protected String			optionalLink;
