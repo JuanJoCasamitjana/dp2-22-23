@@ -33,13 +33,13 @@
 					path="cvc" />
 				<acme:submit code="student.enrolment.form.button.finalise"
 					action="/student/enrolment/finalise" />
+				<acme:submit code="student.enrolment.form.button.update"
+					action="/student/enrolment/update" />
+				<acme:submit code="student.enrolment.form.button.delete"
+					action="/student/enrolment/delete" />
 			</jstl:if>
 
 
-			<acme:submit code="student.enrolment.form.button.update"
-				action="/student/enrolment/update" />
-			<acme:submit code="student.enrolment.form.button.delete"
-				action="/student/enrolment/delete" />
 
 		</jstl:when>
 		<jstl:when test="${_command == 'create' }">

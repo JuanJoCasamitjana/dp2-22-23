@@ -70,8 +70,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		assert act != null;
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsFinished();
-
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
 		final SelectChoices choices2 = SelectChoices.from(enrolments, "code", act.getEnrolment());
 		tuple.put("enrolments", choices2);
 		tuple.put("enrolment", choices2.getSelected().getKey());

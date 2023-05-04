@@ -44,10 +44,13 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Activity act = this.repository.findActivityById(id);
+		int activityId;
+		Activity activity;
 
-		super.getBuffer().setData(act);
+		activityId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findActivityById(activityId);
+
+		super.getBuffer().setData(activity);
 	}
 
 	@Override
@@ -55,10 +58,8 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		assert act != null;
 
 		Tuple tuple;
-		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsFinished();
-		if (enrolments.isEmpty())
-			enrolments.add(act.getEnrolment());
+		tuple = super.unbind(act, "title", "text", "periodStart", "periodEnd", "link");
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
 		final SelectChoices choices2 = SelectChoices.from(enrolments, "code", act.getEnrolment());
 		tuple.put("enrolments", choices2);
 		tuple.put("enrolment", choices2.getSelected().getKey());
@@ -66,6 +67,8 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		final SelectChoices choices = SelectChoices.from(Type.class, act.getType());
 		tuple.put("types", choices);
 		tuple.put("type", choices.getSelected().getKey());
+
+		tuple.put("draft", act.getEnrolment().isDraft());
 		super.getResponse().setData(tuple);
 	}
 

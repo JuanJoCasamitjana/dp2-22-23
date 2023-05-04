@@ -41,16 +41,25 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void load() {
-		final Activity activity = new Activity();
+		int activityId;
+		Activity activity;
+
+		activityId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findActivityById(activityId);
 
 		super.getBuffer().setData(activity);
 	}
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
+
+		final int enrolmentId = Integer.valueOf(super.getRequest().getData("enrolment_proxy", String.class));
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
+
+		//		final int typeId = super.getRequest().getData("type", int.class);
+		//		final Type type = Stream.of(Type.values()).filter(x -> x.ordinal() == typeId).iterator().next();
+		//		object.setType(type);
 
 		super.bind(object, "title", "text", "type", "periodStart", "periodEnd", "link");
 
@@ -72,19 +81,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity act) {
 		assert act != null;
+
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsFinished();
-		if (enrolments.isEmpty())
-			enrolments.add(act.getEnrolment());
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
 		final SelectChoices choices2 = SelectChoices.from(enrolments, "code", act.getEnrolment());
 		tuple.put("enrolments", choices2);
 		tuple.put("enrolment", choices2.getSelected().getKey());
 
 		final SelectChoices choices = SelectChoices.from(Type.class, act.getType());
 		tuple.put("types", choices);
-		tuple.put("type", choices.getSelected().getKey());
 
+		tuple.put("draft", act.getEnrolment().isDraft());
 		super.getResponse().setData(tuple);
 	}
 

@@ -37,7 +37,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		final Integer eId = super.getRequest().getData("id", int.class);
 		final Enrolment e = this.repository.findEnrolmentById(eId);
 		final boolean auth = super.getRequest().getPrincipal().getActiveRoleId() == e.getStudent().getId();
-		super.getResponse().setAuthorised(auth && !e.isDraft());
+		super.getResponse().setAuthorised(auth && e.isDraft());
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final boolean duplicatedCode = this.repository.findOneEnrolmentByCode(object.getCode()) > 0;
+			final boolean duplicatedCode = this.repository.findOneEnrolmentByCode(object.getCode()) > 1;
 			super.state(!duplicatedCode, "code", "student.enrolment.form.error.duplicated-code");
 		}
 	}
@@ -90,7 +90,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Tuple tuple;
 
 		courses = this.repository.findCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble");
 		tuple.put("courses", choices);
