@@ -3,14 +3,15 @@
 <%@ taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="company.companyDashboard.form.label.theoryPractica" path="theoryPractica"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.handsOnPractica" path="handsOnPractica"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.averagePeriodLengthOfSession" path="averagePeriodLengthOfSession"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.deviationPeriodLengthOfSession" path="deviationPeriodLengthOfSession"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.minimumPeriodLengthOfSession" path="minimumPeriodLengthOfSession"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.maximunmPeriodLengthOfSession" path="maximunmPeriodLengthOfSession"/>
-	<acme:input-textbox code="company.companyDashboard.form.label.averagePeriodLengthOfPractica" path="averagePeriodLengthOfPractica"/>	
-	<acme:input-textbox code="company.companyDashboard.form.label.deviationPeriodLengthOfPractica" path="deviationPeriodLengthOfPractica"/>	
-	<acme:input-textbox code="company.companyDashboard.form.label.minimumPeriodLengthOfPractica" path="minimumPeriodLengthOfPractica"/>	
-	<acme:input-textbox code="company.companyDashboard.form.label.maximunmPeriodLengthOfPractica" path="maximunmPeriodLengthOfPractica"/>	
+	<acme:input-integer code="company.companyDashboard.form.label.totalNumberOfPracticums" path="totalNumberOfPracticums" readonly="true"/>
+	<acme:input-double code="company.companyDashboard.form.label.averagePeriodLengthOfPracticums" path="averagePeriodLengthOfPracticums" readonly="true"/>	
+	<acme:input-double code="company.companyDashboard.form.label.deviationPeriodLengthOfPracticums" path="deviationPeriodLengthOfPracticums" readonly="true"/>	
+	<acme:input-double code="company.companyDashboard.form.label.minimumPeriodLengthOfPracticums" path="minimumPeriodLengthOfPracticums" readonly="true"/>	
+	<acme:input-double code="company.companyDashboard.form.label.maximumPeriodLengthOfPracticums" path="maximumPeriodLengthOfPracticums" readonly="true"/>	
+	<acme:menu-separator/>
+	<acme:input-double code="company.companyDashboard.form.label.totalNumberOfSessions" path="totalNumberOfSessions" readonly="true"/>
+	<acme:input-double code="company.companyDashboard.form.label.averagePeriodLengthOfSessions" path="averagePeriodLengthOfSessions" readonly="true"/>
+	<acme:input-double code="company.companyDashboard.form.label.deviationPeriodLengthOfSessions" path="deviationPeriodLengthOfSessions" readonly="true"/>
+	<acme:input-double code="company.companyDashboard.form.label.minimumPeriodLengthOfSessions" path="minimumPeriodLengthOfSessions" readonly="true"/>
+	<acme:input-double code="company.companyDashboard.form.label.maximumPeriodLengthOfSessions" path="maximumPeriodLengthOfSessions" readonly="true"/>
 </acme:form>

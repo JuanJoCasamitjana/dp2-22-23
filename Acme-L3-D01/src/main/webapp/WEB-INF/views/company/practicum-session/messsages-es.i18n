@@ -8,25 +8,33 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.practicumSession.list.label.title = Título
-company.practicumSession.list.label.abstractMessage = Mensaje
-company.practicumSession.list.label.periodStart = Comienzo
-company.practicumSession.list.label.periodEnd = Fin
-company.practicumSession.list.label.optionalLink = Enlace opcional
-company.practicumSession.list.label.addendum = Es addendum
+# list
+company.practicum-session.list.label.title = Título
+company.practicum-session.list.label.periodStart = Comienzo
+company.practicum-session.list.label.periodEnd = Fin
+company.practicum-session.list.label.totalTime = Tiempo
+company.practicum-session.list.label.addendum = Es addendum
 
+# list buttons
 company.practicum-session.list.button.create = Crear
 
-company.practicumSession.form.label.title = Título
-company.practicumSession.form.label.abstractMessage = Mensaje
-company.practicumSession.form.label.periodStart = Comienzo
-company.practicumSession.form.label.periodEnd = Fin
-company.practicumSession.form.label.optionalLink = Enlace opcional
-company.practicumSession.form.label.addendum = Es un addendum
-company.practicumSession.form.label.confirmed = Está confirmado
+# form
+company.practicum-session.form.label.title = Título
+company.practicum-session.form.label.abstractMessage = Mensaje
+company.practicum-session.form.label.periodStart = Comienzo
+company.practicum-session.form.label.periodEnd = Fin
+company.practicum-session.form.label.totalTime = Tiempo
+company.practicum-session.form.label.optionalLink = Enlace opcional
+company.practicum-session.form.label.addendum = Es un addendum
+company.practicum-session.form.label.confirm = Confirmar
 
+# form buttons
 company.practicum-session.form.button.create = Crear
 company.practicum-session.form.button.update = Actualizar
 company.practicum-session.form.button.delete = Eliminar
 
-company.practicum-session.form.error.notconfirmed = Las Sesiones Addendum deben estar confirmadas
+# validations
+company.practicum-session.form.error.duplicated = Este título de sesión ya existe
+company.practicum-session.form.error.not-confirmed = Las Sesiones Addendum deben estar confirmadas
+company.practicum-session.form.error.period-start = La fecha inicial debe ser, al menos, una semana posterior a la fecha actual
+company.practicum-session.form.error.period-end = La fecha final debe ser, al menos, una semana posterior a la fecha inicial

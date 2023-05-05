@@ -78,6 +78,10 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(!object.isPublished(), "published", "company.practicum.form.error.published");
+
 	}
 
 	@Override
@@ -99,7 +103,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

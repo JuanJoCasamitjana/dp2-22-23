@@ -74,23 +74,21 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Practicum existing;
-
-			existing = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
+			Practicum p;
+			p = this.repository.findOnePracticumByCode(object.getCode());
+			super.state(p == null || p.equals(object), "code", "company.practicum.form.error.duplicated");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().getTypeOfCourse() != Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
+			super.state(object.getCourse().getTypeOfCourse() == Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(object.isPublished(), "published", "company.practicum.form.error.published");
+			super.state(!object.isPublished(), "published", "company.practicum.form.error.published");
 
-		if (!super.getBuffer().getErrors().hasErrors("emptySessions")) {
+		if (!super.getBuffer().getErrors().hasErrors("published")) {
 			Collection<PracticumSession> sessions;
-
 			sessions = this.repository.findManyPracticumSessionByPracticumId(object.getId());
-
-			super.state(sessions.isEmpty(), "emptySessions", "company.practicum.form.error.empty");
+			super.state(!sessions.isEmpty(), "published", "company.practicum.form.error.empty");
 		}
 
 	}
@@ -114,7 +112,7 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 
 		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

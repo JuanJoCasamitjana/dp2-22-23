@@ -8,14 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.banner.list.label.instantiationOrUpdate = Instantiation
 administrator.banner.list.label.slogan = Slogan
-administrator.banner.list.label.pictureLink = Picture Link
-administrator.banner.list.label.webDocLink = Web Link
+administrator.banner.list.label.instantiation = Instantiation
+administrator.banner.list.label.periodStart = Start
+administrator.banner.list.label.periodEnd = End
 
 administrator.banner.list.button.create = Create
 
 administrator.banner.form.label.slogan = Slogan
+administrator.banner.form.label.instantiation = Instantiation
 administrator.banner.form.label.periodStart = Start
 administrator.banner.form.label.periodEnd = End
 administrator.banner.form.label.pictureLink = Picture Link
@@ -24,3 +25,7 @@ administrator.banner.form.label.webDocLink = Web Link
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.error.duplicated = This slogan already exists
+administrator.banner.form.error.period-start = The start date must be posterior to the instantiation date
+administrator.banner.form.error.period-end = The end date must be at least one week posterior to the start date

@@ -27,7 +27,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("practicumId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -39,7 +39,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		int practicumId;
 		Practicum practicum;
 
-		practicumId = super.getRequest().getData("id", int.class);
+		practicumId = super.getRequest().getData("practicumId", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
 		rolOk = super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 		status = practicum != null && rolOk;
@@ -52,7 +52,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		Collection<PracticumSession> objects;
 		int practicumId;
 
-		practicumId = super.getRequest().getData("id", int.class);
+		practicumId = super.getRequest().getData("practicumId", int.class);
 		objects = this.repository.findManyPracticumSessionByPracticumId(practicumId);
 
 		super.getBuffer().setData(objects);
@@ -64,7 +64,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "periodStart", "periodEnd", "addendum");
+		tuple = super.unbind(object, "title", "periodStart", "periodEnd", "totalTime", "addendum");
 
 		super.getResponse().setData(tuple);
 
@@ -75,22 +75,19 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		assert objects != null;
 
 		int practicumId;
-		Practicum practicum;
 		Collection<PracticumSession> sesiones;
-		boolean hasAddendum = false;
-		boolean published;
+		boolean hasAddendum;
 
-		practicumId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findOnePracticumById(practicumId);
+		practicumId = super.getRequest().getData("practicumId", int.class);
 		sesiones = this.repository.findAddendumSessionByPracticumId(practicumId);
-		published = practicum.isPublished();
 
-		if (sesiones.size() != 0)
+		if (sesiones.isEmpty())
+			hasAddendum = false;
+		else
 			hasAddendum = true;
 
 		super.getResponse().setGlobal("practicumId", practicumId);
 		super.getResponse().setGlobal("hasAddendum", hasAddendum);
-		super.getResponse().setGlobal("published", published);
 	}
 
 }

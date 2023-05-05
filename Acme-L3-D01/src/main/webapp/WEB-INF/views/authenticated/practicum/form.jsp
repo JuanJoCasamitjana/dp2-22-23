@@ -9,7 +9,7 @@
 	<acme:input-textarea code="authenticated.practicum.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-double code="authenticated.practicum.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
 	<acme:input-textarea code="authenticated.practicum.form.label.goals" path="goals"/>
-	<acme:input-textbox code="authenticated.practicum.form.label.published" path="published"/>
 	<acme:input-textbox code="authenticated.practicum.form.label.company" path="company.name"/>
 	<acme:input-textbox code="authenticated.practicum.form.label.course" path="course.title"/>
+	<acme:input-checkbox code="authenticated.practicum.form.label.published" path="published"/>
 </acme:form>

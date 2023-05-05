@@ -16,5 +16,4 @@ authenticated.company.form.label.optionalLink = Optional Link
 authenticated.company.form.button.create = Create
 authenticated.company.form.button.update = Update
 
-company.practicum-session.form.error.periodStart = Start date must be after now
-company.practicum-session.form.error.periodEnd = End date must be after Start date
+authenticated.company.form.error.duplicated = This name already exists

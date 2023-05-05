@@ -2,6 +2,7 @@
 package acme.features.company.practicumSession;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,9 +13,6 @@ import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface CompanyPracticumSessionRepository extends AbstractRepository {
-
-	@Query("SELECT p FROM PracticumSession p")
-	Collection<PracticumSession> findAllPracticumSession();
 
 	@Query("SELECT p FROM PracticumSession p WHERE p.practicum.id = :id")
 	Collection<PracticumSession> findManyPracticumSessionByPracticumId(int id);
@@ -30,4 +28,7 @@ public interface CompanyPracticumSessionRepository extends AbstractRepository {
 
 	@Query("SELECT ps FROM PracticumSession ps WHERE ps.practicum.id = :id AND ps.addendum = true")
 	Collection<PracticumSession> findAddendumSessionByPracticumId(int id);
+
+	@Query("SELECT SUM(ps.totalTime) FROM PracticumSession ps WHERE ps.practicum.id = :id")
+	Optional<Double> sumOfPracticumSessionTimeByPracticumId(int id);
 }

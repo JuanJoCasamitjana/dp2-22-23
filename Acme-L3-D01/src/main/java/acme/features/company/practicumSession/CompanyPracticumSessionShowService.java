@@ -1,8 +1,6 @@
 
 package acme.features.company.practicumSession;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,26 +60,18 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 		assert object != null;
 
 		Tuple tuple;
-		Collection<PracticumSession> sesiones;
-		boolean hasAddendum = false;
-		boolean published;
+		boolean isPublished;
 		int practicumId;
 
 		practicumId = object.getPracticum().getId();
-		published = object != null && object.getPracticum().isPublished();
-		sesiones = this.repository.findAddendumSessionByPracticumId(practicumId);
+		isPublished = object != null && object.getPracticum().isPublished();
 
-		if (sesiones.size() != 0)
-			hasAddendum = true;
-
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 
 		tuple.put("practicumId", practicumId);
-		tuple.put("published", published);
-		tuple.put("hasAddendum", hasAddendum);
+		tuple.put("isPublished", isPublished);
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }

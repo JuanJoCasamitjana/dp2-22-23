@@ -1,7 +1,7 @@
 key,code,title,abstractMessage,goals,estimatedTotalTime,published,key:company,key:course
-practicum-01,"AAA1001","Primer practicum","Esto es un mensaje 1","Goal 1",2368.00,true,company-01,course-02
+practicum-01,"AAA1001","Primer practicum","Esto es un mensaje 1","Goal 1",2392.00,true,company-01,course-02
 practicum-02,"AAA1002","Segundo practicum","Esto es un mensaje 2","Goal 2",176.00,false,company-01,course-02
-practicum-03,"AAA1003","Tercer practicum","Esto es un mensaje 3","Goal 3",96.00,true,company-01,course-02
+practicum-03,"AAA1003","Tercer practicum","Esto es un mensaje 3","Goal 3",528.00,true,company-01,course-02
 practicum-04,"AAA1004","Cuarto practicum","Esto es un mensaje 4","Goal 4",176.00,false,company-01,course-02
 practicum-05,"AAA1005","Quinto practicum","Esto es un mensaje 5","Goal 5",176.00,true,company-01,course-02
 practicum-06,"AAA1006","Practicum 1","Esto es un mensaje 6","Goal 6",176.00,false,company-02,course-02
