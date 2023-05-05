@@ -61,18 +61,15 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 
 		Tuple tuple;
 		boolean isPublished;
-		boolean isAddendum;
 		int practicumId;
 
 		practicumId = object.getPracticum().getId();
 		isPublished = object != null && object.getPracticum().isPublished();
-		isAddendum = object.isAddendum();
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 
 		tuple.put("practicumId", practicumId);
 		tuple.put("isPublished", isPublished);
-		tuple.put("isAddendum", isAddendum);
 
 		super.getResponse().setData(tuple);
 	}

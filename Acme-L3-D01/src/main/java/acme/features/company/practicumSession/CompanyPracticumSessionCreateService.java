@@ -70,7 +70,6 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object.setOptionalLink("");
 		object.setPracticum(practicum);
 		object.setAddendum(practicum.isPublished());
-		object.setConfirmed(false);
 
 		super.getBuffer().setData(object);
 	}
@@ -79,7 +78,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink", "confirmed");
+		super.bind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
 	}
 
 	@Override
@@ -92,12 +91,13 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			super.state(p == null || p.equals(object), "title", "company.practicum-session.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("confirmed")) {
-			boolean caso;
-			boolean opuesto;
-			caso = object.isAddendum() && object.isConfirmed();
-			opuesto = !object.isAddendum() && !object.isConfirmed();
-			super.state(caso || opuesto, "confirmed", "company.practicum-session.form.error.not-confirmed");
+		if (!super.getBuffer().getErrors().hasErrors("confirm") && object.getPracticum().isPublished()) {
+
+			boolean confirmed;
+
+			confirmed = super.getRequest().getData("confirm", boolean.class);
+
+			super.state(confirmed, "confirm", "company.practicum-session.form.error.not-confirmed");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
@@ -111,9 +111,9 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			periodStart = object.getPeriodStart().getTime();
 			diff = periodStart - ahora.getTime();
 			if (diff > 0)
-				diferencia = diff / (1000.0 * 60);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diferencia >= 7.0 * 24 * 60, "periodStart", "company.practicum-session.form.error.period-start");
+			super.state(diferencia >= 7.0 * 24, "periodStart", "company.practicum-session.form.error.period-start");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
@@ -127,9 +127,9 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			periodEnd = object.getPeriodEnd().getTime();
 			diff = periodEnd - periodStart;
 			if (diff > 0)
-				diferencia = diff / (1000.0 * 60);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diferencia >= 7 * 24 * 60, "periodEnd", "company.practicum-session.form.error.period-end");
+			super.state(diferencia >= 7 * 24, "periodEnd", "company.practicum-session.form.error.period-end");
 		}
 	}
 
@@ -176,7 +176,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		boolean isAddendum;
 
 		practicumId = super.getRequest().getData("practicumId", int.class);
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 		isAddendum = object.isAddendum();
 
 		tuple.put("practicumId", practicumId);

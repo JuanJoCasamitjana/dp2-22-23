@@ -9,12 +9,9 @@
 	<acme:input-moment code="company.practicum-session.form.label.periodEnd" path="periodEnd"/>
 	<acme:input-double code="company.practicum-session.form.label.totalTime" path="totalTime" readonly="true"/>
 	<acme:input-url code="company.practicum-session.form.label.optionalLink" path="optionalLink"/>
-	<acme:input-checkbox code="company.practicum-session.form.label.addendum" path="addendum" readonly="true"/>
-	<jstl:if test="${isAddendum == false}">
-		<acme:input-checkbox code="company.practicum-session.form.label.confirmed" path="confirmed" readonly="true"/>
-	</jstl:if> 
-	<jstl:if test="${isAddendum == true}">
-		<acme:input-checkbox code="company.practicum-session.form.label.confirmed" path="confirmed"/>
+	<acme:input-checkbox code="company.practicum-session.form.label.addendum" path="addendum" readonly="true"/> 
+	<jstl:if test="${_command == 'create' && isAddendum == true}">
+		<acme:input-checkbox code="company.practicum-session.form.label.confirm" path="confirm"/>
 	</jstl:if>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && isPublished == false}">

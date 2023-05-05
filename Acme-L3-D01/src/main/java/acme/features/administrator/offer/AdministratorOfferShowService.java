@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.practicum;
+package acme.features.administrator.offer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.offer.Offer;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedPracticumShowService extends AbstractService<Authenticated, Practicum> {
+public class AdministratorOfferShowService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPracticumRepository repository;
+	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -33,30 +33,30 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().isAuthenticated();
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Practicum object;
-		int id;
+		Offer object;
+		int offerId;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumById(id);
+		offerId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneOfferById(offerId);
 
 		super.getBuffer().setData(object);
 
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Offer object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company.name", "course.title");
+		tuple = super.unbind(object, "instantiationMomment", "heading", "summary", "periodStart", "periodEnd", "price");
 
 		super.getResponse().setData(tuple);
 	}

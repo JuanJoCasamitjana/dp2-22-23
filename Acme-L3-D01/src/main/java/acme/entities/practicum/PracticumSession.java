@@ -54,9 +54,6 @@ public class PracticumSession extends AbstractEntity {
 	protected boolean			addendum;
 
 	@NotNull
-	protected boolean			confirmed;
-
-	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "practicum_id")

@@ -86,7 +86,7 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 	public void unbind(final PracticumSession object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 
 		super.getResponse().setData(tuple);
 	}

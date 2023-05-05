@@ -8,6 +8,7 @@
 	<acme:input-double code="company.companyDashboard.form.label.deviationPeriodLengthOfPracticums" path="deviationPeriodLengthOfPracticums" readonly="true"/>	
 	<acme:input-double code="company.companyDashboard.form.label.minimumPeriodLengthOfPracticums" path="minimumPeriodLengthOfPracticums" readonly="true"/>	
 	<acme:input-double code="company.companyDashboard.form.label.maximumPeriodLengthOfPracticums" path="maximumPeriodLengthOfPracticums" readonly="true"/>	
+	<acme:menu-separator/>
 	<acme:input-double code="company.companyDashboard.form.label.totalNumberOfSessions" path="totalNumberOfSessions" readonly="true"/>
 	<acme:input-double code="company.companyDashboard.form.label.averagePeriodLengthOfSessions" path="averagePeriodLengthOfSessions" readonly="true"/>
 	<acme:input-double code="company.companyDashboard.form.label.deviationPeriodLengthOfSessions" path="deviationPeriodLengthOfSessions" readonly="true"/>

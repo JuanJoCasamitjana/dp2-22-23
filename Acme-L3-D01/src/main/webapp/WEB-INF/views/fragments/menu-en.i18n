@@ -30,6 +30,8 @@ master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.practicum.list = Practicum list
+master.menu.authenticated.offer.list = Offers list
+master.menu.authenticated.note.list = Notes list
 
 # master.menu.administrator ###################################################
 
@@ -41,6 +43,9 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
 master.menu.administrator.banner.list = Banner list
+master.menu.administrator.offer.list = Offer list
+
+master.menu.administrator.system-configuration = System configuration
 
 # master.menu.Lecturer #########################################################
 master.menu.Lecturer = Lecturer

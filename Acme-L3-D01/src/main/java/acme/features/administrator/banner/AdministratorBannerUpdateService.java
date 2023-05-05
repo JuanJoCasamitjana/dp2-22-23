@@ -90,9 +90,9 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			periodEnd = object.getPeriodEnd().getTime();
 			diff = periodEnd - periodStart;
 			if (diff > 0)
-				diferencia = diff / (1000.0 * 60);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diferencia >= 7 * 24 * 60, "periodEnd", "administrator.banner.form.error.period-end");
+			super.state(diferencia >= 7 * 24, "periodEnd", "administrator.banner.form.error.period-end");
 		}
 	}
 

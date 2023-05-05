@@ -1,32 +1,30 @@
 
-package acme.features.authenticated.practicum;
+package acme.features.authenticated.note;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicum.Practicum;
+import acme.entities.note.Note;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedPracticumShowService extends AbstractService<Authenticated, Practicum> {
+public class AuthenticatedNoteListService extends AbstractService<Authenticated, Note> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPracticumRepository repository;
+	protected AuthenticatedNoteRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -40,23 +38,20 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Practicum object;
-		int id;
+		Collection<Note> objects;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumById(id);
+		objects = this.repository.findManyRecentNote();
 
-		super.getBuffer().setData(object);
-
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Note object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published", "company.name", "course.title");
+		tuple = super.unbind(object, "title", "author", "mail");
 
 		super.getResponse().setData(tuple);
 	}

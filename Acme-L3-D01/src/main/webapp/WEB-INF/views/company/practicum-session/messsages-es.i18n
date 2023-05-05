@@ -26,7 +26,7 @@ company.practicum-session.form.label.periodEnd = Fin
 company.practicum-session.form.label.totalTime = Tiempo
 company.practicum-session.form.label.optionalLink = Enlace opcional
 company.practicum-session.form.label.addendum = Es un addendum
-company.practicum-session.form.label.confirmed = Confirmar
+company.practicum-session.form.label.confirm = Confirmar
 
 # form buttons
 company.practicum-session.form.button.create = Crear

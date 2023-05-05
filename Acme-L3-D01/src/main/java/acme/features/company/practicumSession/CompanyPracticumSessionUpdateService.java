@@ -84,9 +84,9 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 			periodStart = object.getPeriodStart().getTime();
 			diff = periodStart - ahora.getTime();
 			if (diff > 0)
-				diferencia = diff / (1000.0 * 60);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diferencia >= 7.0 * 24 * 60, "periodStart", "company.practicum-session.form.error.period-start");
+			super.state(diferencia >= 7.0 * 24, "periodStart", "company.practicum-session.form.error.period-start");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
@@ -100,9 +100,9 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 			periodEnd = object.getPeriodEnd().getTime();
 			diff = periodEnd - periodStart;
 			if (diff > 0)
-				diferencia = diff / (1000.0 * 60);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diferencia >= 7 * 24 * 60, "periodEnd", "company.practicum-session.form.error.period-end");
+			super.state(diferencia >= 7 * 24, "periodEnd", "company.practicum-session.form.error.period-end");
 		}
 	}
 
@@ -147,14 +147,11 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		assert object != null;
 
 		Tuple tuple;
-		boolean isAddendum;
 		boolean isPublished;
 
-		isAddendum = object.isAddendum();
 		isPublished = object.getPracticum().isPublished();
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum", "confirmed");
-		tuple.put("isAddendum", isAddendum);
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 		tuple.put("isPublished", isPublished);
 
 		super.getResponse().setData(tuple);

@@ -22,11 +22,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
