@@ -18,6 +18,8 @@ student.enrolment.list.label.cardNumber = Credit card number
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.list.label.draft = Draft
 
+student.enrolment.form.error.duplicated = There is another active enrolment
+student.enrolment.form.error.wrong-expiry-date-incorrect = This credit car is not valid.
 student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
 student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx

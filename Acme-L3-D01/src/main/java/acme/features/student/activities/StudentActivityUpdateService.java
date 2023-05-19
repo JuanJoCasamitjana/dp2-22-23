@@ -57,10 +57,6 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
 
-		//		final int typeId = super.getRequest().getData("type", int.class);
-		//		final Type type = Stream.of(Type.values()).filter(x -> x.ordinal() == typeId).iterator().next();
-		//		object.setType(type);
-
 		super.bind(object, "title", "text", "type", "periodStart", "periodEnd", "link");
 
 	}
@@ -68,6 +64,12 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
+			super.state(correct, "periodStart", "student.activity.error.create");
+
+		}
 
 	}
 

@@ -62,7 +62,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
 			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 0;
-			super.state(!exceded, "course", "Ya existe una solicitud de curso");
+			super.state(!exceded, "course", "student.enrolment.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {

@@ -10,3 +10,5 @@ student.activity.list.label.link  = Link
 student.activity.form.button.update = Actualizar
 student.activity.form.button.delete = Borrar
 
+student.activity.error.create = La fecha de inicio debe ser previa a la fecha de fin
+

@@ -43,6 +43,7 @@ master.menu.administrator.banner.list = Banner list
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.practicum.list = Practicum list
+master.menu.authenticated.list.bulletin = Bulletin list
 
 # master.menu.company ########################################################
 

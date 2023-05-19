@@ -56,6 +56,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
+			super.state(correct, "periodStart", "student.activity.error.create");
+
+		}
+
 	}
 
 	@Override

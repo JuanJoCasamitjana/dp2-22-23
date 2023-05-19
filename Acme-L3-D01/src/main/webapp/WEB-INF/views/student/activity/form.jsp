@@ -35,7 +35,7 @@
 			<acme:input-textbox code="student.activity.list.label.link"
 				path="link" />
 
-			<jstl:if test="${draft == true}">
+			<jstl:if test="${draft == false}">
 				<acme:submit code="student.activity.form.button.update"
 					action="/student/activity/update" />
 				<acme:submit code="student.activity.form.button.delete"

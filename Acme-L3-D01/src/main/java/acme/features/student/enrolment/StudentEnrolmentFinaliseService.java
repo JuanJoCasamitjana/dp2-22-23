@@ -1,9 +1,8 @@
 
 package acme.features.student.enrolment;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,31 +77,34 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			final boolean wrongCard = creditCard.matches("^\\d{16}$");
 			final boolean emptyCard = creditCard.isEmpty();
 
-			super.state(!emptyCard, "creditCard", "campo vacio");
-			super.state(wrongCard, "creditCard", "patron no correcto");
+			super.state(!emptyCard, "creditCard", "student.enrolment.form.error.wrong-holder");
+			super.state(wrongCard, "creditCard", "student.enrolment.form.error.wrong-card");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("cvc")) {
 			final String cvc = object.getCvc();
 			final boolean wrongcvc = cvc.matches("^\\d{3}$");
 			final boolean emptyCvc = cvc.isEmpty();
-			super.state(wrongcvc, "cvc", "patron no correcto");
-			super.state(!emptyCvc, "cvc", "campo vacio");
+			super.state(wrongcvc, "cvc", "student.enrolment.form.error.wrong-cvc");
+			super.state(!emptyCvc, "cvc", "student.enrolment.form.error.wrong-holder");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
 			final String expiryDate = object.getExpiryDate();
-			try {
-				final SimpleDateFormat formato = new SimpleDateFormat("mm/yy");
-				final Date date = formato.parse(expiryDate);
-			} catch (final Exception e) {
-				super.state(false, "expiryDate", "fecha incorrecta");
-			}
 
 			final boolean wrongExpiryDate = expiryDate.matches("^\\d{2}\\/\\d{2}$");
 			final boolean emptyDate = expiryDate.isEmpty();
+			super.state(wrongExpiryDate, "expiryDate", "student.enrolment.form.error.wrong-expiry-date");
+			super.state(!emptyDate, "expiryDate", "student.enrolment.form.error.wrong-holder");
 
-			super.state(wrongExpiryDate, "expiryDate", "patron no correcto");
-			super.state(!emptyDate, "expiryDate", "campo vacio");
+			final String year = expiryDate.split("/")[1];
+			final String month = expiryDate.split("/")[0];
+			if (99 >= Integer.parseInt(year) && Integer.parseInt(year) > 0 && 12 >= Integer.parseInt(month) && Integer.parseInt(month) > 0) {
+				final LocalDate fecha = LocalDate.of(2000 + Integer.parseInt(year), Integer.parseInt(month), 1);
+				final LocalDate actual = LocalDate.now();
+				super.state(actual.isBefore(fecha), "expiryDate", "student.enrolment.form.error.wrong-expiry-date-incorrect");
+			} else
+				super.state(false, "expiryDate", "student.enrolment.form.error.wrong-expiry-date");
 		}
+
 	}
 
 	@Override
