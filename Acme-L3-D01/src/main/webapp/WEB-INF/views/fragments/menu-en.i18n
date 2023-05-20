@@ -60,7 +60,7 @@ master.menu.list.peeps = List peeps
 master.menu.create.peep = Create peep
 
 # master.menu.Lecturer #########################################################
-master.menu.Lecturer = Conferenciante
+master.menu.Lecturer = Lecturer
 master.menu.list.courses.list = List courses
 master.menu.list.courses.create = Create courses
 master.menu.list.lectures.list = List lectures
