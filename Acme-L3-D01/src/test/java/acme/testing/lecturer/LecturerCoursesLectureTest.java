@@ -10,7 +10,6 @@ public class LecturerCoursesLectureTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/ls-cour-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-
 	public void positive100ListShowCourses(final int recordIndex, final String code, final String title, //
 		final String abstractMessage, final String type, final String price, final String link) {
 
