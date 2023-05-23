@@ -70,6 +70,7 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 		assert object != null;
 		final Course course = this.repository.findCourseById(object.getCourse().getId());
 		final Collection<Lecture> lectures = this.repository.findAllLecturesOfCourse(object.getCourse().getId());
+		lectures.add(object.getLecture());
 		if (!lectures.isEmpty()) {
 			final long theoryLectures = lectures.stream().filter(Lecture::isTheoretical).count();
 			final double ratio = theoryLectures * 1.0 / lectures.size();

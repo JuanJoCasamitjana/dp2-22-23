@@ -1,4 +1,4 @@
-key,title,abstractMessage,learningTime,body,isTheoretical,optionalUrl,key:lecturer,published
+key,title,abstractMessage,learningTime,body,theoretical,optionalUrl,key:lecturer,published
 lecture-01,"New lecture","This is a new lecture",10.0,"Extra body",false,null,lecturer-01,false
 lecture-02,"New lecture","This is a new lecture",10.0,"Extra body",false,https://www.example.com/,lecturer-02,false
 lecture-03,"Introduction to Python","Learn the basics of Python",15.0,"Python is a popular programming language",true,null,lecturer-01,false

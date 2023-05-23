@@ -40,7 +40,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractMessage", "learningTime", "body", "isTheoretical", "optionalUrl");
+		super.bind(object, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl");
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture lecture) {
 		assert lecture != null;
 		Tuple tuple;
-		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "isTheoretical", "optionalUrl", "published");
+		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		super.getResponse().setData(tuple);
 	}
 }
