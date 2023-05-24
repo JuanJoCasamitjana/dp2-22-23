@@ -1,0 +1,2 @@
+recordIndex,code,title,abstractMessage,retailPrice,optionalUrl,titleLecture,abstractMessageLecture,learningTime,body,isTheoretical,optionalUrlLecture
+1,"AAZ 309","The greatest title2","The best abstract of a course2","EUR 150.00","https://example.com/course-1112","The best lecture2","The best abstract of lecture2","10.00","The best body2","false","https://example.com/lecture-1112"
