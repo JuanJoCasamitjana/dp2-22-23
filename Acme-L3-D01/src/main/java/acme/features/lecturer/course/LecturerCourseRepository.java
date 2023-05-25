@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.course.Course;
 import acme.entities.lecture.Lecture;
+import acme.entities.lecture.LectureCourseAggregation;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 import acme.system.configuration.SystemConfiguration;
@@ -27,4 +28,6 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	Course findCourseByCode(String code);
 	@Query("SELECT sc FROM SystemConfiguration sc")
 	SystemConfiguration getSystemConfiguration();
+	@Query("SELECT lca FROM LectureCourseAggregation lca WHERE lca.course.id = :id")
+	Collection<LectureCourseAggregation> findAllAggregationsOfCourseById(int id);
 }

@@ -28,10 +28,10 @@ public class LectureCourseAggregationShowService extends AbstractService<Lecture
 	@Override
 	public void authorise() {
 		boolean status;
-		final int roleId = super.getRequest().getPrincipal().getActiveRoleId();
 		final int id = super.getRequest().getData("id", int.class);
-		final int lecturerId = this.repository.findOneAggregationById(id).getLecture().getLecturer().getId();
-		status = roleId == lecturerId;
+		final LectureCourseAggregation lca = this.repository.findOneAggregationById(id);
+		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		status = lecturerId == lca.getCourse().getLecturer().getId();
 		super.getResponse().setAuthorised(status);
 	}
 	@Override
