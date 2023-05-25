@@ -1,0 +1,20 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.companyDashboard.form.label.totalNumberOfPracticums = Total number of practicums
+company.companyDashboard.form.label.averagePeriodLengthOfPracticums =	Average length of practicums
+company.companyDashboard.form.label.deviationPeriodLengthOfPracticums = Deviation length of practicums
+company.companyDashboard.form.label.minimumPeriodLengthOfPracticums =	Minimum length of practicums
+company.companyDashboard.form.label.maximumPeriodLengthOfPracticums = Maximum length of practicums
+company.companyDashboard.form.label.totalNumberOfSessions = Total number of sessions
+company.companyDashboard.form.label.averagePeriodLengthOfSessions = Average length of sessions
+company.companyDashboard.form.label.deviationPeriodLengthOfSessions = Deviation length of sessions
+company.companyDashboard.form.label.minimumPeriodLengthOfSessions = Minimum length of sessions
+company.companyDashboard.form.label.maximumPeriodLengthOfSessions = Maximum length of sessions

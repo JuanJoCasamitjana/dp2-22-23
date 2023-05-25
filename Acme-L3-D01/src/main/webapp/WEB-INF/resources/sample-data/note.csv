@@ -1,4 +1,4 @@
 key,instantiation,title,author,message,mail,link
-note-01,2022/05/01 14:30,"Title of note 1","Author of note 1","Message of note 1","email1@example.com","http://example.com"
-note-02,2021/12/15 09:45,"Title of note 2","Author of note 2","Message of note 2","email2@example.com","http://example.com"
-note-03,2021/11/01 18:20,"Title of note 3","Author of note 3","Message of note 3","email3@example.com","http://example.com"
+note-01,2023/05/01 14:30,"Title of note 1","<administrator1> - <Acme, Administrator>","Message of note 1","email1@example.com","http://example.com"
+note-02,2021/12/15 09:45,"Title of note 2","<company1> - <Acme, Company1>","Message of note 2","email2@example.com","http://example.com"
+note-03,2021/11/01 18:20,"Title of note 3","<student1> - <Acme, Student1>","Message of note 3","email3@example.com","http://example.com"

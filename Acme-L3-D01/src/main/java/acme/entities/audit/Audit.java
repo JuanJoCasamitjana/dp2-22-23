@@ -22,31 +22,42 @@ import lombok.Setter;
 @Setter
 public class Audit extends AbstractEntity {
 
-	/**
-	 * 
-	 */
+	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
+
+	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
 	protected String			code;
+
 	@NotBlank
 	@Length(max = 100)
 	protected String			conclusion;
+
 	@NotBlank
 	@Length(max = 100)
 	protected String			strongPoints;
+
 	@NotBlank
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	@ManyToOne(optional = false)
-	@Valid
-	@NotNull
-	protected Auditor			auditor;
+	protected boolean			draftMode;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
 	protected Course			course;
 
+	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
+	protected Auditor			auditor;
 }

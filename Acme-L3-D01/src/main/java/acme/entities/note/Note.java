@@ -8,7 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
@@ -25,7 +25,7 @@ public class Note extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@PastOrPresent()
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
 
