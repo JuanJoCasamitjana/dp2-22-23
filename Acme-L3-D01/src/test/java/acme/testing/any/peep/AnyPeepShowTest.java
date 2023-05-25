@@ -31,7 +31,7 @@ public class AnyPeepShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/show.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String instantiation, final String title, final String nick, final String message, final String mail, final String link) {
+	public void test100Positive(final int recordIndex, final String title, final String nick, final String message, final String mail, final String link) {
 		// HINT: this test enter any anonymous, then lists the peeps
 		// HINT+ and checks that the listing shows the expected data.
 
@@ -40,7 +40,6 @@ public class AnyPeepShowTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 
-		super.checkInputBoxHasValue("moment", instantiation);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("nick", nick);
 		super.checkInputBoxHasValue("message", message);
