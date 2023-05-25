@@ -27,7 +27,7 @@ master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
 
 # Any ######################################
-master.menu.Any
+master.menu.Any = Any
 
 # master.menu.authenticated ########################################################
 
