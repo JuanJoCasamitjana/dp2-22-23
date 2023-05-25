@@ -101,7 +101,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findManyHandsOnCourse();
+		courses = this.repository.findManyHandsOnPublishedCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());

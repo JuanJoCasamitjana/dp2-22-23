@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+# list
 company.practicum.list.label.code = Código
 company.practicum.list.label.title = Título
 company.practicum.list.label.abstractMessage = Mensaje
@@ -15,8 +16,10 @@ company.practicum.list.label.estimatedTotalTime = Tiempo estimado
 company.practicum.list.label.goals = Objetivos
 company.practicum.list.label.published = Publicado
 
+# list buttons
 company.practicum.list.button.create = Crear
 
+# form
 company.practicum.form.label.code = Código
 company.practicum.form.label.title = Título
 company.practicum.form.label.abstractMessage = Mensaje
@@ -26,12 +29,14 @@ company.practicum.form.label.published = Publicado
 company.practicum.form.label.company = Compañía
 company.practicum.form.label.course = Curso
 
+# form buttons
 company.practicum.form.button.create = Crear
 company.practicum.form.button.update = Actualizar
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.publish = Publicar
 company.practicum.form.button.practicumSession.list = Lista de sesiones
 
+# validations
 company.practicum.form.error.duplicated = Este objeto ya existe
 company.practicum.form.error.nothandson = El curso seleccionado debe ser Hands-on
 company.practicum.form.error.published = Ya esta publicado

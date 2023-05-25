@@ -1,6 +1,7 @@
 
 package acme.features.company.practicumSession;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.practicum.Practicum;
 import acme.entities.practicum.PracticumSession;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -64,12 +66,34 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object = new PracticumSession();
 		object.setTitle("");
 		object.setAbstractMessage("");
-		object.setPeriodStart(new Date());
-		object.setPeriodEnd(new Date());
 		object.setTotalTime(0.0);
 		object.setOptionalLink("");
 		object.setPracticum(practicum);
 		object.setAddendum(practicum.isPublished());
+
+		Date ahora;
+		Date fechaInicial;
+		Date fechaFinal;
+		Calendar calInicio;
+		Calendar calFin;
+
+		ahora = MomentHelper.getCurrentMoment();
+		calInicio = Calendar.getInstance();
+		calFin = Calendar.getInstance();
+
+		calInicio.setTime(ahora);
+		calFin.setTime(ahora);
+
+		calInicio.add(Calendar.DATE, 7);
+		calInicio.add(Calendar.HOUR, 1);
+		calFin.add(Calendar.DATE, 14);
+		calFin.add(Calendar.HOUR, 1);
+
+		fechaInicial = calInicio.getTime();
+		fechaFinal = calFin.getTime();
+
+		object.setPeriodStart(fechaInicial);
+		object.setPeriodEnd(fechaFinal);
 
 		super.getBuffer().setData(object);
 	}
@@ -84,12 +108,6 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			PracticumSession p;
-			p = this.repository.findOnePracticumSessionByTitle(object.getTitle());
-			super.state(p == null || p.equals(object), "title", "company.practicum-session.form.error.duplicated");
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("confirm") && object.getPracticum().isPublished()) {
 
@@ -107,7 +125,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			long diff;
 
 			diferencia = 0.0;
-			ahora = new Date();
+			ahora = MomentHelper.getCurrentMoment();
 			periodStart = object.getPeriodStart().getTime();
 			diff = periodStart - ahora.getTime();
 			if (diff > 0)

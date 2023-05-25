@@ -79,7 +79,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Practicum p;
 			p = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(p == null || p.equals(object), "code", "company.practicum.form.error.practicum.duplicated");
+			super.state(p == null || p.equals(object), "code", "company.practicum.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("course"))
@@ -100,7 +100,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findManyHandsOnCourse();
+		courses = this.repository.findManyHandsOnPublishedCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
 		tuple.put("course", choices.getSelected().getKey());

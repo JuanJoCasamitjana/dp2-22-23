@@ -34,7 +34,6 @@ company.practicum-session.form.button.update = Actualizar
 company.practicum-session.form.button.delete = Eliminar
 
 # validations
-company.practicum-session.form.error.duplicated = Este título de sesión ya existe
 company.practicum-session.form.error.not-confirmed = Las Sesiones Addendum deben estar confirmadas
 company.practicum-session.form.error.period-start = La fecha inicial debe ser, al menos, una semana posterior a la fecha actual
 company.practicum-session.form.error.period-end = La fecha final debe ser, al menos, una semana posterior a la fecha inicial

@@ -34,7 +34,6 @@ company.practicum-session.form.button.update = Update
 company.practicum-session.form.button.delete = Delete
 
 # validations
-company.practicum-session.form.error.duplicated = This session name already exists
 company.practicum-session.form.error.not-confirmed = Addendum Sessions must be confirmed
 company.practicum-session.form.error.period-start = The start date must be at least one week posterior to the actual date
 company.practicum-session.form.error.period-end = The end date must be at least one week posterior to the start date
