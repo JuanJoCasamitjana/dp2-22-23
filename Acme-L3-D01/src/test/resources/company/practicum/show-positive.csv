@@ -1,0 +1,5 @@
+practicumRecordIndex,code,title,abstractMessage,goals,estimatedTotalTime,published,course
+1,"AAA1002","Segundo practicum","Esto es un mensaje 2","Goal 2",176.00,false,"Econometrics: A Hands-On Approach"
+2,"AAA1003","Tercer practicum","Esto es un mensaje 3","Goal 3",528.00,true,"Econometrics: A Hands-On Approach"
+3,"AAA1004","Cuarto practicum","Esto es un mensaje 4","Goal 4",176.00,false,"Econometrics: A Hands-On Approach"
+4,"AAA1005","Quinto practicum","Esto es un mensaje 5","Goal 5",0.00,false,"Econometrics: A Hands-On Approach"
