@@ -26,6 +26,9 @@ master.menu.aleortpag.favourite-link = 28848397A: Ortiz Pagador, Alejandro
 master.menu.marbarmar16.favourite-link = 32097404F: Barrancos Márquez, María
 master.menu.davgonher1.favourite-link = 77860757F: González Herrera, David
 
+# Any ######################################
+master.menu.Any
+
 # master.menu.authenticated ########################################################
 
 master.menu.authenticated = Authenticated

@@ -20,7 +20,7 @@
 	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>
 	<acme:input-textarea code="lecturer.course.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-money code="lecturer.course.form.label.retailPrice" path="retailPrice"/>
-	<acme:input-select code="lecturer.course.form.label.typeOfCourse" path="typeOfCourse" choices="${types}"/>
+	<acme:input-select code="lecturer.course.form.label.typeOfCourse" path="typeOfCourse" choices="${types}" readonly="true"/>
 	<acme:input-url code="lecturer.course.form.label.optionalUrl" path="optionalUrl"/>	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && inDraft == true}">

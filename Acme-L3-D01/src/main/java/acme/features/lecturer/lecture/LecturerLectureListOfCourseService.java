@@ -43,7 +43,7 @@ public class LecturerLectureListOfCourseService extends AbstractService<Lecturer
 	public void unbind(final Lecture lecture) {
 		assert lecture != null;
 		Tuple tuple;
-		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "isTheoretical", "optionalUrl", "published");
+		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		super.getResponse().setData(tuple);
 	}
 }

@@ -1,11 +1,14 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.course.Type;
+import acme.entities.lecture.LectureCourseAggregation;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -54,6 +57,9 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
+		final Collection<LectureCourseAggregation> aggregations = this.repository.findAllAggregationsOfCourseById(object.getId());
+		for (final LectureCourseAggregation lca : aggregations)
+			this.repository.delete(lca);
 		this.repository.delete(object);
 	}
 
