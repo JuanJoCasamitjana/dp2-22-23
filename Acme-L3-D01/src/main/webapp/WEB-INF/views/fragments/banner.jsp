@@ -15,6 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<div class="rounded" style="background: <acme:message code='master.banner.background'/>">
+<div class="rounded" style="display:flex;background: <acme:message code='master.banner.background'/>">
 	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
+	<div style="float:right;">
+		<a href="${banner.webDocLink}" target="_blank">
+			<img src="${banner.pictureLink}" alt="${banner.slogan}" style="width:38%;border-radius:15px;margin-left:62%"/>
+		</a>
+	</div>
 </div>

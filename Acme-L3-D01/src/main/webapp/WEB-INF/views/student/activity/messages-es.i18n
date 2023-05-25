@@ -1,0 +1,12 @@
+student.activity.list.button.create = Crear
+student.activity.list.label.title = Título
+student.activity.list.label.types  = Tipos
+student.activity.list.label.text = Texto
+student.activity.list.label.type = Tipo
+student.activity.list.label.enrolments = Solicitudes
+student.activity.list.label.periodStart  = Fecha Inicio
+student.activity.list.label.periodEnd  = Fecha Fin
+student.activity.list.label.link  = Link
+student.activity.form.button.update = Actualizar
+student.activity.form.button.delete = Borrar
+

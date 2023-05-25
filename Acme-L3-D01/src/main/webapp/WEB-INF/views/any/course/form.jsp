@@ -20,8 +20,7 @@
 	<acme:input-textbox code="any.course.form.label.title" path="title"/>
 	<acme:input-textarea code="any.course.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-double code="any.course.form.label.retailPrice" path="retailPrice"/>
-	<acme:input-select code="any.course.form.label.typeOfCourse" path="typeOfCourse" choices="${types}"/>
+	<acme:input-select code="any.course.form.label.typeOfCourse" path="typeOfCourse" choices="${types}" readonly="true"/>
 	<acme:input-url code="any.course.form.label.optionalUrl" path="optionalUrl"/>	
-	<acme:input-checkbox code="any.course.form.label.inDraft" path="inDraft"/>	
 </acme:form>
 
