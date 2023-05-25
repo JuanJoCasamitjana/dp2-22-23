@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,22 +37,23 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void load() {
-		final Enrolment enrolment = new Enrolment();
 
+		final Enrolment enrolment = new Enrolment();
 		enrolment.setDraft(true);
+
 		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		enrolment.setStudent(student);
+		enrolment.setLowerNibble("");
+		enrolment.setHolderName("");
 
 		super.getBuffer().setData(enrolment);
 	}
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
 		final int courseId = super.getRequest().getData("course", int.class);
 		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
-
 		super.bind(object, "motivation", "goals", "code");
 
 	}
@@ -84,10 +86,14 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		assert object != null;
 		Tuple tuple;
 
-		final Collection<Course> courses = this.repository.findCourses();
+		final Collection<Course> courses = this.repository.findPublishedCourses();
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolments();
+
+		courses.removeAll(enrolments.stream().map(x -> x.getCourse()).collect(Collectors.toList()));
+
 		final SelectChoices choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draft");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "workTime");
 		tuple.put("courses", choices);
 		tuple.put("course", choices.getSelected().getKey());
 

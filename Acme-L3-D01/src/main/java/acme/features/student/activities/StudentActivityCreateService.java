@@ -38,15 +38,19 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void load() {
 		final Activity activity = new Activity();
-
+		activity.setTotalTime(0.0);
 		super.getBuffer().setData(activity);
 	}
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
-		object.setEnrolment(enrolment);
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
+		if (enrolments.size() != 0) {
+			final int enrolmentId = super.getRequest().getData("enrolment_proxy", int.class);
+			final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
+			object.setEnrolment(enrolment);
+		} else
+			super.state(false, "enrolment", "No existe ningun enrolment");
 
 		super.bind(object, "title", "text", "type", "periodStart", "periodEnd", "link");
 
@@ -55,6 +59,8 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("type"))
+			super.state(object.getType() != null, "type", "Tipo no puede ser nulo");
 
 		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
 			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
@@ -67,6 +73,36 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
+		long periodStart;
+		long periodEnd;
+		long diff;
+		double total;
+		int horas;
+		int minutos;
+		double res;
+
+		total = 0.0;
+		periodStart = object.getPeriodStart().getTime();
+		periodEnd = object.getPeriodEnd().getTime();
+		diff = periodEnd - periodStart;
+		if (diff > 0)
+			total = diff / (1000.0 * 60 * 60);
+
+		horas = (int) total;
+		minutos = (int) ((total - horas) * 60);
+		res = Double.parseDouble(horas + "." + minutos);
+
+		object.setTotalTime(res);
+		this.repository.save(object);
+
+		//###############################
+
+		double suma;
+
+		suma = this.repository.sumOfActivityTime(object.getEnrolment().getId()).orElse(0.0);
+
+		object.getEnrolment().setWorkTime(suma);
+		this.repository.save(object.getEnrolment());
 
 		this.repository.save(object);
 	}

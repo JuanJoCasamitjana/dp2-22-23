@@ -55,8 +55,12 @@ public class Activity extends AbstractEntity {
 	@NotNull
 	protected Date		periodEnd;
 
+	@NotNull
+	protected Double	totalTime;
+
 	@ManyToOne
 	@Valid
+	@NotNull
 	Enrolment			enrolment;
 
 	@URL

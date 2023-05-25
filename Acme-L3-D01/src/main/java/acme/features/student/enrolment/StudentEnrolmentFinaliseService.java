@@ -91,7 +91,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			final String expiryDate = object.getExpiryDate();
 
 			final boolean wrongExpiryDate = expiryDate.matches("^\\d{2}\\/\\d{2}$");
-			final boolean emptyDate = expiryDate.isEmpty();
+			final boolean emptyDate = expiryDate.isEmpty() || expiryDate == null;
 			super.state(wrongExpiryDate, "expiryDate", "student.enrolment.form.error.wrong-expiry-date");
 			super.state(!emptyDate, "expiryDate", "student.enrolment.form.error.wrong-holder");
 
@@ -127,7 +127,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		courses = this.repository.findCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble", "draft", "creditCard", "cvc", "expiryDate");
+		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble", "draft", "workTime", "creditCard", "cvc", "expiryDate");
 		tuple.put("courses", choices);
 		tuple.put("course", choices.getSelected().getKey());
 

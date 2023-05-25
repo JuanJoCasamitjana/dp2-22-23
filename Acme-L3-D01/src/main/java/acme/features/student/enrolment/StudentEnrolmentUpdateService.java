@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,6 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(id);
-
 		super.getBuffer().setData(enrolment);
 	}
 
@@ -85,14 +85,16 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findCourses();
+		final Collection<Course> courses = this.repository.findPublishedCourses();
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolments();
+
+		courses.removeAll(enrolments.stream().map(x -> x.getCourse()).collect(Collectors.toList()));
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble", "workTime");
 		tuple.put("courses", choices);
 		tuple.put("course", choices.getSelected().getKey());
 

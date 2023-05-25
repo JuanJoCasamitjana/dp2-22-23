@@ -21,4 +21,5 @@
 	<acme:list-column code="student.activity.list.label.type" path="type" />
 </acme:list>
 
-	<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
+<acme:button code="student.activity.list.button.create"
+	action="/student/activity/create" />

@@ -16,6 +16,8 @@
 				path="goals" />
 			<acme:input-select code="student.enrolment.list.label.course"
 				path="course" choices="${courses}" />
+			<acme:input-textbox readonly="TRUE"
+				code="student.enrolment.form.label.totalTime" path="workTime" />
 
 			<acme:input-textbox readonly="true"
 				code="student.enrolment.list.label.lowerNibble" path="lowerNibble" />
