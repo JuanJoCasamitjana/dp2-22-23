@@ -1,0 +1,8 @@
+authenticated.bulletin.list.label.title = Title
+authenticated.bulletin.list.button.create = Create
+authenticated.bulletin.form.label.title = Title
+authenticated.bulletin.form.label.message = Message
+authenticated.bulletin.form.label.optionalLink = Link
+authenticated.bulletin.form.label.instantiationMomment = Instantiation Moment
+authenticated.bulletin.form.label.isCritical = Critical
+authenticated.bulletin.form.label.check = Check

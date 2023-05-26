@@ -2,3 +2,7 @@ key,code,title,abstractMessage,typeOfCourse,retailPrice,optionalUrl,key:lecturer
 course-01,ABC 123,"Advanced Statistics: Theory and Practice","This course covers the fundamental principles and practical applications of advanced statistical tec",THEORETICAL,EUR 150.00,https://example.com/course-01,lecturer-01,true
 course-02,DEF 456,"Econometrics: A Hands-On Approach","In this course, you will learn how to apply models to real-world data using statistical software.",HANDS_ON,EUR 200.00,https://example.com/course-02,lecturer-02,false
 course-03,GHI 789,"Probability Theory and Stochastic Processes and many other things you know.","This course provides a rigorous introduction to probability theory and stochastic processes, with a.",THEORETICAL,EUR 100.00,https://example.com/course-03,lecturer-02,true
+course-04,GHI 996,"Something Interesting1","Nothing good",THEORETICAL,EUR 100.00,https://example.com/course-03,lecturer-02,false
+course-05,GHI 997,"Something Interesting2","Nothing good",THEORETICAL,EUR 100.00,https://example.com/course-03,lecturer-02,false
+course-06,GHI 998,"Something Interesting3","Nothing good",THEORETICAL,EUR 100.00,https://example.com/course-03,lecturer-02,false
+course-07,GHI 999,"Something Interesting4","Nothing good",THEORETICAL,EUR 100.00,https://example.com/course-03,lecturer-02,false
