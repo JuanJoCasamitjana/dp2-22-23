@@ -131,7 +131,7 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 		super.signIn("company1", "company1");
 		practicums = this.repository.findManyPracticumByCompanyUsername("company1");
 		for (final Practicum practicum : practicums)
-			if (!practicum.isPublished() == true) {
+			if (practicum.isPublished() == true) {
 				param = String.format("id=%d", practicum.getId());
 				super.request("/company/practicum/update", param);
 				super.checkPanicExists();

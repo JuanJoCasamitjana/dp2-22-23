@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.practicum.Practicum;
-import acme.entities.practicum.PracticumSession;
 import acme.testing.TestHarness;
 
 public class CompanyPracticumPublishTest extends TestHarness {
@@ -103,7 +102,7 @@ public class CompanyPracticumPublishTest extends TestHarness {
 		super.signIn("company1", "company1");
 		practicums = this.repository.findManyPracticumByCompanyUsername("company1");
 		for (final Practicum practicum : practicums)
-			if (practicum.isPublished() == true) {
+			if (practicum.isPublished()) {
 				param = String.format("id=%d", practicum.getId());
 				super.request("/company/practicum/publish", param);
 				super.checkPanicExists();
@@ -115,19 +114,15 @@ public class CompanyPracticumPublishTest extends TestHarness {
 	public void test302Hacking() {
 
 		Collection<Practicum> practicums;
-		Collection<PracticumSession> sesiones;
 		String param;
 
 		super.signIn("company1", "company1");
 		practicums = this.repository.findManyPracticumByCompanyUsername("company1");
 		for (final Practicum practicum : practicums) {
-			sesiones = this.repository.findManyPracticumSessionByPracticumId(practicum.getId());
-			if (sesiones.isEmpty()) {
-				param = String.format("id=%d", practicum.getId());
-				super.request("/company/practicum/publish", param);
-				super.checkPanicExists();
-			}
+			param = String.format("id=%d", practicum.getId());
+			super.request("/company/practicum/publish", param);
 		}
+
 		super.signOut();
 	}
 }

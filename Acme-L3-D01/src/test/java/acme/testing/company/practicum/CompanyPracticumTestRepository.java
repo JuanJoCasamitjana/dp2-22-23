@@ -11,8 +11,8 @@ import acme.framework.repositories.AbstractRepository;
 
 public interface CompanyPracticumTestRepository extends AbstractRepository {
 
-	@Query("SELECT p FROM Practicum p WHERE p.company.name = :name")
-	Collection<Practicum> findManyPracticumByCompanyUsername(String name);
+	@Query("SELECT p FROM Practicum p WHERE p.company.userAccount.username = :username")
+	Collection<Practicum> findManyPracticumByCompanyUsername(String username);
 
 	@Query("SELECT ps FROM PracticumSession ps WHERE ps.practicum.id = :id")
 	Collection<PracticumSession> findManyPracticumSessionByPracticumId(int id);

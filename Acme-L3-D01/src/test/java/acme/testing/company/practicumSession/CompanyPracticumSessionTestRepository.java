@@ -10,6 +10,6 @@ import acme.framework.repositories.AbstractRepository;
 
 public interface CompanyPracticumSessionTestRepository extends AbstractRepository {
 
-	@Query("SELECT p FROM Practicum p WHERE p.company.name = :username")
+	@Query("SELECT p FROM Practicum p WHERE p.company.userAccount.username = :username")
 	Collection<Practicum> findManyPracticumByCompanyUsername(String username);
 }
