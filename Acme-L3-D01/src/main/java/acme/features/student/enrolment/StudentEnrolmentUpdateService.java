@@ -64,7 +64,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
-			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 0;
+			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 1;
 			super.state(!exceded, "course", "student.enrolment.form.error.duplicated");
 		}
 
@@ -92,6 +92,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		final Collection<Enrolment> enrolments = this.repository.findAllEnrolments();
 
 		courses.removeAll(enrolments.stream().map(x -> x.getCourse()).collect(Collectors.toList()));
+		courses.add(object.getCourse());
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble", "workTime");
