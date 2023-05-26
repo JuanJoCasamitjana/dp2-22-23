@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.offer.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -58,7 +59,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		super.bind(object, "heading", "summary", "periodStart", "periodEnd", "price");
 		object.setInstantiationMomment(ahora);
@@ -116,7 +117,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiationMomment(ahora);
 

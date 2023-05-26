@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -102,7 +103,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiation(ahora);
 

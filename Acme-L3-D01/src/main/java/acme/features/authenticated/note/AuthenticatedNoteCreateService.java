@@ -10,6 +10,7 @@ import acme.entities.note.Note;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -47,7 +48,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		object.setAuthor("");
 		object.setMail("");
 		object.setLink("");
-		object.setInstantiation(new Date());
+		object.setInstantiation(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().setData(object);
 
@@ -65,7 +66,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		String name;
 		String res;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 		userId = super.getRequest().getPrincipal().getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userId);
 		username = userAccount.getUsername();
@@ -103,7 +104,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiation(ahora);
 

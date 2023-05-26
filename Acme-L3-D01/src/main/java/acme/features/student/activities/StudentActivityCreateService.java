@@ -2,6 +2,7 @@
 package acme.features.student.activities;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import acme.entities.activity.Activity.Type;
 import acme.entities.enrolment.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -38,6 +40,8 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void load() {
 		final Activity activity = new Activity();
+		activity.setPeriodStart(MomentHelper.getCurrentMoment());
+		activity.setPeriodEnd(new Date());
 		activity.setTotalTime(0.0);
 		super.getBuffer().setData(activity);
 	}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.practicum.PracticumSession;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -67,12 +68,6 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			PracticumSession p;
-			p = this.repository.findOnePracticumSessionByTitle(object.getTitle());
-			super.state(p == null || p.equals(object), "title", "company.practicum-session.form.error.duplicated");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
 			Date ahora;
 			double diferencia;
@@ -80,7 +75,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 			long diff;
 
 			diferencia = 0.0;
-			ahora = new Date();
+			ahora = MomentHelper.getCurrentMoment();
 			periodStart = object.getPeriodStart().getTime();
 			diff = periodStart - ahora.getTime();
 			if (diff > 0)

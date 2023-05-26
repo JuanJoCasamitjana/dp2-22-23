@@ -17,7 +17,7 @@
 			<acme:input-select code="student.enrolment.list.label.course"
 				path="course" choices="${courses}" />
 			<acme:input-textbox readonly="TRUE"
-				code="student.enrolment.form.label.totalTime" path="workTime" />
+				code="student.enrolment.form.label.workTime" path="workTime" />
 
 			<acme:input-textbox readonly="true"
 				code="student.enrolment.list.label.lowerNibble" path="lowerNibble" />
@@ -30,7 +30,7 @@
 				<acme:input-textbox code="student.enrolment.list.label.creditCard"
 					path="creditCard" />
 				<acme:input-textbox code="student.enrolment.list.label.expiryDate"
-					path="expiryDate" />
+					path="expiryDate" placeholder="mm/yy"/>
 				<acme:input-textbox code="student.enrolment.list.label.cvc"
 					path="cvc" />
 				<acme:submit code="student.enrolment.form.button.finalise"
