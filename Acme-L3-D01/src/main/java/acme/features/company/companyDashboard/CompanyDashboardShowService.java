@@ -22,11 +22,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -46,40 +42,42 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void load() {
+		int companyId;
 		CompanyDashboard object;
-		final Integer theoryPractica;
-		final Integer handsOnPractica;
-		final Double averagePeriodLengthOfSession;
-		final Double deviationPeriodLengthOfSession;
-		final Double minimumPeriodLengthOfSession;
-		final Double maximunmPeriodLengthOfSession;
-		final Double averagePeriodLengthOfPractica;
-		final Double deviationPeriodLengthOfPractica;
-		final Double minimumPeriodLengthOfPractica;
-		final Double maximunmPeriodLengthOfPractica;
+		Integer totalNumberOfPracticums;
+		Double averagePeriodLengthOfPracticums;
+		Double deviationPeriodLengthOfPracticums;
+		Double minimumPeriodLengthOfPracticums;
+		Double maximumPeriodLengthOfPracticums;
+		Integer totalNumberOfSessions;
+		Double averagePeriodLengthOfSessions;
+		Double deviationPeriodLengthOfSessions;
+		Double minimumPeriodLengthOfSessions;
+		Double maximumPeriodLengthOfSessions;
 
-		//		theoryPractica = this.repository.theoryPractica();
-		//		handsOnPractica = this.repository.handsOnPractica();
-		//		averagePeriodLengthOfSession = this.repository.averagePeriodLengthOfSession();
-		//		deviationPeriodLengthOfSession = this.repository.deviationPeriodLengthOfSession();
-		//		minimumPeriodLengthOfSession = this.repository.minimumPeriodLengthOfSession();
-		//		maximunmPeriodLengthOfSession = this.repository.maximunmPeriodLengthOfSession();
-		//		averagePeriodLengthOfPractica = this.repository.averagePeriodLengthOfPractica();
-		//		deviationPeriodLengthOfPractica = this.repository.deviationPeriodLengthOfPractica();
-		//		minimumPeriodLengthOfPractica = this.repository.minimumPeriodLengthOfPractica();
-		//		maximunmPeriodLengthOfPractica = this.repository.maximunmPeriodLengthOfPractica();
+		companyId = super.getRequest().getPrincipal().getActiveRoleId();
+		totalNumberOfPracticums = this.repository.totalNumberOfPracticum(companyId);
+		averagePeriodLengthOfPracticums = this.repository.averagePeriodLengthOfPracticum(companyId);
+		deviationPeriodLengthOfPracticums = this.repository.deviationPeriodLengthOfPracticum(companyId);
+		minimumPeriodLengthOfPracticums = this.repository.minimumPeriodLengthOfPracticum(companyId);
+		maximumPeriodLengthOfPracticums = this.repository.maximumPeriodLengthOfPracticum(companyId);
+		totalNumberOfSessions = this.repository.totalNumberOfSession(companyId);
+		averagePeriodLengthOfSessions = this.repository.averagePeriodLengthOfSession(companyId);
+		deviationPeriodLengthOfSessions = this.repository.deviationPeriodLengthOfSession(companyId);
+		minimumPeriodLengthOfSessions = this.repository.minimumPeriodLengthOfSession(companyId);
+		maximumPeriodLengthOfSessions = this.repository.maximumPeriodLengthOfSession(companyId);
 
 		object = new CompanyDashboard();
-		//		object.setTheoryPractica(theoryPractica);
-		//		object.setHandsOnPractica(handsOnPractica);
-		//		object.setAveragePeriodLengthOfSession(averagePeriodLengthOfSession);
-		//		object.setDeviationPeriodLengthOfSession(deviationPeriodLengthOfSession);
-		//		object.setMinimumPeriodLengthOfSession(minimumPeriodLengthOfSession);
-		//		object.setMaximunmPeriodLengthOfSession(maximunmPeriodLengthOfSession);
-		//		object.setAveragePeriodLengthOfPractica(averagePeriodLengthOfPractica);
-		//		object.setDeviationPeriodLengthOfPractica(deviationPeriodLengthOfPractica);
-		//		object.setMinimumPeriodLengthOfPractica(minimumPeriodLengthOfPractica);
-		//		object.setMaximunmPeriodLengthOfPractica(maximunmPeriodLengthOfPractica);
+		object.setTotalNumberOfPracticums(totalNumberOfPracticums);
+		object.setAveragePeriodLengthOfPracticums(averagePeriodLengthOfPracticums);
+		object.setDeviationPeriodLengthOfPracticums(deviationPeriodLengthOfPracticums);
+		object.setMinimumPeriodLengthOfPracticums(minimumPeriodLengthOfPracticums);
+		object.setMaximumPeriodLengthOfPracticums(maximumPeriodLengthOfPracticums);
+		object.setTotalNumberOfSessions(totalNumberOfSessions);
+		object.setAveragePeriodLengthOfSessions(averagePeriodLengthOfSessions);
+		object.setDeviationPeriodLengthOfSessions(deviationPeriodLengthOfSessions);
+		object.setMinimumPeriodLengthOfSessions(minimumPeriodLengthOfSessions);
+		object.setMaximumPeriodLengthOfSessions(maximumPeriodLengthOfSessions);
 
 		super.getBuffer().setData(object);
 
@@ -91,8 +89,8 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "theoryPractica", "handsOnPractica", "averagePeriodLengthOfSession", "deviationPeriodLengthOfSession", "minimumPeriodLengthOfSession", "maximunmPeriodLengthOfSession", "averagePeriodLengthOfPractica",
-			"deviationPeriodLengthOfPractica", "minimumPeriodLengthOfPractica", "maximunmPeriodLengthOfPractica");
+		tuple = super.unbind(object, "totalNumberOfPracticums", "averagePeriodLengthOfPracticums", "deviationPeriodLengthOfPracticums", "minimumPeriodLengthOfPracticums", "maximumPeriodLengthOfPracticums", "totalNumberOfSessions",
+			"averagePeriodLengthOfSessions", "deviationPeriodLengthOfSessions", "minimumPeriodLengthOfSessions", "maximumPeriodLengthOfSessions");
 
 		super.getResponse().setData(tuple);
 	}

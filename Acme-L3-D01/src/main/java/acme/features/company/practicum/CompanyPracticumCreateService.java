@@ -68,7 +68,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractMessage", "estimatedTotalTime", "goals", "published");
+		super.bind(object, "code", "title", "abstractMessage", "goals");
 		object.setCourse(course);
 	}
 
@@ -77,10 +77,9 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Practicum existing;
-
-			existing = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(existing == null, "code", "company.practicum.form.error.duplicated");
+			Practicum p;
+			p = this.repository.findOnePracticumByCode(object.getCode());
+			super.state(p == null || p.equals(object), "code", "company.practicum.form.error.practicum.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("course"))
@@ -103,7 +102,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

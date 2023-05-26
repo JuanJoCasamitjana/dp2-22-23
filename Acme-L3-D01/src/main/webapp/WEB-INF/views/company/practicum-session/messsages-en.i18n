@@ -8,25 +8,33 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.practicumSession.list.label.title = Title
-company.practicumSession.list.label.abstractMessage = Message
-company.practicumSession.list.label.periodStart = Start
-company.practicumSession.list.label.periodEnd = End
-company.practicumSession.list.label.optionalLink = Optional Link
-company.practicumSession.list.label.addendum = It's addendum
+# list
+company.practicum-session.list.label.title = Title
+company.practicum-session.list.label.periodStart = Start
+company.practicum-session.list.label.periodEnd = End
+company.practicum-session.list.label.totalTime = Time
+company.practicum-session.list.label.addendum = It's addendum
 
+# list buttons
 company.practicum-session.list.button.create = Create
 
-company.practicumSession.form.label.title = Title
-company.practicumSession.form.label.abstractMessage = Message
-company.practicumSession.form.label.periodStart = Start
-company.practicumSession.form.label.periodEnd = End
-company.practicumSession.form.label.optionalLink = Optional link
-company.practicumSession.form.label.addendum = It's addendum
-company.practicumSession.form.label.confirmed = It's confirmed
+# form
+company.practicum-session.form.label.title = Title
+company.practicum-session.form.label.abstractMessage = Message
+company.practicum-session.form.label.periodStart = Start
+company.practicum-session.form.label.periodEnd = End
+company.practicum-session.form.label.totalTime = Time
+company.practicum-session.form.label.optionalLink = Optional link
+company.practicum-session.form.label.addendum = It's addendum
+company.practicum-session.form.label.confirm = Confirm
 
+# form buttons
 company.practicum-session.form.button.create = Create
 company.practicum-session.form.button.update = Update
 company.practicum-session.form.button.delete = Delete
 
-company.practicum-session.form.error.notconfirmed = Addendum Sessions must be confirmed
+# validations
+company.practicum-session.form.error.duplicated = This session name already exists
+company.practicum-session.form.error.not-confirmed = Addendum Sessions must be confirmed
+company.practicum-session.form.error.period-start = The start date must be at least one week posterior to the actual date
+company.practicum-session.form.error.period-end = The end date must be at least one week posterior to the start date

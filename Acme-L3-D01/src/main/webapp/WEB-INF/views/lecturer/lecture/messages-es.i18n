@@ -18,4 +18,6 @@ lecturer.lecture.create.not.in.draft = No se puede crear si ya está publicado
 lecturer.lecture.update.not.in.draft = No se puede actualizar si ya está publicado
 lecturer.lecture.lecture.in.draft = No se puede publicar si hay al menos una Leccion en borrador
 lecturer.lecture.delete.not.in.draft = No se puede borrar si ya está publicado
-
+lecturer.course.create.code.exists = Este código ya existe
+lecturer.course.create.negative = El precio no puede ser negativo
+lecturer.course.create.not.supported = Esta moneda no está soportada

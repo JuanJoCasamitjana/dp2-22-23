@@ -2,7 +2,6 @@
 package acme.features.company.practicumSession;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,7 +61,6 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 
 		super.bind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
-
 	}
 
 	@Override
@@ -70,44 +68,41 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			PracticumSession existing;
-
-			existing = this.repository.findOnePracticumSessionByTitle(object.getTitle());
-			super.state(existing == null || existing.equals(object), "title", "company.practicum-session.form.error.duplicated");
+			PracticumSession p;
+			p = this.repository.findOnePracticumSessionByTitle(object.getTitle());
+			super.state(p == null || p.equals(object), "title", "company.practicum-session.form.error.duplicated");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
-			final Date now = new Date();
-			long milisegundosStart;
-			long miliseguntosEnd;
+			Date ahora;
+			double diferencia;
+			long periodStart;
 			long diff;
-			long diffDias;
 
-			milisegundosStart = now.getTime();
-			miliseguntosEnd = object.getPeriodStart().getTime();
-			diff = miliseguntosEnd - milisegundosStart;
-			diffDias = 0;
-
+			diferencia = 0.0;
+			ahora = new Date();
+			periodStart = object.getPeriodStart().getTime();
+			diff = periodStart - ahora.getTime();
 			if (diff > 0)
-				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diffDias >= 7, "periodStart", "company.practicum-session.form.error.periodStart");
+			super.state(diferencia >= 7.0 * 24, "periodStart", "company.practicum-session.form.error.period-start");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
-			long milisegundosStart;
-			long miliseguntosEnd;
+			double diferencia;
+			long periodStart;
+			long periodEnd;
 			long diff;
-			long diffDias;
 
-			milisegundosStart = object.getPeriodStart().getTime();
-			miliseguntosEnd = object.getPeriodEnd().getTime();
-			diff = miliseguntosEnd - milisegundosStart;
-			diffDias = 0;
-
+			diferencia = 0.0;
+			periodStart = object.getPeriodStart().getTime();
+			periodEnd = object.getPeriodEnd().getTime();
+			diff = periodEnd - periodStart;
 			if (diff > 0)
-				diffDias = TimeUnit.MILLISECONDS.toDays(diff);
+				diferencia = diff / (1000.0 * 60 * 60);
 
-			super.state(diffDias >= 7, "periodEnd", "company.practicum-session.form.error.periodEnd");
+			super.state(diferencia >= 7 * 24, "periodEnd", "company.practicum-session.form.error.period-end");
 		}
 	}
 
@@ -115,7 +110,36 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void perform(final PracticumSession object) {
 		assert object != null;
 
+		long periodStart;
+		long periodEnd;
+		long diff;
+		double total;
+		int horas;
+		int minutos;
+		double res;
+
+		total = 0.0;
+		periodStart = object.getPeriodStart().getTime();
+		periodEnd = object.getPeriodEnd().getTime();
+		diff = periodEnd - periodStart;
+		if (diff > 0)
+			total = diff / (1000.0 * 60 * 60);
+
+		horas = (int) total;
+		minutos = (int) ((total - horas) * 60);
+		res = Double.parseDouble(horas + "." + minutos);
+
+		object.setTotalTime(res);
 		this.repository.save(object);
+
+		//###############################
+
+		double suma;
+
+		suma = this.repository.sumOfPracticumSessionTimeByPracticumId(object.getPracticum().getId()).orElse(0.0);
+
+		object.getPracticum().setEstimatedTotalTime(suma);
+		this.repository.save(object.getPracticum());
 	}
 
 	@Override
@@ -123,8 +147,12 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		assert object != null;
 
 		Tuple tuple;
+		boolean isPublished;
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+		isPublished = object.getPracticum().isPublished();
+
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
+		tuple.put("isPublished", isPublished);
 
 		super.getResponse().setData(tuple);
 	}

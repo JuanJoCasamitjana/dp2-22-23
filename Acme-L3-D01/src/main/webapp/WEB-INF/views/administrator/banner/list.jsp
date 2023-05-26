@@ -3,10 +3,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="administrator.banner.list.label.instantiationOrUpdate" path="instantiationOrUpdate"/>
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>
-	<acme:list-column code="administrator.banner.list.label.pictureLink" path="pictureLink"/>
-	<acme:list-column code="administrator.banner.list.label.webDocLink" path="webDocLink"/>				
+	<acme:list-column code="administrator.banner.list.label.instantiation" path="instantiation"/>
+	<acme:list-column code="administrator.banner.list.label.periodStart" path="periodStart"/>
+	<acme:list-column code="administrator.banner.list.label.periodEnd" path="periodEnd"/>				
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">

@@ -57,6 +57,12 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Company object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("name")) {
+			Company c;
+			c = this.repository.findOneCompanyByName(object.getName());
+			super.state(c == null || c.equals(object), "name", "authenticated.company.form.error.duplicated");
+		}
 	}
 
 	@Override

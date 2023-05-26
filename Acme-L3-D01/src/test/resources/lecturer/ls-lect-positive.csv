@@ -1,0 +1,5 @@
+recordIndex,title,abstractMessage,learningTime,body,isTheoretical,url
+0,"Introduction to JavaScript","The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick.",555.50,"Nothing else to say  to be honest",true,https://www.nationalgeographic.com/
+3,"New lecture","This is a new lecture",10.00,"Extra body",false,
+1,"Introduction to Python","Learn the basics of Python",15.00,"Python is a popular programming language",true,
+2,"Machine Learning Fundamentals","Explore the basics of machine learning",25.00,"Machine learning is a subfield of artificial intelligence",true,

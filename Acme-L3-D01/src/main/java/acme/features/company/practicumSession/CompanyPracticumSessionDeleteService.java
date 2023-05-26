@@ -73,13 +73,20 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		assert object != null;
 
 		this.repository.delete(object);
+
+		double suma;
+
+		suma = this.repository.sumOfPracticumSessionTimeByPracticumId(object.getPracticum().getId()).orElse(0.0);
+
+		object.getPracticum().setEstimatedTotalTime(suma);
+		this.repository.save(object.getPracticum());
 	}
 
 	@Override
 	public void unbind(final PracticumSession object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "optionalLink");
+		tuple = super.unbind(object, "title", "abstractMessage", "periodStart", "periodEnd", "totalTime", "optionalLink", "addendum");
 
 		super.getResponse().setData(tuple);
 	}

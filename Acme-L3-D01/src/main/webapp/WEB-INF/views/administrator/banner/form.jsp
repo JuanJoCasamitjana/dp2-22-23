@@ -8,6 +8,7 @@
 	<acme:input-moment code="administrator.banner.form.label.periodEnd" path="periodEnd"/>	
 	<acme:input-url code="administrator.banner.form.label.pictureLink" path="pictureLink"/>
 	<acme:input-url code="administrator.banner.form.label.webDocLink" path="webDocLink"/>
+	<acme:input-moment code="administrator.banner.form.label.instantiation" path="instantiation" readonly="true"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">

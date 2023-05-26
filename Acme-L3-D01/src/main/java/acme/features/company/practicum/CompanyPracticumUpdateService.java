@@ -27,7 +27,11 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -58,6 +62,8 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 	@Override
 	public void bind(final Practicum object) {
+		assert object != null;
+
 		int courseId;
 		Course course;
 
@@ -65,7 +71,6 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "title", "abstractMessage", "goals");
-
 		object.setCourse(course);
 	}
 
@@ -74,13 +79,14 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Practicum existing;
-
-			existing = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
+			Practicum p;
+			p = this.repository.findOnePracticumByCode(object.getCode());
+			super.state(p == null || p.equals(object), "code", "company.practicum.form.error.duplicated");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().getTypeOfCourse() != Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
+			super.state(object.getCourse().getTypeOfCourse() == Type.HANDS_ON, "course", "company.practicum.form.error.nothandson");
+
 	}
 
 	@Override
@@ -100,7 +106,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 		courses = this.repository.findManyHandsOnCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals");
+		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

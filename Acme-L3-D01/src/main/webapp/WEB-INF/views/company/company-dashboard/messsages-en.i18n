@@ -8,13 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.companyDashboard.form.label.theoryPractica = Theory practica;
-company.companyDashboard.form.label.handsOnPractica = Hands-on practica
-company.companyDashboard.form.label.averagePeriodLengthOfSession = Average length sessions
-company.companyDashboard.form.label.deviationPeriodLengthOfSession = Deviation length sessions
-company.companyDashboard.form.label.minimumPeriodLengthOfSession = Minimum length sessions
-company.companyDashboard.form.label.maximunmPeriodLengthOfSession = Maximum length sessions
-company.companyDashboard.form.label.averagePeriodLengthOfPractica =	Average length practica
-company.companyDashboard.form.label.deviationPeriodLengthOfPractica = Deviation length practica
-company.companyDashboard.form.label.minimumPeriodLengthOfPractica =	Minimum length practica
-company.companyDashboard.form.label.maximunmPeriodLengthOfPractica = Maximum length practica
+company.companyDashboard.form.label.totalNumberOfPracticums = Total number of practicums
+company.companyDashboard.form.label.averagePeriodLengthOfPracticums =	Average length of practicums
+company.companyDashboard.form.label.deviationPeriodLengthOfPracticums = Deviation length of practicums
+company.companyDashboard.form.label.minimumPeriodLengthOfPracticums =	Minimum length of practicums
+company.companyDashboard.form.label.maximumPeriodLengthOfPracticums = Maximum length of practicums
+company.companyDashboard.form.label.totalNumberOfSessions = Total number of sessions
+company.companyDashboard.form.label.averagePeriodLengthOfSessions = Average length of sessions
+company.companyDashboard.form.label.deviationPeriodLengthOfSessions = Deviation length of sessions
+company.companyDashboard.form.label.minimumPeriodLengthOfSessions = Minimum length of sessions
+company.companyDashboard.form.label.maximumPeriodLengthOfSessions = Maximum length of sessions

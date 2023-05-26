@@ -1,11 +1,14 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.course.Type;
+import acme.entities.lecture.LectureCourseAggregation;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -54,6 +57,38 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
+		final Collection<LectureCourseAggregation> aggregations = this.repository.findAllAggregationsOfCourseById(object.getId());
+		for (final LectureCourseAggregation lca : aggregations)
+			this.repository.delete(lca);
+		//		final Collection<Audit> audits = this.repository.findAuditsOfCourse(object.getId());
+		//		for (final Audit a : audits) {
+		//			final Collection<AuditingRecord> records = this.repository.findAllRecordsOfRecord(a.getId());
+		//			for (final AuditingRecord ar : records)
+		//				this.repository.delete(ar);
+		//			this.repository.delete(a);
+		//		}
+		//		final Collection<Enrolment> enrolments = this.repository.findEnrolmentsOfCourse(object.getId());
+		//		for (final Enrolment e : enrolments) {
+		//			final Collection<Activity> activities = this.repository.findActivitiesOfEnrolment(object.getId());
+		//			for (final Activity a : activities)
+		//				this.repository.delete(a);
+		//			this.repository.delete(e);
+		//		}
+		//
+		//		final Collection<Practicum> practs = this.repository.findPracticumsOfCourse(object.getId());
+		//		for (final Practicum p : practs) {
+		//			final Collection<PracticumSession> sessions = this.repository.findAllSessionsOfPracticum(p.getId());
+		//			for (final PracticumSession s : sessions)
+		//				this.repository.delete(s);
+		//			this.repository.delete(p);
+		//		}
+		//		final Collection<Tutorial> tutorials = this.repository.findTutorialsOfCourse(object.getId());
+		//		for (final Tutorial t : tutorials) {
+		//			final Collection<TutorialSession> sessions = this.repository.findAllSessionsOfTutorial(t.getId());
+		//			for (final TutorialSession s : sessions)
+		//				this.repository.delete(s);
+		//			this.repository.delete(t);
+		//		}
 		this.repository.delete(object);
 	}
 
