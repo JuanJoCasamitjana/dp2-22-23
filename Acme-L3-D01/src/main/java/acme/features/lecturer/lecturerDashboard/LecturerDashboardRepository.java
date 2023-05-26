@@ -23,9 +23,9 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerDashboardRepository extends AbstractRepository {
 
-	@Query("SELECT count(l) FROM Lecture l WHERE l.lecturer.id = :id AND l.isTheoretical = true")
+	@Query("SELECT count(l) FROM Lecture l WHERE l.lecturer.id = :id AND l.theoretical = true")
 	int totalNumberOfTheoryLectures(int id);
-	@Query("SELECT count(l) FROM Lecture l WHERE l.lecturer.id = :id AND l.isTheoretical = false")
+	@Query("SELECT count(l) FROM Lecture l WHERE l.lecturer.id = :id AND l.theoretical = false")
 	int totalNumberOfHandsOnLectures(int id);
 	@Query("SELECT min(l.learningTime) FROM Lecture l WHERE l.lecturer.id = :id")
 	double minLearningTimeOfLectures(int id);

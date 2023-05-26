@@ -1,0 +1,10 @@
+recordIndex,code,title,abstractMessage,retailPrice,optionalUrl
+0,"DSDMS","Correct title","Correct abstract","10.00 EUR",""
+1,"ABC 123","Correct title","Correct abstract","10.00 EUR",""
+2,"ZZZ 193","","Correct abstract","10.00 EUR",""
+3,"ZZZ 193","Too long title Too long title Too long title Too long title Too long title Too long title Too long title","Correct abstract","10.00 EUR",""
+4,"ZZZ 193","Correct title","","10.00 EUR",""
+5,"ZZZ 193","Correct title","Too long abstract Too long abstract Too long abstract Too long abstract Too long abstract Too long abstract Too long abstract Too long abstract Too long abstractToo long abstract Too long abstract Too long abstract Too long abstract Too long abstract","10.00 EUR",""
+6,"ZZZ 193","Correct title","Correct abstract","-10.00 EUR",""
+7,"ZZZ 193","Correct title","Correct abstract","10.00 ZUR",""
+8,"ZZZ 193","Correct title","Correct abstract","10.00 EUR","not a link"

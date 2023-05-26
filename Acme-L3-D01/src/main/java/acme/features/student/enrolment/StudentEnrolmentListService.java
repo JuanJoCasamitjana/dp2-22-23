@@ -48,7 +48,7 @@ public class StudentEnrolmentListService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "draft", "course.title");
+		tuple = super.unbind(object, "code", "draft", "course.title", "workTime");
 
 		super.getResponse().setData(tuple);
 	}

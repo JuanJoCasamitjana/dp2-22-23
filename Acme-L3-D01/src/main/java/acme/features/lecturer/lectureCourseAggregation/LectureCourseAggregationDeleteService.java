@@ -27,10 +27,12 @@ public class LectureCourseAggregationDeleteService extends AbstractService<Lectu
 	}
 	@Override
 	public void authorise() {
+		boolean status;
+		final int id = super.getRequest().getData("id", int.class);
+		final LectureCourseAggregation lca = this.repository.findOneAggregationById(id);
 		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		final int aggId = super.getRequest().getData("id", int.class);
-		final int id = this.repository.findOneAggregationById(aggId).getLecture().getLecturer().getId();
-		super.getResponse().setAuthorised(id == lecturerId);
+		status = lecturerId == lca.getCourse().getLecturer().getId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

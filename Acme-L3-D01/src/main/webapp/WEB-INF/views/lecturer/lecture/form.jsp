@@ -20,15 +20,16 @@
 	<acme:input-textarea code="lecturer.lecture.form.label.abstractMessage" path="abstractMessage"/>
 	<acme:input-double code="lecturer.lecture.form.label.learningTime" path="learningTime"/>
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"/>
-	<acme:input-checkbox code="lecturer.lecture.form.label.isTheoretical" path="isTheoretical"/>
+	<acme:input-checkbox code="lecturer.lecture.form.label.isTheoretical" path="theoretical"/>
 	<acme:input-url code="lecturer.lecture.form.label.optionalUrl" path="optionalUrl"/>	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>
+			<acme:link code="lecturer.lecture.form.button.add.course" action="/lecturer/lecture-course-aggregation/create?lectureId=${id}"/>
 		</jstl:when>
-		<jstl:when test="${_command != 'create'}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
 			<acme:link code="lecturer.lecture.form.button.add.course" action="/lecturer/lecture-course-aggregation/create?lectureId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">

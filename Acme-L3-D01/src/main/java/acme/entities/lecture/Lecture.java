@@ -37,7 +37,7 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			body;
 
-	protected boolean			isTheoretical;
+	protected boolean			theoretical;
 	@URL
 	protected String			optionalUrl;
 	@Valid
