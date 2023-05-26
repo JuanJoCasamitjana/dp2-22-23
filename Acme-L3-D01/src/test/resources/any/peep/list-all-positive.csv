@@ -1,4 +1,4 @@
-recordIndex, nick, title, mail
-0, example, example, example@example.com
-1, example1, <script>alert(""hola"")</script>, hóla@example.com
-2, example2, example2, example2@example.com
+recordIndex,nick,title,mail
+0,bookWorm,Favorite book,book.worm@example.com
+1,janeSmith,Good morning,jane.smith@example.com
+2,johnDoe,Hello World,john.doe@example.com

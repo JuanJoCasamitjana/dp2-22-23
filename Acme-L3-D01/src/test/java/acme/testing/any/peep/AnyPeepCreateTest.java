@@ -1,3 +1,4 @@
+
 package acme.testing.any.peep;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,22 +13,21 @@ public class AnyPeepCreateTest extends TestHarness {
 	public void test100Positive(final int recordIndex, final String title, final String nick, final String message, final String mail, final String link) {
 
 		super.signIn("student1", "student1");
+		super.clickOnMenu("Any", "Create peep");
 
-		super.clickOnMenu("Any", "List All peeps");
-		super.checkListingExists();
-
-		super.clickOnButton("Create");
+		super.fillInputBoxIn("nick", nick);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("message", message);
 		super.fillInputBoxIn("mail", mail);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Any", "List All peeps");
+		super.clickOnMenu("Any", "List peeps");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
+		super.checkColumnHasValue(recordIndex, 0, nick);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, nick);
+		super.checkColumnHasValue(recordIndex, 2, mail);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -46,21 +46,21 @@ public class AnyPeepCreateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Any", "List All peeps");
-		super.checkListingExists();
+		super.clickOnMenu("Any", "Create peep");
 
-		super.clickOnButton("Create");
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("nick", nick);
 		super.fillInputBoxIn("message", message);
 		super.fillInputBoxIn("mail", mail);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Create");
 
+		super.clickOnMenu("Any", "List peeps");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
+		super.checkColumnHasValue(recordIndex, 0, nick);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, nick);
+		super.checkColumnHasValue(recordIndex, 2, mail);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -80,18 +80,14 @@ public class AnyPeepCreateTest extends TestHarness {
 
 		super.signIn("student1", "student1");
 
-		super.clickOnMenu("Any", "List All peeps");
-		super.checkListingExists();
-
-		super.clickOnButton("Create");
-		super.checkFormExists();
+		super.clickOnMenu("Any", "Create peep");
 
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("nick", nick);
 		super.fillInputBoxIn("message", message);
 		super.fillInputBoxIn("mail", mail);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();
 

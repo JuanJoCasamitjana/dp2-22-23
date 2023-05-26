@@ -30,7 +30,6 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.Any" >
-			<acme:menu-suboption code="master.menu.list.courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.list.peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.create.peep" action="/any/peep/create"/>
 		</acme:menu-option>

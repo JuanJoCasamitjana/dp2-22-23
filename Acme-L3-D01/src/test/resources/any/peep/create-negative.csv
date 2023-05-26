@@ -1,8 +1,7 @@
 recordIndex,title,nick,message,mail,link
 0,,,,,
 0,,"Acme, L3",message7,example7@gmail.com,http://www.us.es
-0,example8,,message8,example8@gmail.com,
 0,example9,"Acme, L3",,,http://www.us.es
 0,example,"Acme, L3",message7,email no,http://www.us.es
 0,example,"Acme, L3",message7,example7@gmail.com,url no
-0,example10 de 76 caracteresssssssssssssssssssssssssssssssssssssssssssssssssss,"Acme, L3",message4, hola@us.es, http://www.us.es 
+0,example10 de 76 caracteresssssssssssssssssssssssssssssssssssssssssssssssssss,"Acme, L3",message4,hola@us.es,http://www.us.es
