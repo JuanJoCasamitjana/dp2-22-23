@@ -1,0 +1,4 @@
+recordIndex,title,text,type,periodStart,periodEnd,enrolment,link
+0,"Advanced Data Analysis","This course explores advanced techniques for data analysis.","ONHANDS",2022/03/15 10:00,2022/05/10 18:00,ABC5120,"https://www.example.com/data-analysis-advanced"
+2,"Python Programming","Learn the basics of Python programming language with hands-on exercises and projects.","ONHANDS",2022/08/15 14:00,2022/10/10 20:00,ABC5120,"https://www.example.com/python-intro"
+3,"Web Development Fundamentals","This course provides an introduction to web development concepts and techniques.","THEORYCAL",2022/06/01 09:00,2022/07/31 17:00,ABC5120,"https://www.example.com/web-development-fundamentals"
