@@ -87,7 +87,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = MomentHelper.getBaseMoment();
+		ahora = MomentHelper.getCurrentMoment();
 
 		super.bind(object, "heading", "summary", "periodStart", "periodEnd", "price");
 		object.setInstantiationMomment(ahora);
@@ -146,7 +146,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = MomentHelper.getBaseMoment();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiationMomment(ahora);
 

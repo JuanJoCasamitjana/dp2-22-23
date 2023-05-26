@@ -48,7 +48,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		object.setAuthor("");
 		object.setMail("");
 		object.setLink("");
-		object.setInstantiation(MomentHelper.getBaseMoment());
+		object.setInstantiation(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().setData(object);
 
@@ -66,7 +66,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		String name;
 		String res;
 
-		ahora = MomentHelper.getBaseMoment();
+		ahora = MomentHelper.getCurrentMoment();
 		userId = super.getRequest().getPrincipal().getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userId);
 		username = userAccount.getUsername();
@@ -104,7 +104,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		Date ahora;
 
-		ahora = MomentHelper.getBaseMoment();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiation(ahora);
 

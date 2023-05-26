@@ -3,6 +3,7 @@ student.enrolment.list.label.motivation = Motivation
 student.enrolment.list.label.goals = Goals
 student.enrolment.list.label.creditCard = Credit card
 student.enrolment.list.label.course = Course
+student.enrolment.list.label.workTime = Time
 
 student.enrolment.form.button.update = Update
 student.enrolment.form.button.create = Create
@@ -17,6 +18,7 @@ student.enrolment.list.label.cvc = CVC
 student.enrolment.list.label.cardNumber = Credit card number
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.list.label.draft = Draft
+student.enrolment.form.label.workTime = Time
 
 student.enrolment.form.error.duplicated = There is another active enrolment
 student.enrolment.form.error.wrong-expiry-date-incorrect = This credit car is not valid.

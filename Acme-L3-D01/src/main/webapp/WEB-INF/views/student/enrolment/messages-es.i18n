@@ -3,6 +3,7 @@ student.enrolment.list.label.motivation = Motivación
 student.enrolment.list.label.goals = Objetivos
 student.enrolment.list.label.creditCard = Tarjeta de crédito
 student.enrolment.list.label.course = Curso
+student.enrolment.list.label.workTime = Tiempo
 
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Eliminar
@@ -17,6 +18,7 @@ student.enrolment.list.label.cvc = CVC
 student.enrolment.list.label.cardNumber = Tarjeta de crédito
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.list.label.draft = Borrador
+student.enrolment.form.label.workTime = Tiempo
 
 student.enrolment.form.error.duplicated = Ya existe una solicitud de curso
 student.enrolment.form.error.wrong-expiry-date-incorrect = La tarjeta introducida se encuentra caducada.
