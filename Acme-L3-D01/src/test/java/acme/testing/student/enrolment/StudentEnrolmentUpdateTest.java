@@ -58,7 +58,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 		super.checkLinkExists("Sign in");
-		super.request("/student/enrolment/create");
+		super.request("/student/enrolment/update");
 		super.checkPanicExists();
 	}
 }

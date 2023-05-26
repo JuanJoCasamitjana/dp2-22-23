@@ -1,13 +1,22 @@
 
 package acme.testing.student.enrolment;
 
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.enrolment.Enrolment;
+import acme.features.student.enrolment.StudentEnrolmentRepository;
 import acme.testing.TestHarness;
 
 public class StudentEnrolmentFinaliseTest extends TestHarness {
+
+	@Autowired
+	protected StudentEnrolmentRepository repository;
+
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -67,5 +76,22 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.request("/student/enrolment/finalise");
 		super.checkPanicExists();
+	}
+
+	@Test
+	public void test301Hacking() {
+
+		final Collection<Enrolment> enrolments;
+		String param;
+
+		super.signIn("student1", "student1");
+		enrolments = this.repository.findAllEnrolmentsByStudentUserName("student1");
+		for (final Enrolment enrolment : enrolments)
+			if (enrolment.isDraft() != true) {
+				param = String.format("id=%d", enrolment.getId());
+				super.request("/company/practicum/finalise", param);
+				super.checkPanicExists();
+			}
+		super.signOut();
 	}
 }
