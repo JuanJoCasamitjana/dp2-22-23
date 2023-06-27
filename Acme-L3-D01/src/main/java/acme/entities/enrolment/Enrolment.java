@@ -53,9 +53,9 @@ public class Enrolment extends AbstractEntity {
 
 	@NotNull
 	protected boolean			draft;
-	@NotNull
+
 	protected String			holderName;
-	@NotNull
+
 	protected String			lowerNibble;
 
 	@Transient

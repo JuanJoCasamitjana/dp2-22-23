@@ -1,4 +1,14 @@
 key,title,text,type,periodStart,periodEnd,key:enrolment,link,totalTime
-activity-01,"Introduction to Java Programming","This course covers the fundamentals of Java programming.",THEORYCAL,2022/01/01 00:00,2022/01/02 00:00,enrolment-01,"https://www.example.com/java-intro",24
-activity-02,"Python for Data Science","This course teaches Python programming for data science applications.",THEORYCAL,2022/03/03 00:00,2022/03/03 02:00,enrolment-02,"https://www.example.com/python-data-science",2
-activity-03,"Web Development with React","This course covers web development using React library.",THEORYCAL,2022/06/01 00:00,2022/06/03 00:00,enrolment-03,"https://www.example.com/react-web-dev",48
+activity-01,Introduction to Java Programming,This course covers the fundamentals of Java programming.,THEORYCAL,2022/01/01 00:00,2022/01/02 00:00,enrolment-01,https://www.example.com/java-intro,24
+activity-02,Python for Data Science,This course teaches Python programming for data science applications.,ONHANDS,2022/03/03 00:00,2022/03/03 02:00,enrolment-02,,2
+activity-03,Web Development with React,This course covers web development using React library.,THEORYCAL,2022/06/01 00:00,2022/06/03 00:00,enrolment-03,https://www.example.com/react-web-dev,48
+activity-04,Introduction to Machine Learning,Explore the basic concepts and techniques of machine learning.,ONHANDS,2022/02/10 10:00,2022/02/11 10:00,enrolment-04,https://www.example.com/ml-intro,24
+activity-05,Digital Marketing Strategies,Learn effective digital marketing strategies for businesses.,ONHANDS,2022/04/05 15:00,2022/04/05 17:00,enrolment-05,,2
+activity-06,Mobile App Development with Flutter,Build mobile applications using the Flutter framework.,THEORYCAL,2022/07/20 09:00,2022/07/22 18:00,enrolment-06,,54
+activity-07,Financial Accounting Basics,Get introduced to the fundamentals of financial accounting.,ONHANDS,2022/03/15 14:00,2022/03/16 16:00,enrolment-07,,26
+activity-08,Introduction to Photoshop,Learn the basics of Photoshop for image editing and graphic design.,ONHANDS,2022/05/10 10:00,2022/05/10 12:00,enrolment-08,https://www.example.com/intro-photoshop,2
+activity-09,Business Ethics and Corporate Responsibility,Explore ethical decision-making in business and corporate social responsibility.,ONHANDS,2022/09/05 13:00,2022/09/07 15:00,enrolment-09,https://www.example.com/business-ethics,48
+activity-10,Music Theory Fundamentals,Learn the fundamental concepts and principles of music theory.,THEORYCAL,2022/08/10 18:00,2022/08/12 20:00,enrolment-10,,48
+activity-11,Introduction to Artificial Intelligence,Discover the basics of artificial intelligence and its applications.,THEORYCAL,2022/11/01 10:00,2022/11/03 12:00,enrolment-11,https://www.example.com/ai-intro,48
+activity-12,Photography Masterclass,Master the art of photography with this comprehensive course.,ONHANDS,2022/10/05 14:00,2022/10/05 18:00,enrolment-12,,4
+activity-13,Effective Communication Skills,Improve your communication skills for personal and professional success.,ONHANDS,2022/12/10 09:00,2022/12/10 13:00,enrolment-13,https://www.example.com/communication-skills,4

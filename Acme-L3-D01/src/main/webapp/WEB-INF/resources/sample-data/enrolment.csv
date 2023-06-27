@@ -1,5 +1,14 @@
 key,key:student,key:course,code,motivation,goals,workTime,draft,holderName,lowerNibble
-enrolment-01,student-01,course-04,ABC5120,I want to improve my math skills,To prepare for my college entrance exams,24,0,David,1111
-enrolment-02,student-02,course-02,ABC5121,I need to improve my English for my job,To be able to communicate better with my coworkers,2,0,"",""
-enrolment-03,student-03,course-05,ABC5122,I'm interested in learning about the history of my country,To be able to participate in discussions about politics,48,0,"",""
-enrolment-04,student-02,course-06,ABC5123,I'm interested in pass,To be able to participate in discussions about politics,48,1,"",""
+enrolment-01,student-01,course-04,ABC5120,I want to improve my math skills,To prepare for my college entrance exams,24,1,,
+enrolment-02,student-02,course-02,ABC5121,I need to improve my English for my job,To be able to communicate better with my coworkers,2,1,,
+enrolment-03,student-03,course-05,ABC5122,I'm interested in learning about the history of my country,To be able to participate in discussions about politics,48,0,David,1234
+enrolment-04,student-02,course-06,ABC5123,I'm interested in pass,To be able to participate in discussions about politics,48,1,,
+enrolment-05,student-02,course-04,ABC5135,I need to improve my presentation skills,To excel in my professional career,8,0,Pablo,2222
+enrolment-06,student-03,course-04,ABC5136,I'm interested in learning about art history,To appreciate and analyze artworks,24,0,Paula,4444
+enrolment-07,student-01,course-02,ABC5137,I want to learn a new language,To expand my cultural horizons,16,1,,
+enrolment-08,student-02,course-05,ABC5138,I need to improve my leadership skills,To advance in my career,32,0,Pepe,4567
+enrolment-09,student-03,course-02,ABC5139,I'm interested in learning about environmental science,To contribute to a sustainable future,12,0,Maria,9876
+enrolment-10,student-01,course-05,ABC5140,I want to improve my coding skills,To pursue a career in software development,20,0,Juan,3698
+enrolment-11,student-02,course-07,ABC5141,I need to improve my analytical skills,To solve complex problems efficiently,8,1,,
+enrolment-12,student-03,course-06,ABC5142,I'm interested in learning about world religions,To foster intercultural understanding,28,0,Carlos,6543
+enrolment-13,student-01,course-06,ABC5143,I want to learn about entrepreneurship,To start my own business,24,0,Manuel,1453
