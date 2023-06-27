@@ -1,9 +1,12 @@
 
 package acme.features.lecturer.lecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.lecture.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -42,6 +45,8 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
+		final Collection<Course> courses = this.repository.findAllCoursesOfLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		tuple.put("noCourses", courses.isEmpty());
 		super.getResponse().setData(tuple);
 	}
 }

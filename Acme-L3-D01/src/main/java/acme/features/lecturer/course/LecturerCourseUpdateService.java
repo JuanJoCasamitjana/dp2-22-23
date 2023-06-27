@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.course.Type;
+import acme.framework.components.datatypes.Money;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -54,17 +55,26 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		final Course coursesWithSameCode = this.repository.findCourseByCode(object.getCode());
 		super.state(coursesWithSameCode == null || coursesWithSameCode.getId() == object.getId(), "code", "lecturer.course.create.code.exists");
 		final SystemConfiguration sc = this.repository.getSystemConfiguration();
-		super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.create.negative");
-		final String currencies[] = sc.getAcceptedCurrencies().split(",");
-		boolean state = false;
-		for (final String currency : currencies) {
-			if (object.getRetailPrice().getCurrency().contains(currency)) {
-				state = true;
-				break;
+		final boolean isNotNull = object.getRetailPrice() != null;
+		if (isNotNull) {
+			super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.create.negative");
+			boolean state = false;
+			final String currencies[] = sc.getAcceptedCurrencies().split(",");
+			for (final String currency : currencies) {
+				if (object.getRetailPrice().getCurrency().contains(currency)) {
+					state = true;
+					break;
+				}
+				state = false;
 			}
-			state = false;
+			super.state(state, "retailPrice", "lecturer.course.create.not.supported");
+		} else {
+			final Money money = new Money();
+			money.setAmount(0.);
+			money.setCurrency(this.repository.getSystemConfiguration().getDefaultSystemCurrency());
+			object.setRetailPrice(money);
 		}
-		super.state(state, "retailPrice", "lecturer.course.create.not.supported");
+
 	}
 	@Override
 	public void perform(final Course object) {
