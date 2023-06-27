@@ -27,4 +27,6 @@ public interface LecturerLectureRepository extends AbstractRepository {
 	Collection<Lecture> findAllLecturesOfCourse(int courseId);
 	@Query("SELECT lca FROM LectureCourseAggregation lca WHERE lca.lecture.id = :id")
 	Collection<LectureCourseAggregation> findAllAggregationsOfLectureById(int id);
+	@Query("SELECT c FROM Course c WHERE c.lecturer.id = :id")
+	Collection<Course> findAllCoursesOfLecturerById(int id);
 }

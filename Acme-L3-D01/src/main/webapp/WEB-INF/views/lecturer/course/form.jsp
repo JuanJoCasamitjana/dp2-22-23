@@ -27,11 +27,14 @@
 			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
 			<acme:submit code="lecturer.course.form.button.publish" action="/lecturer/course/publish"/>
-			<acme:link code="lecturer.course.form.list.lectures" action="/lecturer/lecture/list-of-course?courseId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>
 		</jstl:when>		
 	</jstl:choose>	
+	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<acme:link code="lecturer.course.form.list.lectures" action="/lecturer/lecture/list-of-course?courseId=${id}"/>
+	</jstl:if>
+	
 </acme:form>
 
