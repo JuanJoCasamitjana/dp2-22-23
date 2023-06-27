@@ -1,0 +1,5 @@
+recordIndex,code,motivation,goals,course,workTime,holderName,draft,creditCard,expiryDate,cvc
+1,ABC5123,I need to improve my English for my job,To be able to communicate better with my coworkers,"Something Interesting3",2.00,David,true,,05/26,123
+1,ABC5123,I need to improve my English for my job,To be able to communicate better with my coworkers,"Something Interesting3",2.00,David,true,1111222233334444,05/23,
+1,ABC5123,I need to improve my English for my job,To be able to communicate better with my coworkers,"Something Interesting3",2.00,David,true,1111222233334444,,111
+1,ABC5123,I need to improve my English for my job,To be able to communicate better with my coworkers,"Something Interesting3",2.00,David,true,1111222233334444,05/02,111

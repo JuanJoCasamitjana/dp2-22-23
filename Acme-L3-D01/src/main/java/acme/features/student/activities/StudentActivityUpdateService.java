@@ -41,14 +41,19 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void load() {
-		final Activity activity = new Activity();
+		int activityId;
+		Activity activity;
+
+		activityId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findActivityById(activityId);
 
 		super.getBuffer().setData(activity);
 	}
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-		final int enrolmentId = super.getRequest().getData("enrolment", int.class);
+
+		final int enrolmentId = Integer.valueOf(super.getRequest().getData("enrolment_proxy", String.class));
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
 		object.setEnrolment(enrolment);
 
@@ -60,11 +65,46 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
+			super.state(correct, "periodStart", "student.activity.error.create");
+
+		}
+
 	}
 
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
+		long periodStart;
+		long periodEnd;
+		long diff;
+		double total;
+		int horas;
+		int minutos;
+		double res;
+
+		total = 0.0;
+		periodStart = object.getPeriodStart().getTime();
+		periodEnd = object.getPeriodEnd().getTime();
+		diff = periodEnd - periodStart;
+		if (diff > 0)
+			total = diff / (1000.0 * 60 * 60);
+
+		horas = (int) total;
+		minutos = (int) ((total - horas) * 60);
+		res = Double.parseDouble(horas + "." + minutos);
+
+		object.setTotalTime(res);
+
+		//###############################
+
+		double suma;
+
+		suma = this.repository.sumOfActivityTime(object.getEnrolment().getId()).orElse(0.0);
+
+		object.getEnrolment().setWorkTime(suma);
+		this.repository.save(object.getEnrolment());
 
 		this.repository.save(object);
 	}
@@ -72,19 +112,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity act) {
 		assert act != null;
+
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsFinished();
-		if (enrolments.isEmpty())
-			enrolments.add(act.getEnrolment());
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
 		final SelectChoices choices2 = SelectChoices.from(enrolments, "code", act.getEnrolment());
 		tuple.put("enrolments", choices2);
 		tuple.put("enrolment", choices2.getSelected().getKey());
 
 		final SelectChoices choices = SelectChoices.from(Type.class, act.getType());
 		tuple.put("types", choices);
-		tuple.put("type", choices.getSelected().getKey());
 
+		tuple.put("draft", act.getEnrolment().isDraft());
 		super.getResponse().setData(tuple);
 	}
 

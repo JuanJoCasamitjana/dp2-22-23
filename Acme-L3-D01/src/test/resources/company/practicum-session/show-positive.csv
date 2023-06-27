@@ -1,0 +1,7 @@
+practicumRecordIndex,code,sessionRecordIndex,title,abstractMessage,periodStart,periodEnd,totalTime,optionalLink,addendum,confirm
+0,"AAA1001",0,"Sesion 1","Esto es un mensaje 1", 2023/05/10 10:00, 2023/05/17 18:00,176.00,,true,true
+1,"AAA1002",0,"Sesion 3","Esto es un mensaje 3", 2023/08/20 10:00, 2023/08/27 18:00,176.00,,false,false
+2,"AAA1003",0,"Sesion 4","Esto es un mensaje 4", 2023/07/05 10:00, 2023/07/12 18:00,176.00,,false,false
+2,"AAA1003",1,"Sesion 5","Esto es un mensaje 5", 2023/07/12 10:00, 2023/07/19 18:00,176.00,,false,false
+2,"AAA1003",2,"Sesion 6","Esto es un mensaje 6", 2023/07/19 10:00, 2023/07/26 18:00,176.00,,false,false
+3,"AAA1004",0,"Sesion 7","Esto es un mensaje 7", 2023/08/20 10:00, 2023/08/27 18:00,176.00,,false,false

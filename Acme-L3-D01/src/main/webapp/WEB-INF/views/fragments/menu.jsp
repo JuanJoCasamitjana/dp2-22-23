@@ -30,7 +30,6 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.Any" >
-			<acme:menu-suboption code="master.menu.list.courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.list.peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.create.peep" action="/any/peep/create"/>
 		</acme:menu-option>
@@ -53,11 +52,11 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 		</acme:menu-option>
-		
+
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
-			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.company.companyDashboard" action="/company/company-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.company.companyDashboard" action="/company/company-dashboard/show" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
@@ -65,9 +64,9 @@
 			<acme:menu-suboption code="master.menu.student.list.courses" action="/student/course/list" />
 			<acme:menu-suboption code="master.menu.student.list.activities" action="/student/activity/list" />
 		</acme:menu-option>
-		
+
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
-			<acme:menu-suboption code="master.menu.auditor.audit" action="/auditor/audit/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.audit" action="/auditor/audit/list-mine" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.Lecturer" access="hasRole('Lecturer')">

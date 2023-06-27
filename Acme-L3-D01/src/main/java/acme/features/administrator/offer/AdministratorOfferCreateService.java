@@ -1,6 +1,7 @@
 
 package acme.features.administrator.offer;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import acme.entities.offer.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -49,9 +51,31 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 		object.setHeading("");
 		object.setSummary("");
 		object.setPrice(money);
-		object.setPeriodStart(new Date());
-		object.setPeriodEnd(new Date());
-		object.setInstantiationMomment(new Date());
+
+		Date ahora;
+		Date fechaInicial;
+		Date fechaFinal;
+		Calendar calInicio;
+		Calendar calFin;
+
+		ahora = MomentHelper.getCurrentMoment();
+		calInicio = Calendar.getInstance();
+		calFin = Calendar.getInstance();
+
+		calInicio.setTime(ahora);
+		calFin.setTime(ahora);
+
+		calInicio.add(Calendar.DATE, 1);
+		calInicio.add(Calendar.HOUR, 1);
+		calFin.add(Calendar.DATE, 8);
+		calFin.add(Calendar.HOUR, 1);
+
+		fechaInicial = calInicio.getTime();
+		fechaFinal = calFin.getTime();
+
+		object.setPeriodStart(fechaInicial);
+		object.setPeriodEnd(fechaFinal);
+		object.setInstantiationMomment(ahora);
 
 		super.getBuffer().setData(object);
 
@@ -63,7 +87,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		super.bind(object, "heading", "summary", "periodStart", "periodEnd", "price");
 		object.setInstantiationMomment(ahora);
@@ -122,7 +146,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getCurrentMoment();
 
 		object.setInstantiationMomment(ahora);
 

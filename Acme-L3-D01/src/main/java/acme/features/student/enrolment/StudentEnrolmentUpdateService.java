@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,14 +38,13 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		final Integer eId = super.getRequest().getData("id", int.class);
 		final Enrolment e = this.repository.findEnrolmentById(eId);
 		final boolean auth = super.getRequest().getPrincipal().getActiveRoleId() == e.getStudent().getId();
-		super.getResponse().setAuthorised(auth && !e.isDraft());
+		super.getResponse().setAuthorised(auth && e.isDraft());
 	}
 
 	@Override
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(id);
-
 		super.getBuffer().setData(enrolment);
 	}
 
@@ -64,12 +64,12 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
-			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 0;
-			super.state(!exceded, "course", "Ya existe una solicitud de curso");
+			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 1;
+			super.state(!exceded, "course", "student.enrolment.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final boolean duplicatedCode = this.repository.findOneEnrolmentByCode(object.getCode()) > 0;
+			final boolean duplicatedCode = this.repository.findOneEnrolmentByCode(object.getCode()) > 1;
 			super.state(!duplicatedCode, "code", "student.enrolment.form.error.duplicated-code");
 		}
 	}
@@ -85,14 +85,17 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		final Collection<Course> courses = this.repository.findPublishedCourses();
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolments();
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble");
+		courses.removeAll(enrolments.stream().map(x -> x.getCourse()).collect(Collectors.toList()));
+		courses.add(object.getCourse());
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble", "workTime");
 		tuple.put("courses", choices);
 		tuple.put("course", choices.getSelected().getKey());
 

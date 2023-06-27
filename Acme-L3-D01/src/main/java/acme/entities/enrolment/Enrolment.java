@@ -5,7 +5,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -24,9 +26,13 @@ public class Enrolment extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
 	protected Student			student;
 
 	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
 	protected Course			course;
 
 	@NotBlank
@@ -42,8 +48,10 @@ public class Enrolment extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
+	@NotNull
 	protected double			workTime;
 
+	@NotNull
 	protected boolean			draft;
 
 	protected String			holderName;

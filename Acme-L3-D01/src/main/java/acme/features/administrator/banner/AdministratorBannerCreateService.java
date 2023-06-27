@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -42,11 +44,36 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		object = new Banner();
 		object.setSlogan("");
-		object.setPeriodStart(new Date());
-		object.setPeriodEnd(new Date());
 		object.setPictureLink("");
 		object.setWebDocLink("");
-		object.setInstantiation(new Date());
+
+		Date ahora;
+		Date fechaInicial;
+		Date fechaFinal;
+		Calendar calInicio;
+		Calendar calFin;
+
+		ahora = MomentHelper.getCurrentMoment();
+		calInicio = Calendar.getInstance();
+		calFin = Calendar.getInstance();
+
+		calInicio.setTime(ahora);
+		calFin.setTime(ahora);
+
+		calInicio.add(Calendar.HOUR, 1);
+		calFin.add(Calendar.DATE, 7);
+		calFin.add(Calendar.HOUR, 1);
+
+		fechaInicial = calInicio.getTime();
+		fechaFinal = calFin.getTime();
+
+		object.setPeriodStart(fechaInicial);
+		object.setPeriodEnd(fechaFinal);
+
+		object.setPeriodStart(fechaInicial);
+		object.setPeriodEnd(fechaFinal);
+		object.setInstantiation(ahora);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -101,7 +128,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		Date ahora;
 
-		ahora = new Date();
+		ahora = MomentHelper.getBaseMoment();
 
 		object.setInstantiation(ahora);
 

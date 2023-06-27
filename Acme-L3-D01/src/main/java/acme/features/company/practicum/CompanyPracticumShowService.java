@@ -68,7 +68,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findManyHandsOnCourse();
+		courses = this.repository.findManyHandsOnPublishedCourse();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "published");
