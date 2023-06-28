@@ -60,6 +60,7 @@ master.menu.company.companyDashboard = Dashboard de Compañía
 # master.menu.Student #############################################################
 
 master.menu.Any = Cualquiera
+master.menu.list.courses = Cursos
 
 master.menu.student = Estudiante
 master.menu.student.list.activities = Actividades

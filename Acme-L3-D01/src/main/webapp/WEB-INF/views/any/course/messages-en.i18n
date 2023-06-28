@@ -1,0 +1,10 @@
+any.course.form.label.code = Code 
+any.course.form.label.title = Title
+any.course.form.label.abstractMessage = Abstract
+any.course.form.label.retailPrice = Price
+any.course.form.label.typeOfCourse = Type of course
+any.course.form.label.optionalUrl = URL
+
+any.course.list.label.code = Code
+any.course.list.label.title = Title
+any.course.list.label.retailPrice = Price
