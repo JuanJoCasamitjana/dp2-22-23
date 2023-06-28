@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Min;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -45,7 +43,7 @@ public class Session extends AbstractEntity {
 	protected Date				periodEnd;
 	@URL
 	protected String			optionalUrl;
-	
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
