@@ -6,3 +6,8 @@ lecture-04,"Data Visualization with Matplotlib","Create stunning visualizations 
 lecture-05,"Machine Learning Fundamentals","Explore the basics of machine learning",25.0,"Machine learning is a subfield of artificial intelligence",true,null,lecturer-01,false
 lecture-06,"Web Development with Django","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida eros euismod massa aliquam, v",30.0,"Django is a high-level Python web framework",true,https://www.theguardian.com/,lecturer-02,true
 lecture-07,"Introduction to JavaScript","The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick.",555.5,"Nothing else to say  to be honest",true,https://www.nationalgeographic.com/,lecturer-01,false
+lecture-08,"I","Another very long text for testing purpouses and nothing else",0.5,"Nothing else to say  to be honest",true,,lecturer-02,false
+lecture-09,"The inception of humanity","A",10.02,"Nothing else to say  to be honest",true,,lecturer-01,false
+lecture-10,"The downfall of humanity","Abstract",7.0,"R",true,,lecturer-02,false
+lecture-11,"How to Docker, because you don't know how to do it and I do dummy see yaaaa","Abstract",20001.0,"R",true,,lecturer-01,false
+lecture-12,"ことばの花 風に舞い散る 心満たす","Words like flowers - Dancing in the wind they fall - Filling hearts with joy",7.0,"R",true,,lecturer-02,false

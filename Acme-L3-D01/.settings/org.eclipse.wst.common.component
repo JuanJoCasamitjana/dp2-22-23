@@ -45,6 +45,7 @@
     
     
     
+
     
     
     
@@ -209,6 +210,14 @@
         
         
         
+
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/classes"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
         
         
         
@@ -248,6 +257,13 @@
         
         
         
+        
+        
+        
+
+        
+        <property name="java-output-path" value="/Hello-World-22.0/target/classes"/>
+                
         
         
         

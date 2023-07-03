@@ -78,9 +78,9 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 				course.setTypeOfCourse(Type.HANDS_ON);
 			else if (0.40 < ratio && ratio <= 0.6)
 				course.setTypeOfCourse(Type.EQUILIBRATED);
-			else if (0.6 < ratio && ratio < 1.)
+			else if (0.6 < ratio && ratio < 0.9999999999)
 				course.setTypeOfCourse(Type.THEORETICAL);
-			else if (ratio == 1.0)
+			else if (ratio >= 0.9999999999)
 				course.setTypeOfCourse(Type.PURELY_THEORETICAL);
 		}
 		this.repository.save(course);
