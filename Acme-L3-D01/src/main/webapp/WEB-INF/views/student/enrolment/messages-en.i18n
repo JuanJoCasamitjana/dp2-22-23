@@ -22,7 +22,7 @@ student.enrolment.form.label.workTime = Time
 
 student.enrolment.form.error.duplicated = There is another active enrolment
 student.enrolment.form.error.wrong-expiry-date-incorrect = This credit car is not valid.
-student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
+student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be mm/yy
 student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
 student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
 student.enrolment.form.error.duplicated-code = Duplicated code
