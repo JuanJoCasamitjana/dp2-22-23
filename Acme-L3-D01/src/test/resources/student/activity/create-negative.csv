@@ -1,4 +1,6 @@
 recordIndex,title,text,type,periodStart,periodEnd,enrolment,link
-0,Advanced Data Analysis,"",ONHANDS,2022/03/15 10:00,2022/05/10 18:00,ABC5120,https://www.example.com/data-analysis-advanced
-2,Python Programming,Learn the basics of Python programming language with hands-on exercises and projects.,THEORYCAL,2020/08/15 14:00,"",ABC5120,https://www.example.com/python-intro
-3,"",This course provides an introduction to web development concepts and techniques.,THEORYCAL,2022/06/01 09:00,2025/07/31 17:00,ABC5120,https://www.example.com/web-development-fundamentals
+0,Advanced Data Analysis,,ONHANDS,2022/03/15 10:00,2022/05/10 18:00,ABC5140,https://www.example.com/data-analysis-advanced
+1,Python Programming,Learn the basics of Python programming language with hands-on exercises and projects.,THEORYCAL,2020/08/15 14:00,,ABC5140,
+2,,This course provides an introduction to web development concepts and techniques.,THEORYCAL,2022/06/01 09:00,2025/07/31 17:00,ABC5140,https://www.example.com/web-development-fundamentals
+3,Business Ethics and Corporate Responsibility,Explore ethical decision-making in business and corporate social responsibility.,---,2022/09/05 13:00,2022/09/07 15:00,ABC5140,,484,Music Theory Fundamentals,Learn the fundamental concepts and principles of music theory.,THEORYCAL,2022/08/10 18:00,2022/08/12 20:00,enrolment-10,
+3,Introduction to Artificial Intelligence,Discover the basics of artificial intelligence and its applications.,THEORYCAL,2022/11/01 10:00,2022/11/03 12:00,---,https://www.example.com/ai-intro

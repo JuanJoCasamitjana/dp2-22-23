@@ -66,6 +66,11 @@
 
 
 	</jstl:choose>
+	
+	<jstl:if test="${_command == 'delete' }">
+		<acme:submit code="student.activity.form.button.delete"
+					action="/student/activity/delete" />
+	</jstl:if>
 
 
 </acme:form>

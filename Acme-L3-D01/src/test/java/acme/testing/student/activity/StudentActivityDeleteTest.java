@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class StudentActivityDeleteTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String text, final String type, final String periodStart, final String periodEnd, final String enrolment, final String link) {
 
 		super.signIn("student1", "student1");
@@ -25,13 +25,16 @@ public class StudentActivityDeleteTest extends TestHarness {
 		super.checkInputBoxHasValue("periodEnd", periodEnd);
 		super.checkInputBoxHasValue("link", link);
 
+		super.clickOnSubmit("Delete");
+
+		super.checkNotErrorsExist();
 		super.signOut();
 	}
 
 	@Test
 	public void test300Hacking() {
 		super.checkLinkExists("Sign in");
-		super.request("/student/activity/create");
+		super.request("/student/activity/delete");
 		super.checkPanicExists();
 	}
 
