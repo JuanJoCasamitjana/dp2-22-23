@@ -1,2 +1,6 @@
-recordIndex,code,motivation,goals,course,workTime
-2,ABC5121,"","Be the worst","Something Interesting4",
+recordIndex,code,motivation,goals,course
+0,,"","Be the worst","English"
+0,AAA5121,"Something bad","","English"
+0,AAA5121,"Something bad","Be the worst","---"
+
+
