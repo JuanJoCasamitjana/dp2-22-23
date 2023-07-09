@@ -13,7 +13,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/student/enrolment/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
@@ -39,7 +39,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/student/enrolment/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Negative(final int recordIndex, final String code, final String motivation, final String goals, final String course) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "Enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
