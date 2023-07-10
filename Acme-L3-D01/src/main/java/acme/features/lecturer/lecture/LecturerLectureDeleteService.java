@@ -57,8 +57,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 		final Collection<LectureCourseAggregation> aggregation = this.repository.findAllAggregationsOfLectureById(object.getId());
-		for (final LectureCourseAggregation lca : aggregation)
-			this.repository.delete(lca);
+		this.repository.deleteAll(aggregation);
 		this.repository.delete(object);
 	}
 

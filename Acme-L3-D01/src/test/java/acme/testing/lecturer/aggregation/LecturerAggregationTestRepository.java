@@ -1,5 +1,5 @@
 
-package acme.testing.lecturer;
+package acme.testing.lecturer.aggregation;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import acme.entities.lecture.Lecture;
 import acme.entities.lecture.LectureCourseAggregation;
 import acme.framework.repositories.AbstractRepository;
 
-public interface LecturerTestRepository extends AbstractRepository {
+public interface LecturerAggregationTestRepository extends AbstractRepository {
 
 	@Query("SELECT lca FROM LectureCourseAggregation lca WHERE lca.course.lecturer.userAccount.username = :username")
 	Collection<LectureCourseAggregation> findAggregationsByLecturerUname(String username);
