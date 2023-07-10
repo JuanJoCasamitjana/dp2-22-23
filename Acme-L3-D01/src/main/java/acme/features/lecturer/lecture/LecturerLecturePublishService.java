@@ -41,19 +41,23 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 	}
 	@Override
 	public void bind(final Lecture object) {
+		assert object != null;
 	}
 
 	@Override
 	public void validate(final Lecture object) {
+		assert object != null;
 	}
 	@Override
 	public void perform(final Lecture object) {
+		assert object != null;
 		object.setPublished(true);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Lecture lecture) {
+		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		final Collection<Course> courses = this.repository.findAllCoursesOfLecturerById(super.getRequest().getPrincipal().getActiveRoleId());

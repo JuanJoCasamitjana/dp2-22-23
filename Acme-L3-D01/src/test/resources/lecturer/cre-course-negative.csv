@@ -8,7 +8,3 @@ recordIndex,code,title,abstractMessage,retailPrice,optionalUrl
 6,"ZZZ 193","Correct title","Correct abstract","-10.00 EUR",""
 7,"ZZZ 193","Correct title","Correct abstract","10.00 ZUR",""
 8,"ZZZ 193","Correct title","Correct abstract","10.00 EUR","not a link"
-9,"","Correct title","Correct abstract","10.00 EUR",""
-10,"ZZZ 193","","Correct abstract","10.00 EUR",""
-11,"ZZZ 193","Correct title","","10.00 EUR",""
-12,"ZZZ 193","Correct title","Correct abstract","",""

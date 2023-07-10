@@ -36,15 +36,6 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 		final Peep object = new Peep();
 		final Date moment = MomentHelper.getCurrentMoment();
 		object.setInstantiation(moment);
-		if (super.getRequest().getPrincipal().isAuthenticated()) {
-			String username;
-			int id;
-			UserAccount ua;
-			id = super.getRequest().getPrincipal().getAccountId();
-			ua = this.repository.findUserAccountById(id);
-			username = ua.getIdentity().getFullName();
-			object.setNick(username);
-		}
 		super.getBuffer().setData(object);
 	}
 

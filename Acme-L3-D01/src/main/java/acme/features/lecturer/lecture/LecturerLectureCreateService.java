@@ -42,21 +42,27 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	}
 	@Override
 	public void bind(final Lecture object) {
+		assert object != null;
+
 		super.bind(object, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl");
 	}
 
 	@Override
 	public void validate(final Lecture object) {
+		assert object != null;
 		final boolean status = !object.isPublished();
 		super.state(status, "*", "lecturer.Lecture.create.not.in.draft");
 	}
 	@Override
 	public void perform(final Lecture object) {
+		assert object != null;
+
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Lecture lecture) {
+		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		super.getResponse().setData(tuple);

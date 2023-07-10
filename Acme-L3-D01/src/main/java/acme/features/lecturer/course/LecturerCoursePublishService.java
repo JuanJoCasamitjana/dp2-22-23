@@ -43,10 +43,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	}
 	@Override
 	public void bind(final Course object) {
+		assert object != null;
 	}
 
 	@Override
 	public void validate(final Course object) {
+		assert object != null;
 		final boolean status = object.isInDraft();
 		super.state(status, "*", "lecturer.course.update.not.in.draft");
 		final Collection<Lecture> lectures = this.repository.findAllLecturesOfCourse(object.getId());
@@ -64,12 +66,14 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	}
 	@Override
 	public void perform(final Course object) {
+		assert object != null;
 		object.setInDraft(false);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Course course) {
+		assert course != null;
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());

@@ -50,15 +50,19 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 	@Override
 	public void bind(final Enrolment object) {
+		assert object != null;
+
 		super.bind(object, "motivation", "goals", "code");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
+		assert object != null;
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
+		assert object != null;
 
 		final Collection<Activity> activities = this.repository.findAllActivitiesByEnrolmentId(object.getId());
 		this.repository.deleteAll(activities);

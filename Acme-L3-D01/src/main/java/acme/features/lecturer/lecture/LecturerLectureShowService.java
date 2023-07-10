@@ -42,6 +42,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void unbind(final Lecture lecture) {
+		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		final Collection<Course> courses = this.repository.findAllCoursesOfLecturerById(super.getRequest().getPrincipal().getActiveRoleId());

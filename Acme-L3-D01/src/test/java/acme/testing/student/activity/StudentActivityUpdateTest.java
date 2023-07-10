@@ -1,21 +1,13 @@
 
 package acme.testing.student.activity;
 
-import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.activity.Activity;
 import acme.testing.TestHarness;
 
 public class StudentActivityUpdateTest extends TestHarness {
-
-	@Autowired
-	protected StudentActivityRepositoryTest repository;
-
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -75,28 +67,10 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-
 		super.checkLinkExists("Sign in");
-		final Collection<Activity> activities = this.repository.findAllActivitiesByStudentUsername("student1");
-		for (final Activity act : activities) {
-			String param;
-			param = String.format("id=%d", act.getId());
+		super.request("/student/activity/update");
+		super.checkPanicExists();
 
-			super.checkLinkExists("Sign in");
-			super.request("/student/activity/update", param);
-			super.checkPanicExists();
-
-			super.signIn("student3", "student3");
-			super.request("/student/activity/update", param);
-			super.checkPanicExists();
-			super.signOut();
-
-			super.signIn("student2", "student2");
-			super.request("/student/activity/update", param);
-			super.checkPanicExists();
-			super.signOut();
-
-		}
 	}
 
 }

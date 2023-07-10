@@ -43,16 +43,21 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	}
 	@Override
 	public void bind(final Lecture object) {
+		assert object != null;
+
 		super.bind(object, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl");
 	}
 
 	@Override
 	public void validate(final Lecture object) {
+		assert object != null;
 		final boolean status = !object.isPublished();
 		super.state(status, "*", "lecturer.lecture.update.not.in.draft");
 	}
 	@Override
 	public void perform(final Lecture object) {
+		assert object != null;
+
 		this.repository.save(object);
 		final Collection<LectureCourseAggregation> lcas = this.repository.findAllAggregationsOfLectureById(object.getId());
 		for (final LectureCourseAggregation lca : lcas) {
@@ -76,6 +81,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void unbind(final Lecture lecture) {
+		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		final Collection<Course> courses = this.repository.findAllCoursesOfLecturerById(super.getRequest().getPrincipal().getActiveRoleId());

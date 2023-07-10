@@ -49,43 +49,41 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	}
 	@Override
 	public void bind(final Course object) {
+		assert object != null;
+
 		super.bind(object, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl");
 	}
 
 	@Override
 	public void validate(final Course object) {
+		assert object != null;
 		final boolean status = object.isInDraft();
 		super.state(status, "*", "lecturer.course.create.not.in.draft");
 		final Course coursesWithSameCode = this.repository.findCourseByCode(object.getCode());
 		super.state(coursesWithSameCode == null, "code", "lecturer.course.create.code.exists");
 		final SystemConfiguration sc = this.repository.getSystemConfiguration();
-		final boolean isNotNull = object.getRetailPrice() != null;
-		if (isNotNull) {
-			super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.create.negative");
-			boolean state = false;
-			final String currencies[] = sc.getAcceptedCurrencies().split(",");
-			for (final String currency : currencies) {
-				if (object.getRetailPrice().getCurrency().contains(currency)) {
-					state = true;
-					break;
-				}
-				state = false;
+		super.state(object.getRetailPrice().getAmount() >= 0, "retailPrice", "lecturer.course.create.negative");
+		final String currencies[] = sc.getAcceptedCurrencies().split(",");
+		boolean state = false;
+		for (final String currency : currencies) {
+			if (object.getRetailPrice().getCurrency().contains(currency)) {
+				state = true;
+				break;
 			}
-			super.state(state, "retailPrice", "lecturer.course.create.not.supported");
-		} else {
-			final Money money = new Money();
-			money.setAmount(0.);
-			money.setCurrency(this.repository.getSystemConfiguration().getDefaultSystemCurrency());
-			object.setRetailPrice(money);
+			state = false;
 		}
+		super.state(state, "retailPrice", "lecturer.course.create.not.supported");
 	}
 	@Override
 	public void perform(final Course object) {
+		assert object != null;
+
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Course course) {
+		assert course != null;
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());
