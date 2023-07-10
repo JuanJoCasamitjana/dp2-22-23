@@ -51,7 +51,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	}
 	@Override
 	public void bind(final Enrolment object) {
-		assert object != null;
+
 		final int courseId = super.getRequest().getData("course", int.class);
 		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
@@ -61,7 +61,6 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void validate(final Enrolment object) {
-		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
 			final boolean exceded = this.repository.findAllEnrolmentsOfOneStudentToOneCourseById(object.getCourse().getId(), object.getStudent().getId()) > 0;
@@ -77,14 +76,12 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void perform(final Enrolment object) {
-		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
-		assert object != null;
 		Tuple tuple;
 
 		//Todos los cursos publicados
