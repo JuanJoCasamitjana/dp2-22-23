@@ -41,7 +41,6 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void unbind(final Course course) {
-		assert course != null;
 		Tuple tuple;
 		tuple = super.unbind(course, "code", "title", "abstractMessage", "typeOfCourse", "retailPrice", "optionalUrl", "lecturer", "inDraft");
 		final SelectChoices choices = SelectChoices.from(Type.class, course.getTypeOfCourse());
