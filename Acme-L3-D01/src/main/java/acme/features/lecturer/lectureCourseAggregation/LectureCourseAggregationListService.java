@@ -37,7 +37,6 @@ public class LectureCourseAggregationListService extends AbstractService<Lecture
 
 	@Override
 	public void unbind(final LectureCourseAggregation object) {
-		assert object != null;
 		final Tuple tuple = super.unbind(object, "serialVersionUID");
 		tuple.put("course", object.getCourse().getCode());
 		tuple.put("lecture", object.getLecture().getTitle());

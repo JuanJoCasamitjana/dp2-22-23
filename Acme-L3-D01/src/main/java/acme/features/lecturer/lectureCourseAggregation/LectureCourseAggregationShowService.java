@@ -43,7 +43,6 @@ public class LectureCourseAggregationShowService extends AbstractService<Lecture
 
 	@Override
 	public void unbind(final LectureCourseAggregation object) {
-		assert object != null;
 		final Collection<Course> courses = this.repository.findAllCourses();
 		final SelectChoices coursesChoices = SelectChoices.from(courses, "code", object.getCourse());
 		final Tuple tuple = super.unbind(object, "serialVersionUID");
