@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,11 +59,16 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		assert object != null;
 
 		Tuple tuple;
+		//Todos los cursos publicados
 		final Collection<Course> courses = this.repository.findPublishedCourses();
-		final Collection<Enrolment> enrolments = this.repository.findAllEnrolments();
-
-		courses.removeAll(enrolments.stream().map(x -> x.getCourse()).collect(Collectors.toList()));
+		//El studen logueado
+		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		//Todos los cursos que tienen un enrolment del alumno logeado
+		final List<Course> coursesWithEnrolment = this.repository.findByStudent(student).stream().map(x -> x.getCourse()).collect(Collectors.toList());
+		//Todos los cursos - los cursos que tienen un enrolment(student)
+		courses.removeAll(coursesWithEnrolment);
 		courses.add(object.getCourse());
+
 		final SelectChoices choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draft", "holderName", "lowerNibble", "workTime");

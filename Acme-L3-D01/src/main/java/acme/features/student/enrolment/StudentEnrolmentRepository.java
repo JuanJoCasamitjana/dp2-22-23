@@ -61,4 +61,7 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("SELECT e FROM Enrolment e WHERE e.student.userAccount.username=:string")
 	Collection<Enrolment> findAllEnrolmentsByStudentUserName(String string);
 
+	@Query("SELECT e FROM Enrolment e WHERE e.student=:student")
+	List<Enrolment> findByStudent(Student student);
+
 }
