@@ -49,20 +49,17 @@ public class StudentActivitiesDeleteService extends AbstractService<Student, Act
 
 	@Override
 	public void bind(final Activity object) {
-		assert object != null;
 		super.bind(object, "title", "text", "type", "periodStart", "periodEnd", "link");
 	}
 
 	@Override
 	public void perform(final Activity object) {
-		assert object != null;
 		this.repository.delete(object);
 
 	}
 
 	@Override
 	public void unbind(final Activity object) {
-		assert object != null;
 
 		Tuple tuple;
 		tuple = super.unbind(object, "title", "text", "type", "periodStart", "periodEnd", "enrolment", "link");
