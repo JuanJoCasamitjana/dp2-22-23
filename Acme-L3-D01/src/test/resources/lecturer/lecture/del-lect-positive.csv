@@ -1,0 +1,8 @@
+recordIndex,title,abstract,time,body,theoretical,url
+0,"Good title","Good abstract",10.00,"This is a good body","true",""
+1,"Better title","Better abstract",20.00,"This is a better body","true",""
+2,"The best title","The best abstract",100.00,"This is the best body","true",""
+3,"The longest possible title is 75 characters abcdefghijklmnopqrstuvwxyzABCDE","The best abstract",100.00,"This is the best body","true",""
+4,"The best title","The longest possible abstract abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678910111213",100.00,"This is the best body","true",""
+5,"The best title","The best abstract",100.00,"The longest possible body abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789101112131415","true",""
+6,"The best title","The best abstract",100.00,"This is the best body","true","https://www.example.com"
