@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.activity.Activity;
 import acme.entities.enrolment.Enrolment;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -67,11 +66,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 	@Override
 	public void unbind(final Enrolment object) {
-		assert object != null;
 
-		Tuple tuple;
-		tuple = super.unbind(object, "motivation", "goals", "code", "draft");
-
-		super.getResponse().setData(tuple);
 	}
 }
