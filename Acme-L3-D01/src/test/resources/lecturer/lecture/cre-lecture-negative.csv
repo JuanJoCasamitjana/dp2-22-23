@@ -1,0 +1,10 @@
+recordIndex,title,abstract,time,body,isTheoretical,url
+0,"","Good abstract for lecture","10.00","This is a good body","true",""
+1,"Title too long Title too long Title too long Title too long Title too long Title too long Title too long Title too long Title too long Title too long","Good abstract for lecture","10.00","This is a good body","false",""
+2,"Good title for lecture","","10.00","This is a good body","true",""
+3,"Good title for lecture","Abstract too long Abstract too long Abstract too long Abstract too longAbstract too long Abstract too long Abstract too long Abstract too longAbstract too long Abstract too long Abstract too long Abstract too long Abstract too long Abstract too long Abstract too long","10.00","This is a good body","false",""
+4,"Good title for lecture","Good abstract for lecture","-10.00","This is a good body","true",""
+5,"Good title for lecture","Good abstract for lecture","10.00","","false",""
+6,"Good title for lecture","Good abstract for lecture","10.00","This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big This body is too big","true",""
+7,"Good title for lecture","Good abstract for lecture","10.00","This is a good body","false","not a link"
+8,"Good title for lecture","Good abstract for lecture","","This is a good body","true",""

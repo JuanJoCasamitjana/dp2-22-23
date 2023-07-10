@@ -36,8 +36,6 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	}
 	@Override
 	public void bind(final Lecture object) {
-		assert object != null;
-
 		super.bind(object, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl");
 	}
 	@Override
@@ -48,23 +46,19 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	}
 	@Override
 	public void validate(final Lecture object) {
-		assert object != null;
 		final boolean status = !object.isPublished();
 		super.state(status, "*", "lecturer.lecture.delete.not.in.draft");
 	}
 
 	@Override
 	public void perform(final Lecture object) {
-		assert object != null;
 		final Collection<LectureCourseAggregation> aggregation = this.repository.findAllAggregationsOfLectureById(object.getId());
-		for (final LectureCourseAggregation lca : aggregation)
-			this.repository.delete(lca);
+		this.repository.deleteAll(aggregation);
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final Lecture lecture) {
-		assert lecture != null;
 		Tuple tuple;
 		tuple = super.unbind(lecture, "title", "abstractMessage", "learningTime", "body", "theoretical", "optionalUrl", "published");
 		final Collection<Course> courses = this.repository.findAllCoursesOfLecturerById(super.getRequest().getPrincipal().getActiveRoleId());

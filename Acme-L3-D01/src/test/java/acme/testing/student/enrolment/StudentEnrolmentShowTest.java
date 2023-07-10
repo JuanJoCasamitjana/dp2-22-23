@@ -1,13 +1,21 @@
 
 package acme.testing.student.enrolment;
 
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.enrolment.Enrolment;
 import acme.testing.TestHarness;
 
 public class StudentEnrolmentShowTest extends TestHarness {
+
+	@Autowired
+	protected StudentEnrolmentRepositoryTest repository;
+
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -31,8 +39,26 @@ public class StudentEnrolmentShowTest extends TestHarness {
 	}
 	@Test
 	public void test300Hacking() {
+
 		super.checkLinkExists("Sign in");
-		super.request("/student/enrolment/show");
-		super.checkPanicExists();
+		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsByStudentUserName("student1");
+		for (final Enrolment enrolment : enrolments) {
+			String param;
+			param = String.format("id=%d", enrolment.getId());
+
+			super.checkLinkExists("Sign in");
+			super.request("/student/enrolment/show", param);
+			super.checkPanicExists();
+
+			super.signIn("student3", "student3");
+			super.request("/student/enrolment/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("student2", "student2");
+			super.request("/student/enrolment/show", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
 	}
 }
