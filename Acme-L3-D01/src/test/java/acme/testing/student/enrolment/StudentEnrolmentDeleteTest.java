@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class StudentEnrolmentDeleteTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/enrolment/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String workTime, final String holderName, final String lowerNibble, final String draft) {
 
 		super.signIn("student1", "student1");
@@ -27,6 +27,7 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 		super.checkInputBoxHasValue("workTime", workTime);
 		super.checkInputBoxHasValue("draft", draft);
 
+		super.clickOnSubmit("Delete");
 		super.checkNotErrorsExist();
 		super.signOut();
 
