@@ -16,6 +16,20 @@ public class LecturerCourseDelete extends TestHarness {
 
 
 	@Test
+	public void positive100Test() {
+		super.signIn("lecturer2", "lecturer2");
+		final Collection<Course> courses2 = this.repository.findCoursesByLecturerUname("lecturer2");
+		for (final Course c : courses2)
+			if (c.isInDraft()) {
+				final String param = "id=" + c.getId();
+				super.request("/lecturer/course/delete", param);
+				super.clickOnSubmit("Delete");
+				super.request("/lecturer/course/delete", param);
+				super.checkPanicExists();
+			}
+	}
+
+	@Test
 	public void hacking200Test() {
 		//lecturer2 -> lecturer1 course
 		final Collection<Course> courses = this.repository.findCoursesByLecturerUname("lecturer1");
