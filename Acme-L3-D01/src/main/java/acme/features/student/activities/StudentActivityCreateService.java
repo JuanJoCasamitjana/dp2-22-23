@@ -47,7 +47,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	}
 	@Override
 	public void bind(final Activity object) {
-
+		assert object != null;
 		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());
 		if (enrolments.size() != 0) {
 			final int enrolmentId = super.getRequest().getData("enrolment_proxy", int.class);
@@ -62,7 +62,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void validate(final Activity object) {
-
+		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("type"))
 			super.state(object.getType() != null, "type", "Tipo no puede ser nulo");
 
@@ -76,7 +76,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void perform(final Activity object) {
-
+		assert object != null;
 		long periodStart;
 		long periodEnd;
 		long diff;
@@ -113,6 +113,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void unbind(final Activity act) {
+		assert act != null;
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");
 		final Collection<Enrolment> enrolments = this.repository.findAllEnrolmentsOfStundetn(super.getRequest().getPrincipal().getActiveRoleId());

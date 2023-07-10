@@ -51,6 +51,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	}
 	@Override
 	public void bind(final Activity object) {
+		assert object != null;
 
 		final int enrolmentId = Integer.valueOf(super.getRequest().getData("enrolment_proxy", String.class));
 		final Enrolment enrolment = this.repository.findEnrolmentById(enrolmentId);
@@ -62,6 +63,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void validate(final Activity object) {
+		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("periodEnd") && !super.getBuffer().getErrors().hasErrors("periodStart")) {
 			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
@@ -77,6 +79,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void perform(final Activity object) {
+		assert object != null;
 		long periodStart;
 		long periodEnd;
 		long diff;
@@ -112,6 +115,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 	@Override
 	public void unbind(final Activity act) {
+		assert act != null;
 
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "type", "periodStart", "periodEnd", "link");

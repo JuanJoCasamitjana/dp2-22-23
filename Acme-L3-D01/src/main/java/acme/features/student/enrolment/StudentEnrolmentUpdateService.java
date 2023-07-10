@@ -50,6 +50,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	@Override
 	public void bind(final Enrolment object) {
+		assert object != null;
 
 		final int courseId = super.getRequest().getData("course", int.class);
 		final Course course = this.repository.findCourseById(courseId);
@@ -75,12 +76,14 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	@Override
 	public void perform(final Enrolment object) {
+		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
+		assert object != null;
 
 		SelectChoices choices;
 		Tuple tuple;

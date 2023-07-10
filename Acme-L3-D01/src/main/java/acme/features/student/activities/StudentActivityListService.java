@@ -44,6 +44,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 	@Override
 	public void unbind(final Activity object) {
+		assert object != null;
 
 		Tuple tuple;
 

@@ -56,6 +56,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 	@Override
 	public void bind(final Enrolment object) {
+		assert object != null;
 
 		final int courseId = super.getRequest().getData("course", int.class);
 		final Course course = this.repository.findCourseById(courseId);
@@ -67,6 +68,9 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 	@Override
 	public void validate(final Enrolment object) {
+
+		assert object != null;
+
 		if (!super.getBuffer().getErrors().hasErrors("holderName")) {
 			final String holderName = object.getHolderName();
 			final boolean wrongholderName = holderName.isEmpty();
@@ -124,6 +128,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 	@Override
 	public void perform(final Enrolment object) {
+		assert object != null;
 		object.setDraft(false);
 		final String card = super.getRequest().getData("creditCard", String.class);
 		if (object.getCreditCard().length() > 4)
@@ -133,6 +138,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 	@Override
 	public void unbind(final Enrolment object) {
+		assert object != null;
 		Tuple tuple;
 
 		//Todos los cursos publicados

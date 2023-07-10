@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.activity.Activity;
+import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -59,6 +60,11 @@ public class StudentActivitiesDeleteService extends AbstractService<Student, Act
 
 	@Override
 	public void unbind(final Activity object) {
+
+		Tuple tuple;
+		tuple = super.unbind(object, "title", "text", "type", "periodStart", "periodEnd", "enrolment", "link");
+
+		super.getResponse().setData(tuple);
 
 	}
 

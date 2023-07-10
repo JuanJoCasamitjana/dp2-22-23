@@ -56,6 +56,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void unbind(final Enrolment object) {
+		assert object != null;
 
 		Tuple tuple;
 		//Todos los cursos publicados

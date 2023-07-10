@@ -55,6 +55,7 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 
 	@Override
 	public void unbind(final Activity act) {
+		assert act != null;
 
 		Tuple tuple;
 		tuple = super.unbind(act, "title", "text", "periodStart", "periodEnd", "link");
