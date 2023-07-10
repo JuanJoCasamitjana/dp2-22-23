@@ -5,3 +5,5 @@ recordIndex,title,text,type,periodStart,periodEnd,enrolment,link
 0,Something new,This will be a simple text,---,2022/08/15 14:00,2022/10/10 20:00,ABC5140,https://www.example.com/data-analysis-advanced
 0,Something new 2,This will be a simple text with a blank gap,THEORYCAL,2022/08/15 14:00,2022/10/10 20:00,---,https://www.example.com/data-analysis-advanced
 0,Something new 3,This is a data entry with errors,ONHANDS,,,ABC5140,
+0,Something new 4,This will be a simple text with a blank gap,THEORYCAL,2022/08/15 14:00,2022/10/10 20:00,ABC5140,URLMAL
+0,"La vida es corta, aprovecha cada instante y sé feliz en el camino LALALALLALALLALALALALALLA.",This will be a simple text,ONHANDS,2022/08/15 14:00,2022/10/10 20:00,ABC5140,""
