@@ -23,7 +23,7 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String workTime, final String holderName, final String lowerNibble, final String draft,
 		final String creditCard, final String expiryDate, final String cvc) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "Enrolments");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
@@ -56,7 +56,7 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 	public void test100Negative(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String workTime, final String holderName, final String draft, final String creditCard,
 		final String expiryDate, final String cvc) {
 
-		super.signIn("student2", "student2");
+		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "Enrolments");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);

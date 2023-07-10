@@ -65,11 +65,15 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd") && !super.getBuffer().getErrors().hasErrors("periodStart")) {
 			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
 			super.state(correct, "periodStart", "student.activity.error.create");
 
 		}
+
+		if (object.getEnrolment() == null) // Validación manual dado que posteriormente
+											//  se llama en una fución.
+			super.state(true, "enrolment", "May not be null");
 
 	}
 
@@ -123,7 +127,9 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		final SelectChoices choices = SelectChoices.from(Type.class, act.getType());
 		tuple.put("types", choices);
 
-		tuple.put("draft", act.getEnrolment().isDraft());
+		if (act.getEnrolment() != null) // Validación manual
+			tuple.put("draft", act.getEnrolment().isDraft());
+
 		super.getResponse().setData(tuple);
 	}
 

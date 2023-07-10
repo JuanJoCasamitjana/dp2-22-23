@@ -66,7 +66,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		if (!super.getBuffer().getErrors().hasErrors("type"))
 			super.state(object.getType() != null, "type", "Tipo no puede ser nulo");
 
-		if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
+		if (!super.getBuffer().getErrors().hasErrors("periodEnd") && !super.getBuffer().getErrors().hasErrors("periodStart")) {
 			final boolean correct = object.getPeriodStart().before(object.getPeriodEnd());
 			super.state(correct, "periodStart", "student.activity.error.create");
 
