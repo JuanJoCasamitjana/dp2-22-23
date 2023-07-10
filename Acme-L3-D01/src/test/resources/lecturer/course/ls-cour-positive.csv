@@ -1,4 +1,4 @@
 recordIndex,code,title,abstractMessage,type,price,link
-0,ABC 123,"Advanced Statistics: Theory and Practice","This course covers the fundamental principles and practical applications of advanced statistical tec",THEORETICAL,EUR 150.00,https://example.com/course-01
-1,D 400,"Hystory","0",PURELY_THEORETICAL,"EUR 200.00",""
-2,Z 999,"M","O",PURELY_THEORETICAL,"EUR 200.00",""
+0,ABC 123,Advanced Statistics: Theory and Practice,This course covers the fundamental principles and practical applications of advanced statistical tec,THEORETICAL,EUR 150.00,https://example.com/course-01
+1,D 400,History,0,PURELY_THEORETICAL,EUR 200.00,
+2,Z 999,M,O,PURELY_THEORETICAL,EUR 200.00,
