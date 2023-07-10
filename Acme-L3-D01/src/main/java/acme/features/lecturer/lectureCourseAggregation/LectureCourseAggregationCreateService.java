@@ -44,7 +44,6 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 	}
 	@Override
 	public void bind(final LectureCourseAggregation object) {
-		assert object != null;
 		if (super.getRequest().hasData("course", int.class)) {
 			final int courseId = super.getRequest().getData("course", int.class);
 			final Course course = this.repository.findCourseById(courseId);
@@ -57,7 +56,6 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 
 	@Override
 	public void validate(final LectureCourseAggregation object) {
-		assert object != null;
 		if (object.getCourse() != null && object.getLecture() != null) {
 			final int lectureId = object.getLecture().getId();
 			final int courseId = object.getCourse().getId();
@@ -67,7 +65,6 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 	}
 	@Override
 	public void perform(final LectureCourseAggregation object) {
-		assert object != null;
 		final Course course = this.repository.findCourseById(object.getCourse().getId());
 		final Collection<Lecture> lectures = this.repository.findAllLecturesOfCourse(object.getCourse().getId());
 		lectures.add(object.getLecture());
@@ -89,7 +86,6 @@ public class LectureCourseAggregationCreateService extends AbstractService<Lectu
 
 	@Override
 	public void unbind(final LectureCourseAggregation object) {
-		assert object != null;
 		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		final Collection<Course> courses = this.repository.findAvailableCoursesToAddLecture(lecturerId);
 		final SelectChoices coursesChoices = SelectChoices.from(courses, "code", courses.stream().findAny().get());

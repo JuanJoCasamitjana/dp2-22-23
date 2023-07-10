@@ -7,7 +7,7 @@
 
 	<jstl:choose>
 		<jstl:when
-			test="${_command == 'show' || _command == 'update' || _command == 'finalise'}">
+			test="${_command == 'show' || _command == 'update' || _command == 'finalise' ||  _command == 'delete'}">
 			<acme:input-textbox code="student.enrolment.form.label.code"
 				path="code" />
 			<acme:input-textbox code="student.enrolment.list.label.motivation"
